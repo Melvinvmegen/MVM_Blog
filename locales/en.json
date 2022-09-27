@@ -1,0 +1,47 @@
+{
+  "seo": {
+    "title": "MVM Blog for JS developers",
+    "description": "Friendly tutorials for developers. Focus on Js, Vue, Node, and more!",
+    "image_alt": "Banner for melvinvmegen.com, with a nice 3D avatar",
+    "last_content": "Last Content",
+    "snippets_title": "Code snippets in JS, Vue, Node..."
+  },
+  "menu": {
+    "posts": "Posts",
+    "snippets": "Snippets",
+    "home": "Home"
+  },
+  "posts": {
+    "last_content": "LAST CONTENT",
+    "articles": "articles",
+    "read_more": "Read more",
+    "categories": "TOP CATEGORIES",
+    "snippets": "TOP SNIPPETS",
+    "last_updated": "Last updated:"
+  },
+  "snippets": {
+    "title": "SNIPPETS",
+    "subtitle": "Short solutions to discrete problems which can be copied and pasted.",
+    "category": "Category:",
+    "category_uppercase": "CATEGORY",
+    "last_updated": "LAST UPDATED",
+    "description": "DESCRIPTION",
+    "name": "NAME"
+  },
+  "footer": {
+    "contact": "Contact",
+    "terms": "Terms of use",
+    "privacy": "Privacy Policy",
+    "links": "Links",
+    "tutorials": "Tutorials",
+    "thanks": "Thanks for reading!",
+    "right_reserved": "Melvin van Megen. All Rights Reserved."
+  },
+  "cookies": {
+    "title": "Cookie Management 🍪",
+    "text": "MVM uses cookies that are necessary for the proper functioning of the site and others that may be used to personalize your experience. Your consent can be withdrawn at any time.",
+    "link": "Read the privacy policy",
+    "refuse": "I refuse",
+    "accept": "I agree"
+  }
+}
