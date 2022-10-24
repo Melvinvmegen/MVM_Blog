@@ -11,8 +11,6 @@ You may opt out of any disclosure or use of your Personal Information for purpos
 
 We will undertake reasonable efforts to notify third parties with whom we have shared your personal information as permitted under this Privacy Policy of your election to opt out. If you do not opt out, we may continue to collect, use, and disclose your personal information as set forth in this Privacy Policy and our Terms of Use. There are some uses from which you cannot opt out, such as to provide Services that you have requested from us.
 
-We reserve the right, at our discretion, to amend this Privacy Policy at any time without prior individual notice. The date on which this Privacy Policy was last amended is shown at the top of this policy. You are responsible for verifying whether any amendments have been made and therefore we ask that you periodically check the date and review this Privacy Policy for the latest information on our privacy practices. If you object to any amendments, please stop using the Sites.
-
 ## 1. What Personal Information Do We Collect?
 We collect personal information about you when you interact with us. The types of information we may ask for depends on the nature of your interaction with us. This information may include:
 
@@ -40,15 +38,15 @@ For general business administration purposes.
 ## 3. Who do we share your personal information with?
 For the purposes set out above, we may disclose your personal information to:
 
-Our employees, agents, and subsidiaries.
-Third-party service providers to process or handle personal information on our behalf.
-Government agencies and law enforcement or regulatory authorities when required by law.
-Our insurers and external legal advisors.
-In the event of a merger, acquisition sale or reorganization, or the potential thereof, we may disclose information about you to the extent the personal information is necessary to carry on the business or activity that was the object of the transaction. In the event of a completed transaction, notice will be given to affected users.
-We do not and will never sell your personal information to others.
+- Our employees, agents, and subsidiaries.
+- Third-party service providers to process or handle personal information on our behalf.
+- Government agencies and law enforcement or regulatory authorities when required by law.
+- Our insurers and external legal advisors.
+- In the event of a merger, acquisition sale or reorganization, or the potential thereof, we may disclose information about you to the extent the personal information is necessary to carry on the business or activity that was the object of the transaction. In the event of a completed transaction, notice will be given to affected users.
+- We do not and will never sell your personal information to others.
 
 ## 4. Where do we store your personal information?
-We may transfer personal information that we collect about you outside of EU, including the United States, for the purposes set out above and in the Privacy Policy, including for processing by our third-party service providers in connection with those purposes. Our third-party service providers may perform processing activities outside of EU.
+We may transfer personal information that we collect about you outside of EU, including the United States for processing by our third-party service providers in connection with those purposes. Our third-party service providers may perform processing activities outside of EU.
 
 We and our third-party service providers may be required to disclose your personal information to the courts, government authorities, law enforcement or regulatory authorities of the country where personal information is being stored in response to a valid demand or request in accordance with applicable laws.
 

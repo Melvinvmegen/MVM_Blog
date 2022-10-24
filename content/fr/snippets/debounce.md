@@ -2,10 +2,10 @@
 title: "Debounce"
 description: "Une fonction de debounce classique, écrite en JS moderne."
 category: "Javascript"
-last_updated: "September 7th, 2022"
+last_updated: "7 Septembre 2022"
 ---
 
-```js{1,3-5}[server.js]
+```js
 const debounce = (callback, wait) => {
   let timeoutId = null;
   return (...args) => {
@@ -17,30 +17,29 @@ const debounce = (callback, wait) => {
 }
 ```
 
-## Context
+## Contexte
 
-There are many events in JS that trigger super quickly.
+Il y a beaucoup d'événements en JS qui se déclenchent en un clin d'oeil.
 
-When you scroll the page, or resize the window, or move your mouse, the browser captures dozens and dozens of events per second.
+Lorsque vous faites scrollez la page, redimensionnez la fenêtre ou déplacez votre souris, le navigateur capture des dizaines et des dizaines d'événements par seconde.
 
-In many cases, you don't need to capture every single intermediate step; you're only interested in capturing the end state (when the user finishes scrolling, or finishes resizing the window).
+Dans de nombreux cas, il n'est pas nécessaire de capturer toutes les étapes intermédiaires ; seule la capture de l'état final (lorsque l'utilisateur a fini de faire défiler les pages ou de redimensionner la fenêtre) vous intéresse.
 
-Debouncing is a strategy that lets us improve performance by waiting until a certain amount of time has passed before triggering an event. When the user stops triggering the event, our code will run.
+Le 'debouncing' est une stratégie qui nous permet d'améliorer les performances en attendant qu'un temps donné se soit écoulé avant de déclencher un événement. Ainsi, lorsque l'utilisateur cesse de déclencher l'événement, notre code s'exécute.
 
-In some cases, this isn't necessary. But, if any network requests are involved, or if the DOM changes (eg. re-rendering a component), this technique can drastically improve the smoothness of your application.
+Dans la plupart des cas, ce n'est pas nécessaire. Mais, si des requêtes réseau sont impliquées, ou si le DOM change (par exemple, le rendu d'un composant), cette technique peut améliorer considérablement la fluidité de votre application.
 
-
-```js
+```js  
 const handleMouseMove = debounce((ev) => {
-  // Do stuff with the event!
+  // Faites des choses avec l'événement !
 }, 250);
 window.addEventListener('mousemove', handleMouseMove);
 ```
 
-## Explanation
-This function isn't super easy to digest, especially if you're not used to functional programming! It's 100% OK to use this function without understanding it, but if you're curious, let's pop the hood and see if we can sort it out.
+## Explication
+Cette fonction n'est pas très facile à digérer, surtout si vous n'êtes pas habitué à la programmation fonctionnelle ! Vous pouvez tout à fait utiliser cette fonction sans la comprendre, mais si vous êtes curieux, ouvrons le capot et voyons si nous pouvons y voir plus clair.
 
-Here's the code again:
+Voici le snippet :
 
 ```js
 const debounce = (callback, wait) => {
@@ -54,36 +53,37 @@ const debounce = (callback, wait) => {
 }
 ```
 
-Our debounce function takes two arguments: a callback function and a duration in milliseconds.
+Notre fonction de debounce prend deux arguments : une fonction de rappel et une durée en millisecondes.
 
-We want the debounce function to itself return a function. Functions returning functions always hurts my brain, but it helps when we think about the practical aspects of how it's used:
-
+Nous voulons que la fonction de debounce renvoie elle-même une fonction. Les fonctions qui renvoient des fonctions me font toujours mal au cerveau, mais cela aide lorsque l'on pense aux aspects pratiques de leur utilisation :
 
 ```js
 const debouncedFunction = debounce(function() { ... }, 250)
 console.log(typeof debouncedFunction); // `function`
 ```
 
-Here's how I like to think about it:
+Voici comment j'aime me représenter son fonctionnement :
 
-- Your initial function, the stuff you're actually trying to do, is a piece of hard candy.
-- The debounce function is a piece of factory machinery that wraps that candy in a shiny plastic wrapper
-- The function that gets returned is your wrapped piece of candy. We've augmented that piece of candy with a wrapper.
-Notice that the first line in that function initializes a variable, timeoutId. This line is only executed once. We plan to call our wrapped function many times, but we only call debounce() at the beginning.
+- Votre fonction initiale, celle que vous essayez réellement d'executer, est une tablette de chocolat.
 
-Whenever the wrapped function is triggered, two things happen:
+- La fonction de debounce elle est une pièce d'usine qui emballe la tablette dans un emballage seduisant.
 
-1. We cancel any pre-existing timeout
-2. We schedule a new timeout, based on the amount of time indicated by the wait argument. When the timeout expires, we call our callback function with apply, and feed it whatever arguments we have.
+- La fonction qui est retournée est votre tablette emballée.
+Remarquez que la première ligne de cette fonction initialise une variable, timeoutId. Cette ligne n'est exécutée qu'une seule fois. Nous prévoyons d'appeler notre fonction wrapper plusieurs fois, mais nous n'appelons debounce() qu'au début.
 
-The very first time the user moves the mouse, that first step has no effect; nothing has been scheduled yet! Happily, window.clearTimeout is a very forgiving function; even if there is no timeout, it doesn't complain. It's a “no-op”—it does nothing.
+Chaque fois que la fonction wrapper est déclenchée, deux choses se produisent :
 
-setTimeout returns a number, a reference to the specific timeout in question. We store that in our timeoutId variable. Because this variable is held outside our wrapped function's scope, it persists.
+1. Nous annulons tout setTimeOut existant
+2. Nous programmons un setTimeOut pour un délai déterminé par l'argument wait. Lorsque le délai d'attente expire, nous appelons notre fonction de rappel avec apply, et lui fournissons les arguments dont nous disposons.
 
-Let's say the user hasn't finished moving the mouse. A few milliseconds pass, and our wrapper is called again.
+La toute première fois que l'utilisateur déplace la souris, cette première étape n'a aucun effet ; rien n'a encore été programmé ! Heureusement, window.clearTimeout est une fonction très indulgente ; même s'il n'y a pas de setTimeout en cours, elle ne se plaint pas. C'est un "no-op" - elle ne fait rien.
 
-This time around, timeoutId points to a currently-scheduled timeout, so the first line cancels it. And then we schedule a new one.
+setTimeout renvoie un nombre, une référence au délai d'attente en question. Nous le stockons dans notre variable timeoutId. Comme cette variable est instanciée en dehors du scope de notre fonction wrapper, elle persiste.
 
-If the user moves the mouse for 1 second, this cycle will repeat dozens of times. Lots of scheduled-and-immediately-cancelled timeouts. But once they stop moving, the cycle stops. The moment 250ms elapses, our timeout fires back, and the code is ultimately run.
+Disons que l'utilisateur n'a pas fini de bouger la souris. Quelques millisecondes (correspond au délai donné) passent, et notre wrapper est à nouveau appelé.
 
-This is a complex sequence! But it works like a charm. Scheduling and cleaning up timeouts is a very quick, low-memory operation, so we don't have to worry much about its cost.
+Cette fois-ci, timeoutId pointe vers un timeOut planifié, donc la première ligne l'annule. Puis nous en programmons un nouveau .
+
+Si l'utilisateur déplace la souris pendant 1 seconde, ce cycle se répétera des dizaines de fois. Beaucoup de timeOut programmés et immédiatement annulés. La planification et le nettoyage des timeOut sont des opérations très rapides et peu coûteuse en mémoire, nous n'avons donc pas à nous soucier de leur coût. Mais dès qu'il cesse de bouger, le cycle s'arrête. Au moment où 250ms (le temps donné) s'écoulent, notre timeout se déclenche à nouveau, et le code est finalement exécuté.
+
+C'est une séquence complexe ! Mais elle fonctionne parfaitement. 

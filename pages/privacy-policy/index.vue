@@ -3,7 +3,7 @@
     <h1 class="text-center">{{ privacy.title }}</h1>
     <h3 class="text-center font-italic pa-4 font-weight-regular">{{ t("posts.last_updated") }} {{ privacy.last_updated }}</h3>
     <br/>
-    <ContentDoc :path="`/${locale}${path}`" />
+    <ContentRenderer :value="privacy" />
   </div>
 </template>
 <script setup>
@@ -21,7 +21,7 @@ async function fetchData(lang) {
 
 await fetchData(locale.value)
 
-watch(locale, (newLocale) => fetchData(newLocale))
+watch(locale, async (newLocale) => await fetchData(newLocale))
 
 useMeta({
   title: privacy.value.title,

@@ -26,16 +26,17 @@ const { path } = useRoute();
 const category = path.split("/")[2]
 
 async function fetchData(lang) {
-  const response = await fetchAll(`postsList-${lang}-${category}`, `/${lang}/posts`, {category});
-  if (response.length) posts.value = response;
+  posts.value = await fetchAll(`postsList-${lang}-${category}`, `/${lang}/posts`, {category});
 }
 
 await fetchData(locale.value)
 
-watch(locale, (newLocale) => fetchData(newLocale))
+watch(locale, async (newLocale) => await fetchData(newLocale))
 
-useMeta({
-  title: category,
-  description: posts.value.map(p => p.subtitle).toString(),
-})
+if (posts.value.length > 0) {
+  useMeta({
+    title: category,
+    description: posts.value.map(p => p.subtitle).toString(),
+  })
+}
 </script>

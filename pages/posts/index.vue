@@ -1,5 +1,5 @@
 <template>
-  <v-row>
+  <v-row v-if="posts">
     <v-row justify="space-between" class="ml-0 mt-2 align-center">
       <h2 class="text-h6">{{ t("posts.last_content") }}</h2>
       <span class="text-subtitle-1">{{ posts.length }} {{ t("posts.articles") }}</span>
@@ -24,13 +24,12 @@ const { t, locale } = useI18n();
 const posts = ref(null);
 
 async function fetchData(lang) {
-  const response = await fetchAll(`postsList-${lang}`, `/${lang}/posts`);
-  if (response.length) posts.value = response;
+  posts.value = await fetchAll(`postsList-${lang}`, `/${lang}/posts`);
 }
 
 await fetchData(locale.value)
 
-watch(locale, (newLocale) => fetchData(newLocale))
+watch(locale, async (newLocale) => await fetchData(newLocale))
 
 useMeta({
   title: t("seo.last_content"),

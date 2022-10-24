@@ -3,7 +3,7 @@
     <h1 class="text-center">{{ terms.title }}</h1>
     <h3 class="text-center font-italic pa-4 font-weight-regular">{{ t("posts.last_updated") }} {{ terms.last_updated }}</h3>
     <br/>
-    <ContentDoc :path="`/${locale}${path}`" />
+    <ContentRenderer :value="terms" />
   </div>
 </template>
 <script setup>
@@ -21,7 +21,7 @@ async function fetchData(lang) {
 
 await fetchData(locale.value)
 
-watch(locale, (newLocale) => fetchData(newLocale))
+watch(locale, async (newLocale) => await fetchData(newLocale))
 
 useMeta({
   title: terms.value.title,

@@ -2,7 +2,6 @@ import vuetify from "vite-plugin-vuetify";
 
 // https://v3.nuxtjs.org/api/configuration/nuxt.config
 export default defineNuxtConfig({
-  ssr: false,
   css: ["vuetify/styles"], // vuetify ships precompiled css, no need to import sass
   vite: {
     ssr: {
@@ -22,6 +21,8 @@ export default defineNuxtConfig({
     "@nuxt/content",
     "@funken-studio/sitemap-nuxt-3",
     "@nuxtjs/robots",
+    "nuxt-purgecss",
+    "nuxt-icon"
   ],
   content: {
     highlight: {
@@ -47,9 +48,53 @@ export default defineNuxtConfig({
   },
   robots: {
     rules: {
-      UserAgent: '*',
-      Disallow: ['/terms', '/privacy-policy'],
-      sitemap: "https://blog.melvinvmegen.com/sitemap.xml"
-    }
+      UserAgent: "*",
+      Disallow: ["/terms", "/privacy-policy"],
+      sitemap: "https://blog.melvinvmegen.com/sitemap.xml",
+    },
   },
+  purgecss: {
+    content: [
+      'index.html',
+      "components/**/*.vue",
+      "layouts/*.vue",
+      "pages/**/*.vue",
+      "plugins/**/*.js",
+      "node_modules/vuetify/src/**/*.ts",
+    ],
+    enabled: true, // Always enable purgecss
+    keyframes: true,
+    safelist: {
+      standard: [
+        "body",
+        "html",
+        "nuxt-progress",
+        /v-application-*/,
+        /v-table*/,
+        /td*/,
+        /v-container-*/,
+        /v-row-*/,
+        /v-col-*/,
+        /v-icon*/,
+        /v-list-*/,
+        /v-btn*/,
+        /v-toolbar*/,
+        /v-chip*/,
+        /v-card*/,
+        /v-breadcrumbs*/,
+        /grow-*/,
+        /v-navigation*/,
+        /mdi*/,
+        "pre",
+        "a",
+        "ul",
+        "ol",
+        "code",
+        "line",
+        "my" ],
+      },
+  },
+  nuxtIcon: {
+    size: '24px' // default <Icon> size applied
+  }
 });

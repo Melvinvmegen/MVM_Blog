@@ -2,7 +2,7 @@
   <div>
     <h1 class="text-h6 text-third">{{ t("snippets.title") }}</h1>
     <h2 class="text-subtitle-1 text-grey">{{ t("snippets.subtitle") }}</h2>
-    <v-table class="bg-transparent d-none d-sm-block">
+    <v-table class="bg-transparent d-none d-sm-block" v-if="snippets">
       <thead>
         <tr class="">
           <th class="text-left">
@@ -55,8 +55,7 @@ const { t, locale } = useI18n();
 const snippets = ref(null);
 
 async function fetchData(lang) {
-  const response = await fetchAll(`snippetsList-${lang}`, `/${lang}/snippets`);
-  if (response.length) snippets.value = response;
+  snippets.value = await fetchAll(`snippetsList-${lang}`, `/${lang}/snippets`);
 }
 
 await fetchData(locale.value)

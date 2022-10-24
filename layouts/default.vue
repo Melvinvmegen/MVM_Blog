@@ -4,7 +4,7 @@
       <v-app-bar color="primary" height="200" class="bg-header">
         <v-container class="h-100 mt-12 mt-md-16">
           <v-row justify="center">
-            <v-col cols="10" lg="7" sm="8">
+            <v-col cols="10">
               <v-row>
                 <v-menu offset-y="offset-y">
                   <template v-slot:activator="{}">
@@ -27,13 +27,11 @@
                           v-for="item in nav_items"
                           :key="item.name"
                           link
+                          :to="item.link"
                         >
-                          <v-list-item-title>
-                            <NuxtLink
-                              :to="item.link"
-                              class="text-white text-decoration-none"
-                              >{{ item.name }}</NuxtLink
-                            >
+                          <v-list-item-title
+                            class="text-white text-decoration-none"
+                            >{{ item.name }}
                           </v-list-item-title>
                         </v-list-item>
                       </v-list>
@@ -43,33 +41,33 @@
                     <v-app-bar-nav-icon
                       class="d-flex d-md-none"
                       @click.stop="drawer = !drawer"
-                    ></v-app-bar-nav-icon>
+                    >
+                      <Icon name="mdi:menu" size="24" />
+                    </v-app-bar-nav-icon>
                     <div class="d-none d-md-flex">
                       <v-btn
-                        icon="mdi-moon-waxing-crescent"
+                        icon
                         @click="toggleTheme"
                         color="white"
                         v-if="themeIsLight"
-                      ></v-btn>
+                      >
+                        <Icon name="mdi:moon-waxing-crescent" size="24" />
+                      </v-btn>
+                      <v-btn icon @click="toggleTheme" color="white" v-else>
+                        <Icon name="mdi:white-balance-sunny" size="24" />
+                      </v-btn>
                       <v-btn
-                        icon="mdi-white-balance-sunny"
-                        @click="toggleTheme"
-                        color="white"
-                        v-else
-                      ></v-btn>
-                      <v-btn
-                        icon="mdi-volume-medium"
+                        icon
                         @click="toggleSound"
                         color="white"
                         v-if="sound"
-                      ></v-btn>
-                      <v-btn
-                        icon="mdi-volume-off"
-                        @click="toggleSound"
-                        color="white"
-                        v-else
-                      ></v-btn>
-                      <v-menu>
+                      >
+                        <Icon name="mdi:volume-medium" size="24" />
+                      </v-btn>
+                      <v-btn icon @click="toggleSound" color="white" v-else>
+                        <Icon name="mdi:volume-off" size="24" />
+                      </v-btn>
+                      <v-menu width="100">
                         <template v-slot:activator="{ props }">
                           <v-btn
                             icon
@@ -192,14 +190,12 @@
                           v-for="item in tutorials"
                           :key="item.name"
                           link
+                          :to="item.link"
                         >
                           <v-list-item-title>
-                            <v-list-item-title>
-                              <NuxtLink
-                                :to="item.link"
-                                class="text-white text-decoration-none"
-                                >{{ item.name }}</NuxtLink
-                              >
+                            <v-list-item-title
+                              class="text-white text-decoration-none"
+                              >{{ item.name }}
                             </v-list-item-title>
                           </v-list-item-title>
                         </v-list-item>
@@ -223,14 +219,14 @@
                           v-for="item in links"
                           :key="item.name"
                           link
+                          :to="item.external ? undefined : item.link"
+                          :href="item.external ? item.link : undefined"
                         >
                           <v-list-item-title>
-                            <v-list-item-title>
-                              <NuxtLink
-                                :to="item.link"
-                                class="text-white text-decoration-none"
-                                >{{ item.name }}</NuxtLink
-                              >
+                            <v-list-item-title
+                              class="text-white text-decoration-none"
+                            >
+                              {{ item.name }}
                             </v-list-item-title>
                           </v-list-item-title>
                         </v-list-item>
@@ -282,7 +278,7 @@
             variant="flat"
             :rounded="0"
             class="bg-secondary w-50 pa-0 ma-0"
-            color="white"
+            color="primary"
             @click="cookiesStated(true)"
           >
             {{ t("cookies.accept") }}
@@ -291,12 +287,14 @@
       </v-card>
       <v-btn
         color="black"
-        icon="mdi-check"
+        icon
         position="absolute"
         class="left-20 bottom-100 mx-auto bg-white color-black border-0"
         @click="showCookie = true"
         v-else
-      ></v-btn>
+      >
+        <Icon name="mdi:check" size="24" />
+      </v-btn>
     </v-layout>
     <v-navigation-drawer
       color="primary"
@@ -332,29 +330,22 @@
         </v-list>
         <div class="d-flex d-md-none">
           <v-btn
-            icon="mdi-moon-waxing-crescent"
+            icon
             @click="toggleTheme"
             color="transparent"
             v-if="themeIsLight"
-          ></v-btn>
-          <v-btn
-            icon="mdi-white-balance-sunny"
-            @click="toggleTheme"
-            color="transparent"
-            v-else
-          ></v-btn>
-          <v-btn
-            icon="mdi-volume-medium"
-            @click="toggleSound"
-            color="transparent"
-            v-if="sound"
-          ></v-btn>
-          <v-btn
-            icon="mdi-volume-off"
-            @click="toggleSound"
-            color="transparent"
-            v-else
-          ></v-btn>
+          >
+            <Icon name="mdi:moon-waxing-crescent" size="24" />
+          </v-btn>
+          <v-btn icon @click="toggleTheme" color="transparent" v-else>
+            <Icon name="mdi:white-balance-sunny" size="24" />
+          </v-btn>
+          <v-btn icon @click="toggleSound" color="transparent" v-if="true">
+            <Icon name="mdi:volume-medium" size="24" />
+          </v-btn>
+          <v-btn icon @click="toggleSound" color="transparent" v-else>
+            <Icon name="mdi:volume-off" size="24" />
+          </v-btn>
         </div>
       </div>
     </v-navigation-drawer>
@@ -362,21 +353,28 @@
 </template>
 <script setup>
 import { useTheme } from "vuetify";
-import { useI18n } from 'vue-i18n';
-import useFetch from "../composables/fetch";
+import { useI18n } from "vue-i18n";
 import { useState } from "vue-gtag-next";
 import { getCookie } from "h3";
+import useFetch from "../composables/fetch";
 
 // Enable cookies
 const showCookie = ref(false);
-const cookie = ref(document.cookie.split(";").filter(i => i.includes('analytics'))[0] || null);
+const cookie = ref(null);
+if (process.client) {
+  cookie.value = ref(
+    document.cookie.split(";").filter((i) => i.includes("analytics"))[0] || null
+  );
+}
 const { isEnabled } = useState();
 
 function cookiesStated(boolean) {
-  const state = `analytics={ state: ${boolean ? 'accepted' : 'refused'} }`;
+  const state = `analytics={ state: ${boolean ? "accepted" : "refused"} }`;
   isEnabled.value = boolean;
   if (!cookie.value) {
-    const analytics = useCookie('analytics', { expires: new Date(new Date().setFullYear(new Date().getFullYear() + 2))});
+    const analytics = useCookie("analytics", {
+      expires: new Date(new Date().setFullYear(new Date().getFullYear() + 2)),
+    });
     analytics.value = state;
   } else {
     document.cookie = state;
@@ -390,8 +388,10 @@ const { t, locale } = useI18n();
 const languages = [
   { locale: "en", name: "English", icon: "🏴󠁧󠁢󠁥󠁮󠁧󠁿" },
   { locale: "fr", name: "Français", icon: "🇫🇷" },
-]
-const currentLanguage = computed(() => languages.find((l) => l.locale === locale.value));
+];
+const currentLanguage = computed(() =>
+  languages.find((l) => l.locale === locale.value)
+);
 
 function setLanguage(lang) {
   locale.value = lang;
@@ -401,20 +401,24 @@ const drawer = ref(false);
 
 const { fetchAll } = useFetch();
 const posts = ref(null);
-
+const tutorials = ref([]);
 async function fetchData(lang) {
-  const response = await fetchAll(`postsList-${lang}`, `/${lang}/posts`);
-  if (response.length) posts.value = response;
+  posts.value = await fetchAll(`postsList-${lang}`, `/${lang}/posts`);
 }
 
-await fetchData(locale.value)
+await fetchData(locale.value);
 
-watch(locale, (newLocale) => fetchData(newLocale))
+watch(locale, async (newLocale) => await fetchData(newLocale));
 
-const tutorials = posts.value.map((c) => ({
-  name: c.category.charAt(0).toUpperCase() + c.category.slice(1),
-  link: `/posts/${c.category}`,
-}));
+if (posts.value.length > 0) {
+  const categories = [...new Set(posts.value.map((c) => c.category))];
+  tutorials.value = categories.map((c) => {
+    return ({
+      name: c.charAt(0).toUpperCase() + c.slice(1),
+      link: `/posts/${c}`,
+    });
+  });
+}
 
 const nav_items = [
   { name: t("menu.posts"), link: "/posts" },
@@ -422,7 +426,11 @@ const nav_items = [
 ];
 
 const links = [
-  { name: t("footer.contact"), link: "mailto:melvin.vmegen@gmail.com" },
+  {
+    name: t("footer.contact"),
+    link: "mailto:melvin.vmegen@gmail.com",
+    external: true,
+  },
   { name: t("footer.terms"), link: "/terms" },
   { name: t("footer.privacy"), link: "/privacy-policy" },
 ];
@@ -446,23 +454,30 @@ function toggleSound() {
 }
 
 useHead({
-  titleTemplate: (title) => title ? `MVM Blog - ${title}` : t("seo.title"),
-  viewport: 'width=device-width, initial-scale=1, maximum-scale=1',
-  charset: 'utf-8',
+  titleTemplate: (title) => (title ? `MVM Blog - ${title}` : t("seo.title")),
+  viewport: "width=device-width, initial-scale=1, maximum-scale=1",
+  charset: "utf-8",
   htmlAttrs: {
-    lang: locale.value
+    lang: locale.value,
   },
   meta: [
-    { name: 'description', content: route.meta.description || t("seo.description") },
-    { name: 'og:title', content: route.meta.title || t("seo.title") },
-    { name: 'og:description', content: route.meta.description || t("seo.description") },
-    { name: 'og:image', content: "website" },
-    { name: 'og:image:alt', content: t("seo.image_alt") },
-    { name: 'og:image:width', content: "1280" },
-    { name: 'og:image:width', content: "675" },
+    {
+      name: "description",
+      content: route.meta.description || t("seo.description"),
+    },
+    { name: "og:title", content: route.meta.title || t("seo.title") },
+    {
+      name: "og:description",
+      content: route.meta.description || t("seo.description"),
+    },
+    { name: "og:image", content: "website" },
+    { name: "og:image:alt", content: t("seo.image_alt") },
+    { name: "og:image:width", content: "1280" },
+    { name: "og:image:width", content: "675" },
   ],
-})
+});
 </script>
+
 <style>
 .custom-curve {
   position: absolute;

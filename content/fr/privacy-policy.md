@@ -1,87 +1,85 @@
 ---
-Title: Privacy Policy
-last_updated: September 14th, 2022
+Title: Politique de confidentialité
+last_updated: 14 septembre 2022
 ---
 
-At Melvin van Megen (collectively, “us,” “we” and “our”), we are committed to protecting the privacy and security of your personal information. This Privacy Policy describes how we collect, use and disclose your personal information and the types of personal information that we may hold about you. It also explains how we protect your personal information, the choices you have regarding such use and disclosure and how you can access and correct your personal information. This Privacy Policy applies whenever you interact with us, including when you visit one of our websites on which this Privacy Policy is posted (the “Sites”), including melvinvmegen.com, and blog.melvinvmegen.com.
+Chez Melvin van Megen (collectivement, "nous" et "notre"), nous nous engageons à protéger la confidentialité et la sécurité de vos informations personnelles. La présente politique de confidentialité décrit la manière dont nous recueillons, utilisons et divulguons vos informations personnelles et les types d'informations personnelles que nous pouvons détenir à votre sujet. Elle explique également comment nous protégeons vos informations personnelles, les choix dont vous disposez concernant cette utilisation et cette divulgation et comment vous pouvez accéder à vos informations personnelles et les corriger. Cette politique de confidentialité s'applique à chaque fois que vous interagissez avec nous, y compris lorsque vous visitez l'un de nos sites web sur lesquels cette politique de confidentialité est affichée (les "Sites"), notamment melvinvmegen.com et blog.melvinvmegen.com.
 
-By using or accessing the Sites, you consent to the collection, use and disclosure of your personal information by us in compliance with this Privacy Policy and our Terms of Use. If you withdraw consent, we may not be able to provide access to the Sites. The Terms of Use and Privacy Policy apply to all visitors, registered users and others who access or use the Sites.
+En utilisant ou en accédant aux Sites, vous consentez à ce que nous collections, utilisions et divulguions vos informations personnelles conformément à la présente Politique de confidentialité et à nos Conditions d'utilisation. Si vous retirez votre consentement, il se peut que nous ne soyons pas en mesure de vous donner accès aux sites. Les conditions d'utilisation et la politique de confidentialité s'appliquent à tous les visiteurs, utilisateurs enregistrés et autres personnes qui accèdent aux sites ou les utilisent.
 
-You may opt out of any disclosure or use of your Personal Information for purposes for which you originally consented by notifying us by one of the methods at the end of this Privacy Policy.
+Vous pouvez refuser toute divulgation ou utilisation de vos informations personnelles à des fins pour lesquelles vous avez initialement consenti en nous en informant par l'une des méthodes indiquées à la fin de la présente politique de confidentialité.
 
-We will undertake reasonable efforts to notify third parties with whom we have shared your personal information as permitted under this Privacy Policy of your election to opt out. If you do not opt out, we may continue to collect, use, and disclose your personal information as set forth in this Privacy Policy and our Terms of Use. There are some uses from which you cannot opt out, such as to provide Services that you have requested from us.
+Nous déploierons des efforts raisonnables pour informer les tiers avec lesquels nous avons partagé vos informations personnelles, comme le permet la présente politique de confidentialité, de votre choix de vous retirer. Si vous ne vous désengagez pas, nous pouvons continuer à collecter, utiliser et divulguer vos informations personnelles comme indiqué dans la présente politique de confidentialité et dans nos conditions d'utilisation. Il existe certaines utilisations auxquelles vous ne pouvez pas renoncer, comme la fourniture des services que vous nous avez demandés.
 
-We reserve the right, at our discretion, to amend this Privacy Policy at any time without prior individual notice. The date on which this Privacy Policy was last amended is shown at the top of this policy. You are responsible for verifying whether any amendments have been made and therefore we ask that you periodically check the date and review this Privacy Policy for the latest information on our privacy practices. If you object to any amendments, please stop using the Sites.
+## 1. Quelles sont les informations personnelles que nous recueillons ?
+Nous recueillons des informations personnelles vous concernant lorsque vous interagissez avec nous. Le type d'informations que nous pouvons vous demander dépend de la nature de votre interaction avec nous. Ces informations peuvent inclure :
 
-## 1. What Personal Information Do We Collect?
-We collect personal information about you when you interact with us. The types of information we may ask for depends on the nature of your interaction with us. This information may include:
+### Création d'un contact.
+Nous recueillons les informations que vous nous fournissez lorsque vous nous soumettez un contact, telles que votre nom, votre prénom, votre adresse électronique, votre entreprise.
 
-### Contact creation.
-We collect the information you provide us when you submit us a contact, such as your name, email address.
+### Informations sur les appareils. 
+Nous pouvons recueillir des informations sur votre navigateur et votre appareil, telles que votre adresse IP, le type de navigateur, le type de système d'exploitation, l'identifiant unique de l'appareil et les informations du journal.
+### Informations sur l'analyse. 
+Nous pouvons recueillir des informations sur votre utilisation de nos sites à l'aide d'outils de suivi (par exemple, Google Analytics). Ces outils fournissent des informations globales, notamment sur les pages consultées et leur durée. Ces outils utilisent des cookies et d'autres technologies stockées localement. Les informations recueillies sur votre activité sur nos sites comprennent les pages consultées et le temps d'accès. Nous faisons de notre mieux pour respecter la vie privée des utilisateurs en activant les options de collecte de données les plus restrictives possibles en ce qui concerne la fonction "Ne pas laisser de traces".
+### Informations sur les préférences. 
+À l'aide de cookies ou de stockage local, nous suivons certaines préférences, comme l'activation ou non du "mode sombre" ou encore l'acceptation des cookies. Vous pouvez effacer ces données en effaçant les données du site via les outils de développement de votre navigateur.
 
-### Device information. 
-We may collect information about your browser and device such as your IP address, browser type, operating system type, unique device identifier and log information.
-### Analytics information. 
-We may collect information about your usage of our Sites using tracking snippets (eg. Google Analytics). These tools provide aggregate insights, including information about which pages were viewed, and for how long. These snippets operate using cookies and other locally-stored technologies. The information collected about your activity on our Sites includes pages viewed and access time. We do our best to respect user privacy by enabling the most restrictive data collection options possible in regards to the Do Not Tracksetting.
-### Preferences information. 
-Using cookies or local storage, we track certain preferences, such as whether or not “Dark mode” is enabled. You can erase this data by clearing site data through your browser developer tools.
+## 2. Pourquoi recueillons-nous vos informations personnelles ?
+Nous utilisons vos informations personnelles aux fins suivantes :
 
-## 2. Why do we collect your personal information?
-We use your personal information for the following purposes:
+À des fins d'administration générale de l'entreprise.
+- Pour vous protéger et nous protéger contre les erreurs.
+- Pour évaluer et gérer les risques opérationnels.
+- Pour effectuer des recherches et des analyses en vue du développement de nos produits et services.
+- Pour maintenir, améliorer et analyser nos sites et les produits que nous offrons.
+- Communiquer avec vous par courriel au sujet des services, produits et offres existants et nouveaux.
+- Pour personnaliser votre expérience sur nos sites en fonction de vos préférences ou intérêts particuliers.
 
-For general business administration purposes.
-- To protect you and us against error.
-- To assess and manage operational risks.
-- To conduct research and analysis for the development of our products and services.
-- To maintain, improve and analyze our Sites and the products we offer.
-- To communicate with you about existing and new services, products, and offers by email.
-- To customize your experience on our Sites to your particular preferences or interests.
+## 3. Avec qui partageons-nous vos informations personnelles ?
+Aux fins énoncées ci-dessus, nous pouvons divulguer vos informations personnelles à :
 
-## 3. Who do we share your personal information with?
-For the purposes set out above, we may disclose your personal information to:
+- Nos employés, agents et filiales.
+- Des prestataires de services tiers qui traitent ou manipulent des informations personnelles en notre nom.
+- Des organismes gouvernementaux et des autorités chargées de l'application de la loi ou de la réglementation lorsque la loi l'exige.
+- Nos assureurs et conseillers juridiques externes.
+- Dans le cas d'une fusion, d'une acquisition, d'une vente ou d'une réorganisation, ou de leur potentiel, nous pouvons divulguer des informations vous concernant dans la mesure où ces informations personnelles sont nécessaires à la poursuite de l'entreprise ou de l'activité qui a fait l'objet de la transaction. Dans le cas d'une transaction achevée, un avis sera donné aux utilisateurs concernés.
+- Nous ne vendons pas et ne vendrons jamais vos informations personnelles à des tiers.
 
-Our employees, agents, and subsidiaries.
-Third-party service providers to process or handle personal information on our behalf.
-Government agencies and law enforcement or regulatory authorities when required by law.
-Our insurers and external legal advisors.
-In the event of a merger, acquisition sale or reorganization, or the potential thereof, we may disclose information about you to the extent the personal information is necessary to carry on the business or activity that was the object of the transaction. In the event of a completed transaction, notice will be given to affected users.
-We do not and will never sell your personal information to others.
+## 4. Où stockons-nous vos informations personnelles ?
+Nous pouvons transférer les informations personnelles que nous recueillons à votre sujet en dehors de l'UE, y compris aux États-Unis, pour le traitement par nos prestataires de services tiers dans le cadre de ces objectifs. Nos prestataires de services tiers peuvent effectuer des activités de traitement en dehors de l'UE.
 
-## 4. Where do we store your personal information?
-We may transfer personal information that we collect about you outside of EU, including the United States, for the purposes set out above and in the Privacy Policy, including for processing by our third-party service providers in connection with those purposes. Our third-party service providers may perform processing activities outside of EU.
+Nous et nos prestataires de services tiers pouvons être tenus de divulguer vos informations personnelles aux tribunaux, aux autorités gouvernementales, aux autorités chargées de l'application de la loi ou aux autorités réglementaires du pays où les informations personnelles sont stockées en réponse à une demande ou à une requête valide conformément aux lois applicables.
 
-We and our third-party service providers may be required to disclose your personal information to the courts, government authorities, law enforcement or regulatory authorities of the country where personal information is being stored in response to a valid demand or request in accordance with applicable laws.
+Nous exigeons de tous nos fournisseurs de services tiers qu'ils mettent en œuvre et maintiennent des mesures techniques et organisationnelles pour protéger vos informations personnelles d'une manière conforme à notre politique de confidentialité.
 
-We require all our third-party service providers to implement and maintain technical and organizational measures to protect your personal information in a manner consistent with our Privacy Policy.
+## 5. Pendant combien de temps utiliserons-nous, divulguerons-nous et conserverons-nous vos renseignements personnels ?
 
-## 5. How long will we use, disclose and retain your personal information?
+Nous ne conserverons vos renseignements personnels qu'aussi longtemps que nécessaire pour atteindre l'objectif identifié pour lequel ils ont été recueillis, ou si la loi l'exige. Lorsque vos renseignements personnels ne sont plus nécessaires, ou lorsque nous ne sommes plus tenus de les conserver, nous les effaçons.
 
-We will retain your personal information only for as long as necessary to accomplish the identified purpose for which it was collected, or as required by law. When your personal information is no longer needed, or once we are no longer required to retain it, we will erase it.
+## 6. Comment protégeons-nous vos informations personnelles ?
 
-## 6. How do we protect your personal information?
+Nous employons des mesures de protection et de sécurité techniques, administratives et physiques raisonnables pour protéger vos informations personnelles contre l'accès, l'utilisation, la divulgation, la copie, la perte, le mauvais usage, l'altération, la modification ou la destruction non autorisés.
 
-We employ reasonable technical, administrative, and physical safeguards and security measures to protect your personal information from unauthorized access, use, disclosure, copying, loss, misuse, alteration, modification or destruction.
+## 7. Comment pouvez-vous accéder à vos renseignements personnels et les mettre à jour ?
 
-## 7. How can you access and update your personal information?
+Pour toute information, veuillez communiquer avec nous en utilisant les méthodes indiquées au bas de ce document. Vous avez le droit d'accéder aux informations que nous détenons sur vous et de les corriger après que nous ayons reçu votre demande écrite et fournissant votre identité. Pour traiter votre demande, nous pouvons vous demander de nous fournir des informations pour vérifier votre identité et confirmer la portée de votre demande. Sous réserve de restrictions légales ou de droits de refus spécifiques, nous vous informerons de l'existence, de l'utilisation et de la divulgation des informations personnelles vous concernant et vous donnerons accès à ces informations.
 
-For any information, please communicate with us using the methods listed at the bottom of this document. You have the right to access and correct the information we have about you after we have received your written request and authenticated your identity. To process your request, we may ask you to provide us with information to verify your identity and confirm the scope of your request. Subject to legal restrictions or specific rights of refusal, we will inform you of the existence, use and disclosure of personal information relating to you and give you access to that information.
+Si vous identifiez des informations personnelles qui ne sont pas à jour, incorrectes ou incomplètes, faites-le nous savoir. Si nous sommes d'accord, nous apporterons les corrections et ferons des efforts raisonnables pour communiquer ces changements aux autres parties avec lesquelles nous avons partagé ces informations.
 
-If you identify any personal information that is out-of-date, incorrect or incomplete, let us know. If we agree, we will make the corrections and will make reasonable efforts to communicate these changes to other parties with whom we shared the information.
+Il peut y avoir des limites à votre droit d'accéder à vos informations, par exemple, si les informations sont soumises à un privilège juridique, contiennent des informations commerciales confidentielles, sont liées à une enquête sur la violation d'un accord ou d'une loi, ou contiennent des informations sur d'autres personnes qui ne peuvent être séparées.
 
-There may be limits on your right to access your information, for example, if the information is subject to legal privilege, contains confidential commercial information, relates to an investigation of a breach of an agreement or law, or contains information of other individuals that cannot be separated.
+## 8. Liens vers d'autres sites web
+Comme décrit dans les conditions d'utilisation, nos sites peuvent contenir des liens vers d'autres sites web. La présente politique de confidentialité s'applique uniquement aux informations personnelles que nous collectons, utilisons et divulguons. Nous ne sommes pas responsables des pratiques de confidentialité des tiers et nous vous recommandons vivement de consulter la politique de confidentialité d'un tiers avant de lui divulguer des informations personnelles.
 
-## 8. Links to other websites
-As described in the Terms of Use, our Sites may contain links to other websites. This Privacy Policy applies only to personal information that we collect, use and disclose. We are not responsible or liable for the privacy practices of third parties, and we strongly recommend that you review a third party’s privacy policy before disclosing any personal information to the third party.
+## 9. Vie privée des enfants
+Vous devez être âgé d'au moins 18 ans ou avoir l'âge légal de la majorité dans votre juridiction pour utiliser ou accéder à nos sites.
 
-## 9. Children privacy
-You must be at least 18 years of age or be of legal age of majority in your jurisdiction to use or access our Sites.
+Nous ne collectons pas sciemment d'informations personnelles directement auprès des enfants. Si vous êtes un parent ou un tuteur et que vous savez que votre enfant nous a fourni des informations personnelles, veuillez nous contacter. Si nous apprenons que nous avons recueilli des informations personnelles auprès d'enfants, nous prendrons des mesures raisonnables pour localiser et supprimer ces informations de nos serveurs et de nos dossiers.
 
-We do not knowingly collect personal information directly from children. If you are a parent or guardian and you are aware that your child has provided us with personal information, please contact us. If we become aware that we have collected personal information from children, we will take reasonable steps to locate and remove that information from our servers and records.
+## 10. Modifications de la présente politique de confidentialité
+Nous pouvons mettre à jour notre politique de confidentialité de temps à autre. Nous vous demandons de vérifier périodiquement la date et de revoir cette politique de confidentialité pour obtenir les dernières informations sur nos pratiques en matière de confidentialité. Si nous mettons à jour notre politique de confidentialité, nous publierons la version la plus récente sur nos sites.
 
-## 10. Changes to this policy
-We may update our Privacy Policy from time to time. We ask that you periodically check the date and review this Privacy Policy for the latest information on our privacy practices. If we update our Privacy, we will post the most recent version on our Sites.
+## 11. Nous contacter
+Si vous avez des questions, des préoccupations ou des demandes concernant le traitement de vos informations personnelles, veuillez les adresser aux coordonnées indiquées ci-dessous. Il se peut que nous devions vous demander des informations personnelles pour vérifier votre identité.
 
-## 11. Contacting us
-If you have any questions, concerns, or requests relating to our handling of your personal information, please direct them to the contact information listed below. We may need to ask you for personal information to verify your identity.
-
-By email: melvin.vmegen@gmail.com
+Par courrier électronique : melvin.vmegen@gmail.com
