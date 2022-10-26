@@ -20,7 +20,7 @@ export default defineNuxtConfig({
     "@intlify/nuxt3", // i18n
     "@nuxt/content",
     "@funken-studio/sitemap-nuxt-3",
-    // "@nuxtjs/robots",
+    "@nuxtjs/robots",
     "nuxt-purgecss",
     "nuxt-icon"
   ],

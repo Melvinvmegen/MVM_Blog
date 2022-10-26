@@ -563,7 +563,7 @@
   resolved "https://registry.yarnpkg.com/@nuxt/devalue/-/devalue-2.0.0.tgz#c7bd7e9a516514e612d5d2e511ffc399e0eac322"
   integrity sha512-YBI/6o2EBz02tdEJRBK8xkt3zvOFOWlLBf7WKYGBsSYSRtjjgrqPe2skp6VLLmKx5WbHHDNcW+6oACaurxGzeA==
 
-"@nuxt/kit@3.0.0-rc.12", "@nuxt/kit@^3.0.0-rc.10", "@nuxt/kit@^3.0.0-rc.11", "@nuxt/kit@^3.0.0-rc.12", "@nuxt/kit@^3.0.0-rc.4", "@nuxt/kit@^3.0.0-rc.6", "@nuxt/kit@latest":
+"@nuxt/kit@3.0.0-rc.12", "@nuxt/kit@^3.0.0-rc.10", "@nuxt/kit@^3.0.0-rc.11", "@nuxt/kit@^3.0.0-rc.12", "@nuxt/kit@^3.0.0-rc.4", "@nuxt/kit@latest":
   version "3.0.0-rc.12"
   resolved "https://registry.yarnpkg.com/@nuxt/kit/-/kit-3.0.0-rc.12.tgz#637ab3e63d4213b886ab3cda19632bd08bc5ccb6"
   integrity sha512-d/6SeNVL1OPdru5aKjjUIWIwqIjbYN/VYGCrZs5gddkzJ5202DsMxyn2rs/ZyT8+oBbbVTYcCK6M+G0945mQdA==
@@ -675,12 +675,10 @@
     vite-plugin-checker "^0.5.1"
     vue-bundle-renderer "^0.4.4"
 
-"@nuxtjs/robots@^3.0.0-1":
-  version "3.0.0-1"
-  resolved "https://registry.yarnpkg.com/@nuxtjs/robots/-/robots-3.0.0-1.tgz#69ac7c3dc750ff0df30ce8368e46b41d2388c2e1"
-  integrity sha512-t83EUQ99Ac4SSUQ2ruVzGYdj5IMusEZ1hTFw3/ApVr1H1FwB2TOOZJ8MYux+R3749f7aD6w+f08vnEGlIMF8EA==
-  dependencies:
-    "@nuxt/kit" "^3.0.0-rc.6"
+"@nuxtjs/robots@^2.5.0":
+  version "2.5.0"
+  resolved "https://registry.yarnpkg.com/@nuxtjs/robots/-/robots-2.5.0.tgz#a42b25e3bc58181cb2a8fbd30d6b0fee6c36bc60"
+  integrity sha512-z1F3HXb05NiZga8Cuq6k5bbowfJOScPtbSOakip0nege+1aI9pGoajzap8eR5s1qwLXAk9Ts+NcgetoUn5lwrQ==
 
 "@rollup/plugin-alias@^4.0.0":
   version "4.0.2"
