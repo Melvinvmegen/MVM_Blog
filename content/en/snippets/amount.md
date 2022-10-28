@@ -2,7 +2,7 @@
 title: "Amount"
 description: "Convert a number into an amount and its currency."
 category: "Javascript"
-last_updated: "October 17th 2022"
+last_updated: "October 17th, 2022"
 ---
 
 ```js
