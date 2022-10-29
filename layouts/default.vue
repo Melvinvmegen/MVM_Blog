@@ -414,8 +414,8 @@ if (posts.value.length > 0) {
   const categories = [...new Set(posts.value.map((c) => c.category))];
   tutorials.value = categories.map((c) => {
     return ({
-      name: c.charAt(0).toUpperCase() + c.slice(1),
-      link: `/posts/${c}`,
+      name: c,
+      link: `/posts/${c.toLowerCase()}`,
     });
   });
 }

@@ -84,6 +84,6 @@ watch(locale, async (newLocale) => {
 });
 
 if (posts.value.length > 0) {
-  categories = computed(() => [...new Set(posts.value.map((c) => c.category))]);
+  categories = computed(() => [...new Set(posts.value.map((c) => c.category.toLowerCase()))]);
 }
 </script>

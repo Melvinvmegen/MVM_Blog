@@ -23,7 +23,7 @@ const { fetchAll } = useFetch();
 const { t, locale } = useI18n();
 const posts = ref(null);
 const { path } = useRoute();
-const category = path.split("/")[2]
+const category = path.split("/")[2].charAt(0).toUpperCase() + path.split("/")[2].slice(1);
 
 async function fetchData(lang) {
   posts.value = await fetchAll(`postsList-${lang}-${category}`, `/${lang}/posts`, {category});
