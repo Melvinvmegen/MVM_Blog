@@ -1,4 +1,5 @@
 ---
+id: 4
 title: "Amount"
 description: "Convert a number into an amount and its currency."
 category: "Javascript"

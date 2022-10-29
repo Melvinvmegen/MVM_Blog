@@ -1,4 +1,5 @@
 ---
+id: 4
 title: "Amount"
 description: "Convertir un nombre en montant et sa devise."
 category: "Javascript"

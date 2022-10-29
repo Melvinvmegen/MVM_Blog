@@ -1,8 +1,9 @@
 ---
+id: 3
 title: "Destructuring"
 description: "Add or conditionally override a property to an object."
 category: "Javascript"
-last_updated: "14 Octobre 2022"
+last_updated: "October 14th, 2022"
 ---
 
 ```js

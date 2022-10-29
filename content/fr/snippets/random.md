@@ -1,4 +1,5 @@
 ---
+id: 1
 title: "Random"
 description: "Générer un nombre aléatoire dans une range. On aimerait tous que Math.random fonctionne ainsi."
 category: "Javascript"

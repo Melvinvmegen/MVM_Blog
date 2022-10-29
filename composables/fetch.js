@@ -2,8 +2,8 @@ export default function useFetch() {
   async function fetchAll(endpoint, url, query) {
     const { data } = await useAsyncData(`${endpoint}`, () => {
       return query
-        ? queryContent(url).where(query).find()
-        : queryContent(url).find();
+        ? queryContent(url).sort({ id: -1 }).where(query).find()
+        : queryContent(url).sort({ id: -1 }).find();
     });
 
     return data.value;

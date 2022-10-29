@@ -1,4 +1,5 @@
 ---
+id: 1
 title: "Hoisting"
 subtitle: "L'action de soulever ou de hisser en programmation."
 description: "En JavaScript le 'hissage' désigne le processus par lequel le compilateur déplace la déclaration des fonctions, des variables ou des classes vers le haut de leur scope, avant l'exécution du code..."

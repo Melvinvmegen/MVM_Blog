@@ -1,4 +1,5 @@
 ---
+id: 2
 title: "Javascript do’s and don’ts."
 subtitle: ""
 category: Javascript

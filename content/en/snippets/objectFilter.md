@@ -1,4 +1,5 @@
 ---
+id: 5
 title: "Object filter"
 description: "Filter an object as if it were an array."
 category: "Javascript"

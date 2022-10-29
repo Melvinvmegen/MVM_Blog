@@ -1,4 +1,5 @@
 ---
+id: 2
 title: "Debounce"
 description: "A classic debounce function, written in modern JS."
 category: "Javascript"
