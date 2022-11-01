@@ -12,32 +12,35 @@
         >
       </template>
     </v-breadcrumbs>
-    <div v-if="snippet">
-      <h1 class="d-flex justify-space-between align-center">
-        {{ snippet.title }}
-        <Icon
-          name="mdi:share-outline"
-          size="16"
-          v-if="canShare"
-          title="Share this article"
-          @click="
-            shareLink({
-              title: snippet.title,
-              text: snippet.description,
-              path: snippet._path,
-            })
-          "
-        />
-      </h1>
-      <h3>{{ snippet.description }}</h3>
-      <br />
-      <ContentRenderer :value="snippet" />
-      <h3
-        class="text-center font-italic pa-12 text-medium-emphasis font-weight-regular"
-      >
-        {{ t("posts.last_updated") }} {{ snippet.last_updated }}
-      </h3>
-    </div>
+    <v-no-ssr>
+      <div v-if="snippet">
+        <h1 class="d-flex justify-space-between align-center">
+          {{ snippet.title }}
+          <Icon
+            name="mdi:share-outline"
+            size="16"
+            v-if="canShare"
+            title="Share this article"
+            @click="
+              shareLink({
+                title: snippet.title,
+                text: snippet.description,
+                path: snippet._path,
+              })
+            "
+          />
+        </h1>
+        <h3>{{ snippet.description }}</h3>
+        <br />
+        <ContentRenderer :value="snippet" />
+        <h3
+          class="text-center font-italic pa-12 text-medium-emphasis font-weight-regular"
+        >
+          {{ t("posts.last_updated") }} {{ snippet.last_updated }}
+        </h3>
+      </div>
+      <PortfolioTeaser />
+    </v-no-ssr>
   </div>
 </template>
 <script setup>

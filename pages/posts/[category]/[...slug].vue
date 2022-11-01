@@ -1,6 +1,10 @@
 <template>
   <div>
-    <v-breadcrumbs class="px-0 mx-0" :items="breadcrumbs" v-if="breadcrumbs?.length">
+    <v-breadcrumbs
+      class="px-0 mx-0"
+      :items="breadcrumbs"
+      v-if="breadcrumbs?.length"
+    >
       <template v-slot:divider>
         <Icon name="mdi:chevron-right" size="24" />
       </template>
@@ -12,33 +16,37 @@
         >
       </template>
     </v-breadcrumbs>
-    <div v-if="post">
-      <h1 class="d-flex justify-space-between align-center">
-        {{ post.title }}
 
-        <Icon
-          name="mdi:share-outline"
-          size="16"
-          v-if="canShare"
-          title="Share this article"
-          @click="
-            shareLink({
-              title: post.title,
-              text: post.description,
-              path: post._path,
-            })
-          "
-        />
-      </h1>
-      <h3>{{ post.description }}</h3>
-      <br />
-      <ContentRenderer :value="post" />
-      <h3
-        class="text-center font-italic pa-12 text-medium-emphasis font-weight-regular"
-      >
-        {{ t("posts.last_updated") }} {{ post.last_updated }}
-      </h3>
-    </div>
+    <v-no-ssr>
+      <div v-if="post">
+        <h1 class="d-flex justify-space-between align-center">
+          {{ post.title }}
+
+          <Icon
+            name="mdi:share-outline"
+            size="16"
+            v-if="canShare"
+            title="Share this article"
+            @click="
+              shareLink({
+                title: post.title,
+                text: post.description,
+                path: post._path,
+              })
+            "
+          />
+        </h1>
+        <h3>{{ post.description }}</h3>
+        <br />
+        <ContentRenderer :value="post" />
+        <h3
+          class="text-center font-italic pa-12 text-medium-emphasis font-weight-regular"
+        >
+          {{ t("posts.last_updated") }} {{ post.last_updated }}
+        </h3>
+      </div>
+      <PortfolioTeaser />
+    </v-no-ssr>
   </div>
 </template>
 <script setup>

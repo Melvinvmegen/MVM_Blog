@@ -187,7 +187,7 @@
                           </v-list-item-title>
                         </v-list-item>
                         <v-list-item
-                          v-for="item in tutorials"
+                          v-for="item in post_categories"
                           :key="item.name"
                           link
                           :to="item.link"
@@ -221,6 +221,7 @@
                           link
                           :to="item.external ? undefined : item.link"
                           :href="item.external ? item.link : undefined"
+                          :target="item.external ? '_blank' : '_self'"
                         >
                           <v-list-item-title>
                             <v-list-item-title
@@ -422,6 +423,11 @@ const links = [
   {
     name: t("footer.contact"),
     link: "mailto:melvin.vmegen@gmail.com",
+    external: true,
+  },
+  {
+    name: t("footer.portfolio"),
+    link: "https://melvinvmegen.com/",
     external: true,
   },
   { name: t("footer.terms"), link: "/terms" },

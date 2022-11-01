@@ -28,6 +28,12 @@
     "description": "DESCRIPTION",
     "name": "NOM"
   },
+  "portfolio": {
+    "title": "⚡ Qui suis-je pour parler de tout ça ? ⚡",
+    "text": "Honnêtement, je ne suis personne, je code depuis 3 ans maintenant et j'aime documenter toutes les solutions à tous les problèmes que je rencontre. J'extrais autant d'extraits de code et de tutoriels que possible, de sorte que si j'en ai besoin à nouveau, il me suffit de revenir ici et de me rafraîchir rapidement.",
+    "subtext": "N'hésitez pas à m'accompagner dans ce parcours d'apprentissage en me faisant part de vos commentaires et si vous voulez en savoir plus sur moi :",
+    "link": "Apprenez-en plus sur moi"
+  },
   "footer": {
     "contact": "Contact",
     "terms": "Conditions d'utilisation",
@@ -35,7 +41,8 @@
     "links": "Liens",
     "tutorials": "Tutoriels",
     "thanks": "Merci de me lire !",
-    "right_reserved": "Melvin van Megen. Tous droits réservés."
+    "right_reserved": "Melvin van Megen. Tous droits réservés.",
+    "portfolio": "Portfolio"
   },
   "cookies": {
     "title": "Gestion des Cookies 🍪",
