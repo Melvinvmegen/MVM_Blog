@@ -49,6 +49,7 @@ export default defineComponent({
       @click="copyToClipboard"
       v-if="copied"
     >
+      <Icon name="mdi:check" size="24" />
     </v-btn>
     <v-btn
       color="white"

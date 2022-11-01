@@ -67,30 +67,30 @@
                       <v-btn icon @click="toggleSound" color="white" v-else>
                         <Icon name="mdi:volume-off" size="24" />
                       </v-btn>
-                      <v-menu width="100">
-                        <template v-slot:activator="{ props }">
-                          <v-btn
-                            icon
-                            v-bind="props"
-                            class="mr-5"
-                            :title="currentLanguage.name"
-                          >
-                            {{ currentLanguage.icon }}
-                          </v-btn>
-                        </template>
-                        <v-list dense>
-                          <v-list-item
-                            v-for="language in languages"
-                            v-bind:key="language.locale"
-                            @click="setLanguage(language.locale)"
-                            ripple
-                            :title="language.name"
-                          >
-                            {{ language.icon }}
-                          </v-list-item>
-                        </v-list>
-                      </v-menu>
                     </div>
+                    <v-menu width="100">
+                      <template v-slot:activator="{ props }">
+                        <v-btn
+                          icon
+                          v-bind="props"
+                          class="mr-5"
+                          :title="currentLanguage.name"
+                        >
+                          {{ currentLanguage.icon }}
+                        </v-btn>
+                      </template>
+                      <v-list dense>
+                        <v-list-item
+                          v-for="language in languages"
+                          v-bind:key="language.locale"
+                          @click="setLanguage(language.locale)"
+                          ripple
+                          :title="language.name"
+                        >
+                          {{ language.icon }}
+                        </v-list-item>
+                      </v-list>
+                    </v-menu>
                   </template>
                 </v-menu>
               </v-row>
@@ -304,31 +304,24 @@
       fixed
       temporary
     >
-      <div class="d-flex flex-column justify-space-between h-50">
+      <div class="d-flex flex-column justify-space-between h-80">
         <v-list dense class="d-flex flex-column justify-center h-75">
           <v-list-item
-            v-for="item in nav_items"
+            v-for="item of nav_items"
             :key="item.name"
             :to="item.link"
           >
             <h2 class="my-2">{{ item.name }}</h2>
-            <v-list
+            <h3
+              class="my-4 ml-4"
               v-if="item.name === 'Posts'"
-              dense
-              class="d-flex flex-column justify-center"
+              v-for="sub_item of post_categories"
             >
-              <v-list-item
-                v-for="item in tutorials"
-                :key="item.name"
-                class="ml-2"
-                :to="item.link"
-              >
-                <h3>{{ item.name }}</h3>
-              </v-list-item>
-            </v-list>
+              {{ sub_item.name }}
+            </h3>
           </v-list-item>
         </v-list>
-        <div class="d-flex d-md-none">
+        <div class="d-flex d-md-none px-2">
           <v-btn
             icon
             @click="toggleTheme"
@@ -401,7 +394,7 @@ const drawer = ref(false);
 
 const { fetchAll } = useFetch();
 const posts = ref(null);
-const tutorials = ref([]);
+const post_categories = ref([]);
 async function fetchData(lang) {
   posts.value = await fetchAll(`postsList-${lang}`, `/${lang}/posts`);
 }
@@ -412,11 +405,11 @@ watch(locale, async (newLocale) => await fetchData(newLocale));
 
 if (posts.value.length > 0) {
   const categories = [...new Set(posts.value.map((c) => c.category))];
-  tutorials.value = categories.map((c) => {
-    return ({
+  post_categories.value = categories.map((c) => {
+    return {
       name: c,
       link: `/posts/${c.toLowerCase()}`,
-    });
+    };
   });
 }
 
@@ -583,6 +576,10 @@ table {
 
 .bottom-100 {
   bottom: 100px;
+}
+
+.h-80 {
+  height: 80vh !important;
 }
 
 @media (max-width: 599px) {
