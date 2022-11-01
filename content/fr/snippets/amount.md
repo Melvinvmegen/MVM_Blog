@@ -34,8 +34,10 @@ En développement il nous est fréquent de manipuler des nombres qui doivent par
 
 Ce snippet nous permet de le faire !
 
-> **A noter :**
-> Cette fonction contient des paramètres par défaut qui convienne à mon utilisation personnel mais peuvent être ajusté voir supprimer au besoin. A noter que les paramètres par defaut permette de simplifier la lisibilité du code mais attention à garder votre utilisation consistente à travers votre app.
+::note
+**A noter :**
+Cette fonction contient des paramètres par défaut qui convienne à mon utilisation personnel mais peuvent être ajusté voir supprimer au besoin. A noter que les paramètres par defaut permette de simplifier la lisibilité du code mais attention à garder votre utilisation consistente à travers votre app.
+::
 
 ## Utilisation
 

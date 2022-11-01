@@ -38,7 +38,9 @@ objectFilter(
 
 This function takes as parameter an object to be filtered and a callback function which will be provided to our [filter](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter) function which must return a boolean.
 
+::note
 **Note that:** By default our function will filter out every **falsy** values and their paired key from the provided object but we can override that to our needs.
+::
 
 ```js
 const obj = {

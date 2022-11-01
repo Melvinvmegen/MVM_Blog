@@ -34,9 +34,10 @@ In development we often have to manipulate numbers that sometimes need to be rep
 
 This snippet allows us to do it!
 
-> **Note that:**
-> This function contains default settings that are suitable for my personal use but can be adjusted or removed if necessary. Note that the default parameters allow to simplify the readability of the code but be careful to keep your use consistent throughout your app.
-
+::note
+**Note that:**
+This function contains default settings that are suitable for my personal use but can be adjusted or removed if necessary. Note that the default parameters allow to simplify the readability of the code but be careful to keep your use consistent throughout your app.
+::
 ## Utilisation
 
 ```js

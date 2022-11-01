@@ -16,8 +16,10 @@ In practice, it is much more common to need a random integer within a given rang
 
 This snippet allows us to do just that!
 
-> Note:**
-> This **random** function includes the first parameter in the draw but excludes the second. For example, random(1, 3) will fall on 1 or 2, but never on 3.
+::note
+Note:**
+This **random** function includes the first parameter in the draw but excludes the second. For example, random(1, 3) will fall on 1 or 2, but never on 3.
+::
 
 This was done intentionally to match the behavior of [Math.random](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random), as well as methods like [slice](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/slice).
 

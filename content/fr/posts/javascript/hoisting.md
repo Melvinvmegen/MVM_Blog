@@ -46,9 +46,12 @@ if (true) {
 }
 console.log(scope) // ❌ Uncaught ReferenceError: scope is not defined
 ```
+
+::note
 **Notez que :** avec **var**, le scope de la variable est son contexte d'exécution actuel et ses **closusure** (concept détaillé plus bas) qui est soit :
 - Dans le cas d'une fonction, la fonction englobante et les fonctions déclarées dans celle-ci
 - Dans le cas d'un bloc, les variables déclarées à l'intérieur sont accessibles depuis le scope global.
+::
 
 ```js
 function scoped() {

@@ -44,7 +44,7 @@ export default defineComponent({
     <v-btn
       color="white"
       class="copy"
-      icon="fas-check"
+      icon
       variant="outlined"
       @click="copyToClipboard"
       v-if="copied"

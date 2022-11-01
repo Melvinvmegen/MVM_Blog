@@ -46,9 +46,11 @@ if (true) {
 }
 console.log(scope) // ❌ Uncaught ReferenceError: scope is not defined
 ```
+::note
 **Note that:** with **var**, the scope of the variable is its current execution context and its **closusure** (a concept detailed below) which is either :
 - In the case of a function, the enclosing function and the functions declared in it
 - In the case of a block, the variables declared within it are accessible from the global scope.
+::
 
 ```js
 function scoped() {
@@ -100,4 +102,6 @@ This concept is called **scope chain**, going from one scope to another in order
 ## Conclusion
 Now you know that **hoisting** allows functions, variables and classes to be used safely in the code (limited to their lexical scope) before being declared.
 
+::note
 Note that it is generally not recommended to define everything explicitly at the top of the file, as this can lead to unexpected errors.
+::

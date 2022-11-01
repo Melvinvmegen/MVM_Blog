@@ -41,7 +41,9 @@ Cette fonction prend en paramètre un objet à [filter](https://developer.mozill
 
 Cette fonction prend en paramètre un objet à filtrer et une callback fonction qui sera passer à [filter](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter) fonction qui se doit de retourner un boolean.
 
+::note
 **A note:** Par défaut, notre fonction filtrera tous les values qui sont **falsy** et leurs clé associé, mais nous pouvons bien évidemment overrider ce comportement en fonction de nos besoins.
+::
 
 ```js
 const obj = {

@@ -18,10 +18,12 @@ En pratique, il est beaucoup plus courant d'avoir besoin d'un nombre entier alé
 
 Ce snippet nous permet de le faire !
 
-> **A noter :**
-> Cette fonction **random** inclut le premier paramètre dans le tirage mais, exclut le second. Par exemple, random(1, 3) tombera sur 1 ou 2, mais jamais sur 3.
+::note
+**A noter :**
+Cette fonction **random** inclut le premier paramètre dans le tirage mais, exclut le second. Par exemple, random(1, 3) tombera sur 1 ou 2, mais jamais sur 3.
 
 Cela a été fait intentionnellement pour correspondre au comportement de [Math.random](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random), ainsi qu'aux méthodes comme [slice](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/slice).
+::
 
 ## Utilisation
 
