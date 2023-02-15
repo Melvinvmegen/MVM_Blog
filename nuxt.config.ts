@@ -24,6 +24,17 @@ export default defineNuxtConfig({
     "nuxt-purgecss",
     "nuxt-icon"
   ],
+  routeRules: {
+    // Static page generated on-demand, revalidates in background
+    '/posts/**': { swr: true },
+    '/snippets/**': { swr: true },
+    // Static page generated on-demand once
+    '/': { static: true },
+    '/posts': { static: true },
+    '/snippets': { static: true },
+    '/terms': { static: true },
+    '/privacy-policy': { static: true },
+  },
   content: {
     highlight: {
       theme: "dark-plus",
