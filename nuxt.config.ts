@@ -19,8 +19,8 @@ export default defineNuxtConfig({
     },
     "@intlify/nuxt3", // i18n
     "@nuxt/content",
-    "@funken-studio/sitemap-nuxt-3",
     "@nuxtjs/robots",
+    "nuxt-simple-sitemap",
     "nuxt-purgecss",
     "nuxt-icon"
   ],
@@ -35,16 +35,18 @@ export default defineNuxtConfig({
       locale: "en",
     },
   },
-  sitemap: {
-    hostname: "https://blog.melvinvmegen.com",
-    exclude: ["terms", "privacy-policy"],
-    routes: [
-      "/posts/javascript",
-      "/posts/javascript/javascript_dos_and_donts",
-      "/snippets/debounce",
-      "/snippets/random",
-      "/snippets/range",
-    ],
+  nitro: {
+    prerender: {
+      crawlLinks: true,
+      routes: [
+        '/',
+      ]
+    }
+  },
+  runtimeConfig: {
+    public: {
+      siteUrl: process.env.NUXT_PUBLIC_SITE_URL || 'https://blog.melvinvmegen.com/sitemap.xml',
+    }
   },
   robots: {
     rules: {
