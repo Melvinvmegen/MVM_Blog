@@ -1,25 +1,12 @@
-import vuetify from "vite-plugin-vuetify";
 
 // https://v3.nuxtjs.org/api/configuration/nuxt.config
 export default defineNuxtConfig({
-  css: ["vuetify/styles"], // vuetify ships precompiled css, no need to import sass
-  vite: {
-    ssr: {
-      noExternal: ["vuetify"], // add the vuetify vite plugin
-    },
-  },
+  devtools: true,
   modules: [
-    // this adds the vuetify vite plugin
-    async (options, nuxt) => {
-      nuxt.hooks.hook("vite:extendConfig", (config) =>
-        // Produces type errors in the current beta release
-        // @ts-ignore
-        config.plugins.push(vuetify())
-      );
-    },
     "@intlify/nuxt3", // i18n
     "@nuxt/content",
     "@nuxtjs/robots",
+    "@nuxtjs/tailwindcss",
     "nuxt-simple-sitemap",
     "nuxt-purgecss",
     "nuxt-icon"
@@ -73,7 +60,6 @@ export default defineNuxtConfig({
       "layouts/*.vue",
       "pages/**/*.vue",
       "plugins/**/*.js",
-      "node_modules/vuetify/src/**/*.ts",
     ],
     enabled: true, // Always enable purgecss
     keyframes: true,

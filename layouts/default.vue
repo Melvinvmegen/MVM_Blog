@@ -1,261 +1,30 @@
 <template>
-  <v-app class="bg-primary">
-    <v-layout class="d-flex flex-column">
-      <v-app-bar color="primary" height="200" class="bg-header">
-        <v-container class="h-100 mt-12 mt-md-16">
-          <v-row justify="center">
-            <v-col cols="10">
-              <v-row>
-                <v-menu offset-y="offset-y">
-                  <template v-slot:activator="{}">
-                    <v-row justify="center" align="center">
-                      <v-app-bar-title>
-                        <NuxtLink
-                          to="/"
-                          class="text-secondary text-decoration-none"
-                          >MVM</NuxtLink
-                        >
-                      </v-app-bar-title>
-                      <v-list
-                        dense
-                        rounded
-                        bg-color="transparent"
-                        color="white"
-                        class="d-md-flex d-none"
-                      >
-                        <v-list-item
-                          v-for="item in nav_items"
-                          :key="item.name"
-                          link
-                          :to="item.link"
-                        >
-                          <v-list-item-title
-                            class="text-white text-decoration-none"
-                            >{{ item.name }}
-                          </v-list-item-title>
-                        </v-list-item>
-                      </v-list>
-                      <v-spacer></v-spacer>
-                    </v-row>
-                    <v-spacer></v-spacer>
-                    <v-app-bar-nav-icon
-                      class="d-flex d-md-none"
-                      @click.stop="drawer = !drawer"
-                    >
-                      <Icon name="mdi:menu" size="24" />
-                    </v-app-bar-nav-icon>
-                    <div class="d-none d-md-flex">
-                      <v-btn
-                        icon
-                        @click="toggleTheme"
-                        color="white"
-                        v-if="themeIsLight"
-                      >
-                        <Icon name="mdi:moon-waxing-crescent" size="24" />
-                      </v-btn>
-                      <v-btn icon @click="toggleTheme" color="white" v-else>
-                        <Icon name="mdi:white-balance-sunny" size="24" />
-                      </v-btn>
-                      <v-btn
-                        icon
-                        @click="toggleSound"
-                        color="white"
-                        v-if="sound"
-                      >
-                        <Icon name="mdi:volume-medium" size="24" />
-                      </v-btn>
-                      <v-btn icon @click="toggleSound" color="white" v-else>
-                        <Icon name="mdi:volume-off" size="24" />
-                      </v-btn>
-                    </div>
-                    <v-menu width="100">
-                      <template v-slot:activator="{ props }">
-                        <v-btn
-                          icon
-                          v-bind="props"
-                          class="mr-5"
-                          :title="currentLanguage.name"
-                        >
-                          {{ currentLanguage.icon }}
-                        </v-btn>
-                      </template>
-                      <v-list dense>
-                        <v-list-item
-                          v-for="language in languages"
-                          v-bind:key="language.locale"
-                          @click="setLanguage(language.locale)"
-                          ripple
-                          :title="language.name"
-                        >
-                          {{ language.icon }}
-                        </v-list-item>
-                      </v-list>
-                    </v-menu>
-                  </template>
-                </v-menu>
-              </v-row>
-            </v-col>
-          </v-row>
-          <div class="custom-curve">
-            <svg
-              data-name="Layer 1"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 1200 120"
-              preserveAspectRatio="none"
+  <div class="bg-primary text-white min-h-screen">
+    <div class="d-flex flex-column">
+      <navbar :drawer="drawer" @open-drawer="drawer = !drawer" />
+      <div class="flex-auto">
+        <div class="container mx-auto">
+          <div class="flex justify-center">
+            <div
+              class="2xl:w-8/12 xl:w-9/12 lg:w-10/12 w-11/12 max-w-full lg:max-w-none md:max-w-none sm:max-w-none mb-16"
             >
-              <path
-                d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z"
-                class="shape-fill"
-              ></path>
-            </svg>
-          </div>
-        </v-container>
-      </v-app-bar>
-      <v-main>
-        <v-container fluid="fluid">
-          <v-row justify="center">
-            <v-col cols="11" lg="7" md="8" sm="10">
               <slot />
-            </v-col>
-          </v-row>
-        </v-container>
-      </v-main>
-      <v-footer
-        color="primary"
-        bottom
-        width="100%"
-        class="bg-footer footer-height"
-      >
-        <v-row justify="center" class="h-100">
-          <v-col cols="10" lg="7" md="8" sm="9">
-            <v-row
-              align="center"
-              class="h-100 justify-center justify-md-space-between"
-            >
-              <v-col cols="10" lg="4" md="4" sm="5">
-                <v-card
-                  elevation="0"
-                  rounded="0"
-                  color="transparent"
-                  width="100%"
-                  height="100%"
-                >
-                  <v-row
-                    no-gutters
-                    class="flex-column h-100 align-start align-md-space-between"
-                  >
-                    <div>
-                      <v-card-title
-                        class="text-secondary text-center text-md-start"
-                      >
-                        MVM
-                      </v-card-title>
-                      <v-card-subtitle>
-                        {{ t("footer.thanks") }}
-                      </v-card-subtitle>
-                    </div>
-                    <v-card-text
-                      class="d-md-flex d-none align-end text-caption"
-                    >
-                      © {{ new Date().getFullYear() }}
-                      {{ t("footer.right_reserved") }}
-                    </v-card-text>
-                  </v-row>
-                </v-card>
-              </v-col>
-              <v-col cols="10" lg="6" md="6" sm="7">
-                <v-card
-                  class="text-center"
-                  elevation="0"
-                  rounded="0"
-                  color="transparent"
-                  width="100%"
-                >
-                  <v-row justify="space-between">
-                    <v-row class="flex-column">
-                      <v-list
-                        dense
-                        rounded
-                        bg-color="transparent"
-                        color="white"
-                      >
-                        <v-list-item>
-                          <v-list-item-title>
-                            <v-card-subtitle class="text-subtitle-1">{{
-                              t("footer.tutorials")
-                            }}</v-card-subtitle>
-                          </v-list-item-title>
-                        </v-list-item>
-                        <v-list-item
-                          v-for="item in post_categories"
-                          :key="item.name"
-                          link
-                          :to="item.link"
-                        >
-                          <v-list-item-title>
-                            <v-list-item-title
-                              class="text-white text-decoration-none"
-                              >{{ item.name }}
-                            </v-list-item-title>
-                          </v-list-item-title>
-                        </v-list-item>
-                      </v-list>
-                    </v-row>
-                    <v-row class="flex-column">
-                      <v-list
-                        dense
-                        rounded
-                        bg-color="transparent"
-                        color="white"
-                      >
-                        <v-list-item>
-                          <v-list-item-title>
-                            <v-card-subtitle class="text-subtitle-1">{{
-                              t("footer.links")
-                            }}</v-card-subtitle>
-                          </v-list-item-title>
-                        </v-list-item>
-                        <v-list-item
-                          v-for="item in links"
-                          :key="item.name"
-                          link
-                          :to="item.external ? undefined : item.link"
-                          :href="item.external ? item.link : undefined"
-                          :target="item.external ? '_blank' : '_self'"
-                        >
-                          <v-list-item-title>
-                            <v-list-item-title
-                              class="text-white text-decoration-none"
-                            >
-                              {{ item.name }}
-                            </v-list-item-title>
-                          </v-list-item-title>
-                        </v-list-item>
-                      </v-list>
-                    </v-row>
-                  </v-row>
-                </v-card>
-              </v-col>
-            </v-row>
-          </v-col>
-          <v-card-text class="d-block d-md-none text-center text-caption"
-            >© {{ new Date().getFullYear() }}
-            {{ t("footer.right_reserved") }}</v-card-text
-          >
-        </v-row>
-      </v-footer>
-      <v-card
-        max-width="344"
-        variant="outlined"
-        position="absolute"
-        class="left-20 bottom-100 mx-auto bg-white color-black border-0"
+            </div>
+          </div>
+        </div>
+      </div>
+      <custom-footer :post-categories="post_categories" />
+      <div
+        class="max-w-sm absolute left-20 bottom-100 mx-auto color-black border-0 block rounded-lg bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700"
         v-if="!cookie || showCookie"
       >
-        <v-card-item>
-          <v-card-title>
+        <div class="pt-6 px-6">
+          <h5
+            class="mb-2 text-xl font-medium leading-tight text-neutral-800 dark:text-neutral-50"
+          >
             {{ t("cookies.title") }}
-          </v-card-title>
-          <v-card-text class="px-0 pb-0 pt-4 text-caption text-grey">
+          </h5>
+          <p class="mb-4 text-base text-neutral-600 dark:text-neutral-200">
             {{ t("cookies.text") }}
             <br />
             <NuxtLink
@@ -263,93 +32,61 @@
               class="text-decoration-none text-black"
               >{{ t("cookies.link") }}</NuxtLink
             >
-          </v-card-text>
-        </v-card-item>
-
-        <v-card-actions class="pa-0 align-end">
-          <v-btn
-            variant="flat"
-            :rounded="0"
-            class="w-50 pa-0 ma-0"
-            @click="cookiesStated(false)"
-          >
-            {{ t("cookies.refuse") }}
-          </v-btn>
-          <v-btn
-            variant="flat"
-            :rounded="0"
-            class="bg-secondary w-50 pa-0 ma-0"
-            color="primary"
-            @click="cookiesStated(true)"
-          >
-            {{ t("cookies.accept") }}
-          </v-btn>
-        </v-card-actions>
-      </v-card>
-      <v-btn
-        color="black"
-        icon
-        position="absolute"
-        class="left-20 bottom-100 mx-auto bg-white color-black border-0"
+          </p>
+        </div>
+        <button
+          type="button"
+          class="h-10 w-50 pa-0 ma-0 inline-block bg-primary px-6 py-2 font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]"
+          @click="cookiesStated(false)"
+        >
+          {{ t("cookies.refuse") }}
+        </button>
+        <button
+          type="button"
+          class="h-10 w-50 pa-0 ma-0 inline-block bg-secondary px-6 py-2 font-medium uppercase leading-normal text-primary shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]"
+          @click="cookiesStated(true)"
+        >
+          {{ t("cookies.accept") }}
+        </button>
+      </div>
+      <button
+        type="button"
+        class="md:fixed absolute left-20 bottom-100 mx-auto bg-white rounded-full px-4 py-3 font-medium uppercase leading-normal text-primary shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]"
         @click="showCookie = true"
         v-else
       >
-        <Icon name="mdi:check" size="24" />
-      </v-btn>
-    </v-layout>
-    <v-navigation-drawer
-      color="primary"
-      v-model="drawer"
-      absolute
-      top
-      fixed
-      temporary
+        <Icon name="mdi:check" size="16" />
+      </button>
+    </div>
+    <div
+      class="bg-primary z-50 fixed top-0 left-0 h-screen w-64 flex flex-col justify-between max-w-xs transition-transform transform duration-1000 ease-in-out"
+      :class="{ 'translate-x-full': !drawer, 'translate-x-0': drawer }"
+      v-if="drawer"
     >
-      <div class="d-flex flex-column justify-space-between h-80">
-        <v-list dense class="d-flex flex-column justify-center h-75">
-          <v-list-item
-            v-for="item of nav_items"
-            :key="item.name"
-            :to="item.link"
-          >
-            <h2 class="my-2">{{ item.name }}</h2>
+      <div class="h-75 flex flex-col justify-center">
+        <ul class="list-none mx-4">
+          <li v-for="item of nav_items" :key="item.name">
+            <NuxtLink :to="item.link" @click="drawer = false" class="my-2 text-white hover:text-gray-200 font-semibold text-xl">{{
+              item.name
+            }}</NuxtLink>
             <h3
-              class="my-4 ml-4"
               v-if="item.name === 'Posts'"
               v-for="sub_item of post_categories"
+              class="my-4 ml-4 text-gray-300"
             >
-              {{ sub_item.name }}
+            <NuxtLink :to="sub_item.link" @click="drawer = false" class="my-2 text-white hover:text-gray-200">{{
+              sub_item.name
+            }}</NuxtLink>
             </h3>
-          </v-list-item>
-        </v-list>
-        <div class="d-flex d-md-none px-2">
-          <v-btn
-            icon
-            @click="toggleTheme"
-            color="transparent"
-            v-if="themeIsLight"
-          >
-            <Icon name="mdi:moon-waxing-crescent" size="24" />
-          </v-btn>
-          <v-btn icon @click="toggleTheme" color="transparent" v-else>
-            <Icon name="mdi:white-balance-sunny" size="24" />
-          </v-btn>
-          <v-btn icon @click="toggleSound" color="transparent" v-if="true">
-            <Icon name="mdi:volume-medium" size="24" />
-          </v-btn>
-          <v-btn icon @click="toggleSound" color="transparent" v-else>
-            <Icon name="mdi:volume-off" size="24" />
-          </v-btn>
-        </div>
+          </li>
+        </ul>
       </div>
-    </v-navigation-drawer>
-  </v-app>
+    </div>
+  </div>
 </template>
 <script setup>
-import { useTheme } from "vuetify";
 import { useI18n } from "vue-i18n";
 import { useState } from "vue-gtag-next";
-import { getCookie } from "h3";
 import useFetch from "../composables/fetch";
 
 // Enable cookies
@@ -379,17 +116,6 @@ function cookiesStated(boolean) {
 
 const route = useRoute();
 const { t, locale } = useI18n();
-const languages = [
-  { locale: "en", name: "English", icon: "🏴󠁧󠁢󠁥󠁮󠁧󠁿" },
-  { locale: "fr", name: "Français", icon: "🇫🇷" },
-];
-const currentLanguage = computed(() =>
-  languages.find((l) => l.locale === locale.value)
-);
-
-function setLanguage(lang) {
-  locale.value = lang;
-}
 
 const drawer = ref(false);
 
@@ -404,7 +130,7 @@ await fetchData(locale.value);
 
 watch(locale, async (newLocale) => await fetchData(newLocale));
 
-if (posts.value.length > 0) {
+if (posts.value?.length > 0) {
   const categories = [...new Set(posts.value.map((c) => c.category))];
   post_categories.value = categories.map((c) => {
     return {
@@ -418,39 +144,6 @@ const nav_items = [
   { name: t("menu.posts"), link: "/posts" },
   { name: t("menu.snippets"), link: "/snippets" },
 ];
-
-const links = [
-  {
-    name: t("footer.contact"),
-    link: "mailto:melvin.vmegen@gmail.com",
-    external: true,
-  },
-  {
-    name: t("footer.portfolio"),
-    link: "https://melvinvmegen.com/",
-    external: true,
-  },
-  { name: t("footer.terms"), link: "/terms" },
-  { name: t("footer.privacy"), link: "/privacy-policy" },
-];
-
-const theme = useTheme();
-const themeIsLight = computed(() => theme.global.name.value === "light");
-function toggleTheme() {
-  theme.global.name.value = themeIsLight.value ? "dark" : "light";
-}
-
-const sound = ref(false);
-const beat = ref(null);
-function toggleSound() {
-  beat.value = beat.value || new Audio("../assets/sncf-signature.mp3");
-  sound.value = !sound.value;
-  if (!sound.value) {
-    beat.value.pause();
-    return;
-  }
-  beat.value.play();
-}
 
 useHead({
   titleTemplate: (title) => (title ? `MVM Blog - ${title}` : t("seo.title")),
@@ -478,38 +171,9 @@ useHead({
 </script>
 
 <style>
-.custom-curve {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  overflow: hidden;
-  line-height: 0;
-}
-
-.custom-curve svg {
-  position: relative;
-  display: block;
-  width: calc(100% + 1.3px);
-  height: 60px;
-}
-
-.custom-curve .shape-fill {
-  fill: #000000;
-}
-
-.bg-header {
-  background: linear-gradient(0deg, #4b4533, #000000) !important;
-  transition: #4b4533 350ms linear 0s, #000000 350ms linear 0s;
-}
-
 .bg-footer {
   background: linear-gradient(0deg, #000000, #4b4533) !important;
   transition: #4b4533 350ms linear 0s, #000000 350ms linear 0s;
-}
-
-.v-toolbar__content {
-  align-items: flex-start !important;
 }
 
 h2 {
@@ -558,10 +222,6 @@ a {
 
 .footer-height {
   height: 200px !important;
-}
-
-.v-navigation-drawer__scrim {
-  opacity: 0.4 !important;
 }
 
 .pre-line {

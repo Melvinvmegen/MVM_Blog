@@ -1,25 +1,9 @@
 <template>
   <div>
-    <v-breadcrumbs
-      class="px-0 mx-0"
-      :items="breadcrumbs"
-      v-if="breadcrumbs?.length"
-    >
-      <template v-slot:divider>
-        <Icon name="mdi:chevron-right" size="24" />
-      </template>
-      <template v-slot:title="{ item }">
-        <NuxtLink
-          :to="`${item.path}`"
-          class="text-white text-decoration-none"
-          >{{ item.title }}</NuxtLink
-        >
-      </template>
-    </v-breadcrumbs>
-
-    <v-no-ssr>
+    <Breadcrumbs :breadcrumbs="breadcrumbs" />
+    <ClientOnly>
       <div v-if="post">
-        <h1 class="d-flex justify-space-between align-center">
+        <h1 class="text-3xl font-bold d-flex justify-space-between align-center mb-4">
           {{ post.title }}
 
           <Icon
@@ -37,7 +21,6 @@
           />
         </h1>
         <h3>{{ post.description }}</h3>
-        <br />
         <ContentRenderer :value="post" />
         <h3
           class="text-center font-italic pa-12 text-medium-emphasis font-weight-regular"
@@ -46,7 +29,7 @@
         </h3>
       </div>
       <PortfolioTeaser />
-    </v-no-ssr>
+    </ClientOnly>
   </div>
 </template>
 <script setup>
@@ -100,8 +83,8 @@ const shareLink = async (data) => {
   }
 };
 
-if (post.value) {
-  useMeta({
+if (post.value && process.client) {
+  useHead({
     title: post.value.title,
     description: post.value.subtitle,
   });

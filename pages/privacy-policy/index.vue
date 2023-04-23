@@ -23,7 +23,9 @@ await fetchData(locale.value)
 
 watch(locale, async (newLocale) => await fetchData(newLocale))
 
-useMeta({
-  title: privacy.value.title,
-})
+if (process.client) {
+  useHead({
+    title: privacy.value.title,
+  })
+}
 </script>

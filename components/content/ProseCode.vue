@@ -18,54 +18,55 @@ export default defineComponent({
       default: () => [],
     },
   },
-  setup( props ): any {
+  setup(props): any {
     const codeBlock = ref(null);
     const copied = ref(false);
     const timeout_id = ref(null);
 
     function copyToClipboard() {
-      navigator.clipboard.writeText(codeBlock.value.querySelector("pre code").innerText).then(() => {
-        copied.value = true;
-         
-        clearTimeout(timeout_id.value)
-        timeout_id.value = setTimeout(() => copied.value = false, 2000)
-      });
+      navigator.clipboard
+        .writeText(codeBlock.value.querySelector("pre code").innerText)
+        .then(() => {
+          copied.value = true;
+
+          clearTimeout(timeout_id.value);
+          timeout_id.value = setTimeout(() => (copied.value = false), 2000);
+        });
     }
 
-    return { copyToClipboard, codeBlock, copied }
-  }
+    return { copyToClipboard, codeBlock, copied, props };
+  },
 });
 </script>
 
 <template>
-  <div class="nuxt-content-highlight" ref="codeBlock">
+  <div class="nuxt-content-highlight position-relative" ref="codeBlock">
     <slot />
-    <div class="filename">{{ filename || "JS" }}</div>
-    <v-btn
-      color="white"
-      class="copy"
-      icon
-      variant="outlined"
-      @click="copyToClipboard"
+    <div class="filename">{{ language || "JS" }}</div>
+    <Icon
       v-if="copied"
-    >
-      <Icon name="mdi:check" size="24" />
-    </v-btn>
-    <v-btn
-      color="white"
-      class="copy"
-      icon
-      variant="outlined"
       @click="copyToClipboard"
-      v-else
-    >
-      <Icon name="mdi:content-copy" size="24" />
-    </v-btn>
+      name="mdi:check"
+      size="24"
+      class="copy"
+    />
 
+    <Icon
+      v-else
+      @click="copyToClipboard"
+      name="mdi:content-copy"
+      size="24"
+      class="copy cursor-pointer hover:text-secondary"
+    />
   </div>
 </template>
 
 <style>
+pre {
+  margin-bottom: 30px;
+  word-break: break-all;
+}
+
 pre code .line {
   display: block;
   min-height: 1rem;
@@ -93,8 +94,8 @@ pre code .line {
 
 .nuxt-content-highlight > .copy {
   position: absolute;
-  right: 10px;
-  bottom: 10px;
+  right: 20px;
+  bottom: 20px;
   border: none;
 }
 </style>

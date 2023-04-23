@@ -1,18 +1,7 @@
 <template>
   <div>
-    <v-breadcrumbs class="px-0 mx-0" :items="breadcrumbs" v-if="breadcrumbs?.length">
-      <template v-slot:divider>
-        <Icon name="mdi:chevron-right" size="24" />
-      </template>
-      <template v-slot:title="{ item }">
-        <NuxtLink
-          :to="`/${item === 'Home' ? '' : item}`"
-          class="text-white text-decoration-none"
-          >{{ item.charAt(0).toUpperCase() + item.slice(1) }}</NuxtLink
-        >
-      </template>
-    </v-breadcrumbs>
-    <v-no-ssr>
+    <Breadcrumbs :breadcrumbs="breadcrumbs" v-if="breadcrumbs.length" />
+    <ClientOnly>
       <div v-if="snippet">
         <h1 class="d-flex justify-space-between align-center">
           {{ snippet.title }}
@@ -40,7 +29,7 @@
         </h3>
       </div>
       <PortfolioTeaser />
-    </v-no-ssr>
+    </ClientOnly>
   </div>
 </template>
 <script setup>
@@ -63,14 +52,23 @@ await fetchData(locale.value);
 
 watch(locale, async (newLocale) => {
   await fetchData(newLocale);
-  breadcrumbs.value[0] = t("menu.home");
+  breadcrumbs.value[0] = { path: "", title: t("menu.home") };
 });
 
 if (snippet.value) {
   breadcrumbs.value = snippet.value._path
     .split("/")
-    .filter((s) => s !== "fr" && s !== "en");
-  breadcrumbs.value[0] = t("menu.home");
+    .filter((s) => s !== "fr" && s !== "en" && s)
+    .reduce(
+      (acc, b) => {
+        acc.push({
+          path: `${acc[acc.length - 1].path}/${b}`,
+          title: b.charAt(0).toUpperCase() + b.slice(1),
+        });
+        return acc;
+      },
+      [{ path: "", title: t("menu.home") }]
+    );
 }
 
 if (process.client) {
@@ -87,8 +85,8 @@ const shareLink = async (data) => {
   }
 };
 
-if (snippet.value) {
-  useMeta({
+if (snippet.value && process.client) {
+  useHead({
     title: `${snippet.value.category} - ${snippet.value.title}`,
     description: snippet.value.description,
   });

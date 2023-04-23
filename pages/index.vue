@@ -1,62 +1,55 @@
 <template>
-  <v-row>
-    <v-col cols="12" lg="8" md="8" sm="8" v-if="posts">
-      <h2 class="text-h6 ml-4 text-third">{{ t("posts.last_content") }}</h2>
-      <v-card
-        color="transparent"
-        class="my-6"
-        v-for="article in posts"
-        :key="article._path"
-      >
-        <v-card-title>
-          {{ article.title }}
-        </v-card-title>
-        <v-card-subtitle>{{ article.subtitle }}</v-card-subtitle>
-        <v-card-text>
-          <p class="my-2">{{ article.description }}</p>
+  <div class="flex justify-center md:flex-row flex-col">
+    <div class="w-full md:w-8/12" v-if="posts">
+        <h2 class="text-h6 text-secondary font-semibold">{{ t("posts.last_content") }}</h2>
+        <div
+          class="max-w-2xl px-8 py-4 my-4 bg-black rounded-lg shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] border-2 dark:bg-gray-800"
+          v-for="article in posts"
+          :key="article.id"
+        >
+          <Card :item="article" />
+        </div>
+    </div>
+    <div class="hidden md:block md:w-1/12">
+    </div>
+    <div class="w-full md:w-3/12">
+      <div>
+        <h2 class="text-h6 text-secondary font-semibold">{{ t("posts.categories") }}</h2>
+        <div class="flex flex-wrap">
           <NuxtLink
-            :to="article._path.substr(3, article._path.length)"
+            :to="`/posts/${category}`"
+            v-for="category in categories"
             class="font-weight-bold text-white"
-            >{{ t("posts.read_more") }}</NuxtLink
           >
-        </v-card-text>
-      </v-card>
-    </v-col>
-    <v-col cols="12" md="4">
-      <div>
-        <h2 class="text-h6 text-third">{{ t("posts.categories") }}</h2>
-        <NuxtLink
-          :to="`/posts/${category}`"
-          v-for="category in categories"
-          class="font-weight-bold text-white"
-        >
-          <v-chip class="mr-2 mb-2">{{ category }}</v-chip>
-        </NuxtLink>
+            <div
+              class="[word-wrap: break-word] rounded-xl p-3 my-[5px] mr-4 mb-2 flex h-[32px] cursor-pointer items-center justify-between bg-gray-800 hover:bg-gray-700 px-[12px] py-0 text-[13px] font-normal normal-case leading-loose text-[#ffffff] shadow-none transition-[opacity] duration-300 ease-linear hover:!shadow-none active:bg-gray-400"
+            >
+              {{ category }}
+            </div>
+          </NuxtLink>
+        </div>
       </div>
       <div>
-        <h2 class="text-h6 text-third mb-2">{{ t("posts.snippets") }}</h2>
-        <v-list
-          dense
-          rounded
-          bg-color="transparent"
-          color="white"
-          class="d-flex flex-column"
-        >
-          <v-list-item
-            v-for="snippet in snippets"
-            :key="snippet.title"
-            link
-            class="px-0"
-            :to="snippet._path.substr(3, snippet._path.length)"
-          >
-            <v-list-item-title class="text-white text-decoration-none"
-              >🚀 {{ snippet.title }}
-            </v-list-item-title>
-          </v-list-item>
-        </v-list>
+        <h2 class="text-h6 text-secondary mb-2 font-semibold">{{ t("posts.snippets") }}</h2>
+        <div class="flex flex-col">
+          <ul class="list-none mx-0">
+            <li
+              v-for="snippet in snippets"
+              :key="snippet.title"
+              link
+              class="py-2"
+            >
+              <NuxtLink
+                class="text-white font-semibold hover:underline"
+                :to="snippet._path.substr(3, snippet._path.length)"
+                >🚀 {{ snippet.title }}</NuxtLink
+              >
+            </li>
+          </ul>
+        </div>
       </div>
-    </v-col>
-  </v-row>
+    </div>
+  </div>
 </template>
 <script setup>
 import { useI18n } from "vue-i18n";
@@ -80,10 +73,12 @@ await fetchSnippets(locale.value);
 
 watch(locale, async (newLocale) => {
   await fetchPosts(newLocale);
-  await fetchSnippets(lang);
+  await fetchSnippets(newLocale);
 });
 
-if (posts.value.length > 0) {
-  categories = computed(() => [...new Set(posts.value.map((c) => c.category.toLowerCase()))]);
+if (posts.value?.length > 0) {
+  categories = computed(() => [
+    ...new Set(posts.value.map((c) => c.category?.toLowerCase())),
+  ]);
 }
 </script>
