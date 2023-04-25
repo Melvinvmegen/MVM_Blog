@@ -22,9 +22,10 @@
               />
             </button>
             <button
+              aria-label="MenuSidebar"
               type="button"
               v-else
-              @click="$emit('openDrawer'); drawer = true"
+              @click="$emit('openDrawer')"
               class="block text-white hover:text-gray-600 focus:text-gray-600 focus:outline-none md:hidden"
             >
               <Icon
@@ -84,16 +85,16 @@
             <div
               v-show="isOpen"
               @click.away="isOpen = false"
-              class="absolute right-0 z-20 mt-2 origin-top-right bg-black rounded-md shadow-xl dark:bg-gray-800"
+              class="absolute right-0 z-20 mt-2 origin-top-right bg-black rounded-md shadow-xl"
             >
-              <NuxtLink
+              <span
                 v-for="language in languages"
                 :key="language.locale"
                 @click="setLanguage(language.locale)"
                 class="block px-4 py-3 transition-colors duration-300 transform hover:bg-gray-700"
               >
                 {{ language.icon }}
-              </NuxtLink>
+              </span>
             </div>
           </div>
         </div>

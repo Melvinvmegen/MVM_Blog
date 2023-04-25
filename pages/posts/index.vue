@@ -7,7 +7,7 @@
       >
     </div>
     <div
-      class="max-w-full px-8 py-4 my-4 bg-black rounded-lg shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] border-2 dark:bg-gray-800"
+      class="max-w-full px-8 py-4 my-4 bg-black rounded-lg shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] border-2"
       v-for="article in posts"
       :key="article._path"
     >

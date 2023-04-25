@@ -5,23 +5,13 @@ export default defineNuxtConfig({
   modules: [
     "@intlify/nuxt3", // i18n
     "@nuxt/content",
-    "@nuxtjs/robots",
     "@nuxtjs/tailwindcss",
-    "nuxt-simple-sitemap",
     "nuxt-purgecss",
     "nuxt-icon"
   ],
-  routeRules: {
-    // Static page generated on-demand, revalidates in background
-    '/posts/**': { swr: true },
-    '/snippets/**': { swr: true },
-    // Static page generated on-demand once
-    '/': { static: true },
-    '/posts': { static: true },
-    '/snippets': { static: true },
-    '/terms': { static: true },
-    '/privacy-policy': { static: true },
-  },
+  extends: [
+    "nuxt-seo-kit",
+  ],
   content: {
     highlight: {
       theme: "dark-plus",
@@ -44,6 +34,9 @@ export default defineNuxtConfig({
   runtimeConfig: {
     public: {
       siteUrl: process.env.NUXT_PUBLIC_SITE_URL || 'https://blog.melvinvmegen.com/sitemap.xml',
+      siteName: 'MVM Blog for JS developers',
+      siteDescription: 'Friendly tutorials for developers. Focus on Js, Vue, Node, and more!',
+      language: 'en-US',
     }
   },
   robots: {
@@ -93,7 +86,4 @@ export default defineNuxtConfig({
         "my" ],
       },
   },
-  nuxtIcon: {
-    size: '24px' // default <Icon> size applied
-  }
 });
