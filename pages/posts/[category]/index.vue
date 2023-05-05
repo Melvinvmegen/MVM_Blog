@@ -26,11 +26,7 @@ const { path } = useRoute();
 const category =
   path.split("/")[2].charAt(0).toUpperCase() + path.split("/")[2].slice(1);
 
-posts.value = await fetchAll(
-  `postsList-${lang}-${category}`,
-  `/${lang}/posts`,
-  { category }
-);
+posts.value = await fetchAll(`postsList-${category}`, `/posts`, { category });
 
 if (posts.value?.length > 0 && process.client) {
   useHead({
