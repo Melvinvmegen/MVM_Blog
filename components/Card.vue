@@ -12,8 +12,8 @@
 
   <div class="mt-2">
     <NuxtLink
-      :to="item._path.substr(3, item._path.length)"
-      class="text-xl font-bold hover:underline"
+      :to="item._path"
+      class="no-underline text-xl font-bold hover:underline"
       >{{ item.title }}</NuxtLink
     >
     <p class="mt-2">
@@ -23,8 +23,8 @@
 
   <div class="flex items-center justify-between mt-4">
     <NuxtLink
-      :to="item._path.substr(3, item._path.length)"
-      class="font-weight-bold text-secondary"
+      :to="item._path"
+      class="font-weight-bold text-secondary hover:text-third"
       >{{ t("posts.read_more") }}</NuxtLink
     >
   </div>

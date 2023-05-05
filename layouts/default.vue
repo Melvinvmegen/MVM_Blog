@@ -145,20 +145,14 @@ function cookiesStated(boolean) {
 }
 
 const route = useRoute();
-const { t, locale } = useI18n();
+const { t } = useI18n();
 
 const drawer = ref(false);
 
 const { fetchAll } = useFetch();
 const posts = ref(null);
 const post_categories = ref([]);
-async function fetchData(lang) {
-  posts.value = await fetchAll(`postsList-${lang}`, `/${lang}/posts`);
-}
-
-await fetchData(locale.value);
-
-watch(locale, async (newLocale) => await fetchData(newLocale));
+posts.value = await fetchAll("postsList", "/posts");
 
 if (posts.value?.length > 0) {
   const categories = [...new Set(posts.value.map((c) => c.category))];
@@ -180,7 +174,7 @@ useHead({
   viewport: "width=device-width, initial-scale=1, maximum-scale=1",
   charset: "utf-8",
   htmlAttrs: {
-    lang: locale.value,
+    lang: "en-US",
   },
   meta: [
     {

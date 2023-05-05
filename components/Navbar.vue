@@ -75,28 +75,6 @@
             class="cursor-pointer ml-4 hover:text-gray-300"
             v-else
           />
-          <div class="relative inline-block">
-            <button
-              @click="isOpen = !isOpen"
-              class="relative z-10 block ml-4 focus:ring-opacity-40 dark:focus:ring-opacity-40 focus:ring-blue-300 dark:focus:ring-blue-400 focus:ring focus:outline-none"
-            >
-              {{ currentLanguage.icon }}
-            </button>
-            <div
-              v-show="isOpen"
-              @click.away="isOpen = false"
-              class="absolute right-0 z-20 mt-2 origin-top-right bg-black rounded-md shadow-xl"
-            >
-              <span
-                v-for="language in languages"
-                :key="language.locale"
-                @click="setLanguage(language.locale)"
-                class="block px-4 py-3 transition-colors duration-300 transform hover:bg-gray-700"
-              >
-                {{ language.icon }}
-              </span>
-            </div>
-          </div>
         </div>
       </div>
       <div class="custom-curve">
@@ -125,19 +103,7 @@ defineProps({
   },
 })
 
-const isOpen = ref(false);
-const { t, locale } = useI18n();
-const languages = [
-  { locale: "en", name: "English", icon: "🏴󠁧󠁢󠁥󠁮󠁧󠁿" },
-  { locale: "fr", name: "Français", icon: "🇫🇷" },
-];
-const currentLanguage = computed(() =>
-  languages.find((l) => l.locale === locale.value)
-);
-
-function setLanguage(lang: string) {
-  locale.value = lang;
-}
+const { t } = useI18n();
 
 const nav_items = [
   { name: t("menu.posts"), link: "/posts" },

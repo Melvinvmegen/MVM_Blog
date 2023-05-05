@@ -20,23 +20,17 @@ import { useI18n } from "vue-i18n";
 import useFetch from "../../../composables/fetch";
 
 const { fetchAll } = useFetch();
-const { t, locale } = useI18n();
+const { t } = useI18n();
 const posts = ref(null);
 const { path } = useRoute();
 const category =
   path.split("/")[2].charAt(0).toUpperCase() + path.split("/")[2].slice(1);
 
-async function fetchData(lang) {
-  posts.value = await fetchAll(
-    `postsList-${lang}-${category}`,
-    `/${lang}/posts`,
-    { category }
-  );
-}
-
-await fetchData(locale.value);
-
-watch(locale, async (newLocale) => await fetchData(newLocale));
+posts.value = await fetchAll(
+  `postsList-${lang}-${category}`,
+  `/${lang}/posts`,
+  { category }
+);
 
 if (posts.value?.length > 0 && process.client) {
   useHead({

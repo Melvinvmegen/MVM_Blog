@@ -32,8 +32,8 @@
         >
           <td>
             <NuxtLink
-              :to="snippet._path.substr(3, snippet._path.length)"
-              class="text-decoration-none text-secondary"
+              :to="snippet._path"
+              class="no-underline text-secondary"
               >{{ snippet.title }}</NuxtLink
             >
           </td>
@@ -57,16 +57,10 @@ import { useI18n } from "vue-i18n";
 import useFetch from "../../composables/fetch";
 
 const { fetchAll } = useFetch();
-const { t, locale } = useI18n();
+const { t } = useI18n();
 const snippets = ref(null);
 
-async function fetchData(lang) {
-  snippets.value = await fetchAll(`snippetsList-${lang}`, `/${lang}/snippets`);
-}
-
-await fetchData(locale.value);
-
-watch(locale, (newLocale) => fetchData(newLocale));
+snippets.value = await fetchAll("snippetsList", "/snippets");
 
 if (process.client) {
   useHead({

@@ -20,16 +20,10 @@ import { useI18n } from "vue-i18n";
 import useFetch from "../../composables/fetch";
 
 const { fetchAll } = useFetch();
-const { t, locale } = useI18n();
+const { t } = useI18n();
 const posts = ref(null);
 
-async function fetchData(lang) {
-  posts.value = await fetchAll(`postsList-${lang}`, `/${lang}/posts`);
-}
-
-await fetchData(locale.value);
-
-watch(locale, async (newLocale) => await fetchData(newLocale));
+posts.value = await fetchAll("postsList", "/posts");
 
 if (process.client) {
   useHead({

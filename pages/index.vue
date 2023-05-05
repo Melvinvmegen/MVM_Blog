@@ -19,7 +19,7 @@
           <NuxtLink
             :to="`/posts/${category}`"
             v-for="category in categories"
-            class="font-weight-bold text-white"
+            class="font-weight-bold text-white no-underline"
           >
             <div
               class="[word-wrap: break-word] rounded-xl p-3 my-[5px] mr-4 mb-2 flex h-[32px] cursor-pointer items-center justify-between bg-gray-800 hover:bg-gray-700 px-[12px] py-0 text-[13px] font-normal normal-case leading-loose text-[#ffffff] shadow-none transition-[opacity] duration-300 ease-linear hover:!shadow-none active:bg-gray-400"
@@ -40,8 +40,8 @@
               class="py-2"
             >
               <NuxtLink
-                class="text-white font-semibold hover:underline"
-                :to="snippet._path.substr(3, snippet._path.length)"
+                class="text-white no-underline font-semibold hover:underline"
+                :to="snippet._path"
                 >🚀 {{ snippet.title }}</NuxtLink
               >
             </li>
@@ -56,25 +56,13 @@ import { useI18n } from "vue-i18n";
 import useFetch from "../composables/fetch";
 
 const { fetchAll } = useFetch();
-const { t, locale } = useI18n();
+const { t } = useI18n();
 const posts = ref(null);
 const snippets = ref(null);
 let categories = null;
-async function fetchPosts(lang) {
-  posts.value = await fetchAll(`postsList-${lang}`, `/${lang}/posts`);
-}
 
-async function fetchSnippets(lang) {
-  snippets.value = await fetchAll(`snippetsList-${lang}`, `/${lang}/snippets`);
-}
-
-await fetchPosts(locale.value);
-await fetchSnippets(locale.value);
-
-watch(locale, async (newLocale) => {
-  await fetchPosts(newLocale);
-  await fetchSnippets(newLocale);
-});
+posts.value = await fetchAll("postsList", "/posts");
+snippets.value = await fetchAll("snippetsList", "/snippets");
 
 if (posts.value?.length > 0) {
   categories = computed(() => [

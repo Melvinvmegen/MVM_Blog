@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1 class="text-center">{{ privacy.title }}</h1>
+    <h1 class="text-3xl text-center">{{ privacy.title }}</h1>
     <h3 class="text-center font-italic pa-4 font-weight-regular">{{ t("posts.last_updated") }} {{ privacy.last_updated }}</h3>
     <br/>
     <ContentRenderer :value="privacy" />
@@ -11,17 +11,11 @@ import { useI18n } from 'vue-i18n'
 import useFetch from "../../composables/fetch";
 
 const { fetchOne } = useFetch();
-const { t, locale } = useI18n()
+const { t } = useI18n()
 const { path } = useRoute();
 const privacy = ref(null);
 
-async function fetchData(lang) {
-  privacy.value = await fetchOne(`${path}-${lang}`, {_path: `/${lang}${path}` });
-}
-
-await fetchData(locale.value)
-
-watch(locale, async (newLocale) => await fetchData(newLocale))
+privacy.value = await fetchOne(path, { _path: path });
 
 if (process.client) {
   useHead({
