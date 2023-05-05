@@ -38,23 +38,22 @@ const { fetchOne } = useFetch();
 const { t } = useI18n();
 const { path } = useRoute();
 const snippet = ref(null);
-let canShare
-
 snippet.value = await fetchOne(path, { _path: path });
 
+let canShare;
+let shareLink;
 if (process.client) {
   canShare = computed(() => "share" in navigator);
+  shareLink = async (data) => {
+    data.path = window.location.origin + data.path;
+    if (!canShare.value) return;
+    await navigator?.share(data);
+  };
 }
-
-const shareLink = async (data) => {
-  data.path = window.location.origin + data.path;
-  if (!canShare.value) return;
-  try {
-    await navigator.share(data);
-  } catch (error) {
-    console.error(error);
-  }
-};
+try {
+} catch (error) {
+  console.error(error);
+}
 
 if (snippet.value && process.client) {
   useHead({
