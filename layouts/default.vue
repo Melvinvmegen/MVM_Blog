@@ -27,11 +27,9 @@
           <p class="mb-4 text-base text-neutral-600 dark:text-neutral-200">
             {{ t("cookies.text") }}
             <br />
-            <NuxtLink
-              to="/privacy-policy"
-              class="text-decoration-none text-black"
-              >{{ t("cookies.link") }}</NuxtLink
-            >
+            <NuxtLink to="/privacy-policy" class="no-underline text-black">{{
+              t("cookies.link")
+            }}</NuxtLink>
           </p>
         </div>
         <button
@@ -60,7 +58,7 @@
       </button>
     </div>
     <div
-      class="bg-primary z-50 fixed top-0 left-0 h-screen w-64 flex flex-col justify-between max-w-xs transition-transform transform duration-1000 ease-in-out"
+      class="bg-primary z-50 fixed top-0 left-0 h-screen w-3/5 flex flex-col justify-between max-w-xs transition-transform transform duration-1000 ease-in-out"
       :class="{ 'translate-x-full': !drawer, 'translate-x-0': drawer }"
       v-if="drawer"
     >
@@ -70,7 +68,7 @@
             <NuxtLink
               :to="item.link"
               @click="drawer = false"
-              class="my-2 text-white hover:text-gray-200 font-semibold text-xl"
+              class="my-2 text-white hover:text-gray-200 font-semibold text-xl no-underline"
               >{{ item.name }}</NuxtLink
             >
             <h3
@@ -89,9 +87,9 @@
         </ul>
       </div>
       <div class="flex flex-col justify-center">
-        <div class="m-4">
+        <div class="m-4 mb-12">
           <h6
-            class="text-secondary mb-4 flex items-center font-semibold uppercase md:justify-start"
+            class="text-secondary mb-4 flex justify-center items-center font-semibold uppercase md:justify-start"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -105,13 +103,15 @@
             </svg>
             MVM
           </h6>
-          <p>
-            {{ t("footer.thanks") }}
-          </p>
           <SocialLinks />
         </div>
       </div>
     </div>
+    <div
+      class="backdrop-blur-sm z-50 fixed top-0 right-0 h-screen w-2/5 flex flex-col justify-between max-w-xs"
+      v-if="drawer"
+      @click="drawer = !drawer"
+    ></div>
   </div>
 </template>
 <script setup>
@@ -202,6 +202,13 @@ useHead({
 
 h2 {
   margin: 30px 0;
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+
+h3 {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
 }
 
 h2 a {
@@ -216,13 +223,6 @@ h3 a {
 
 p {
   margin: 20px 0;
-}
-
-pre {
-  background-color: #2f2e2a;
-  border-radius: 5px;
-  padding: 20px;
-  white-space: pre-wrap;
 }
 
 ul {
@@ -242,6 +242,7 @@ th {
 
 a {
   color: white;
+  text-decoration: underline;
 }
 
 .footer-height {

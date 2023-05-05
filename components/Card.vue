@@ -5,7 +5,7 @@
     >
     <NuxtLink
       :to="`/posts/${item.category?.toLowerCase()}`"
-      class="px-3 py-1 text-sm font-bold text-black transition-colors duration-300 transform bg-secondary rounded cursor-pointer hover:bg-gray-500"
+      class="no-underline px-3 py-1 text-sm font-bold text-black transition-colors duration-300 transform bg-secondary rounded cursor-pointer hover:bg-gray-500"
       >{{ item.category }}</NuxtLink
     >
   </div>

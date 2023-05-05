@@ -18,7 +18,7 @@
       <div class="flex justify-center">
       <NuxtLink
         to="https://www.melvinvmegen.com/"
-        class="font-medium rounded text-center text-black bg-secondary px-6 pb-2 pt-2.5 text-sm uppercase leading-normal transition duration-150 ease-in-out hover:bg-accent focus:bg-accent focus:outline-none focus:ring-0 active:bg-accent"
+        class="no-underline font-medium rounded text-center text-black bg-secondary px-6 pb-2 pt-2.5 text-sm uppercase leading-normal transition duration-150 ease-in-out hover:bg-accent focus:bg-accent focus:outline-none focus:ring-0 active:bg-accent"
       >
           {{ t("portfolio.link") }}
       </NuxtLink>

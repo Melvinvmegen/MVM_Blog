@@ -5,20 +5,20 @@
         class="flex flex-col container w-10/12 mx-auto md:flex-row md:items-center md:justify-between"
       >
         <div class="flex justify-between items-center">
-          <NuxtLink to="/" class="text-secondary text-xl font-bold md:text-2xl"
+          <NuxtLink to="/" class="text-secondary no-underline text-xl font-bold md:text-2xl"
             >MVM</NuxtLink
           >
           <div>
             <button
               type="button"
               v-if="drawer"
-              @click="$emit('openDrawer'); drawer = false"
+              @click="$emit('openDrawer');"
               class="block text-white hover:text-gray-600 focus:text-gray-600 focus:outline-none md:hidden"
             >
               <Icon
                 name="mdi:close"
                 size="24"
-                class="cursor-pointer"
+                class="cursor-pointer z-50"
               />
             </button>
             <button
@@ -41,7 +41,7 @@
             v-for="item in nav_items"
             :key="item.name"
             :to="item.link"
-            class="my-1 hover:text-secondary px-4 py-2 rounded-md"
+            class="my-1 hover:text-secondary px-4 py-2 rounded-md no-underline"
             active-class="text-secondary"
             >{{ item.name }}</NuxtLink
           >

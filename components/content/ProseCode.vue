@@ -64,7 +64,12 @@ export default defineComponent({
 <style>
 pre {
   margin-bottom: 30px;
-  word-break: break-all;
+  overflow-wrap: normal;
+  white-space: pre-wrap;
+  word-break: normal;
+  background-color: #2f2e2a;
+  border-radius: 5px;
+  padding: 20px;
 }
 
 pre code .line {

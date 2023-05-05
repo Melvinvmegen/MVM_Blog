@@ -40,7 +40,7 @@
           >
             <NuxtLink
               :to="item.link"
-              class="text-white hover:text-secondary"
+              class="text-white hover:text-secondary no-underline"
               active-class="text-secondary"
               >{{ item.name }}</NuxtLink
             >
@@ -61,7 +61,7 @@
           >
             <NuxtLink
               :to="item.link"
-              class="text-white hover:text-secondary"
+              class="text-white hover:text-secondary no-underline"
               active-class="text-secondary"
               >{{ item.name }}</NuxtLink
             >

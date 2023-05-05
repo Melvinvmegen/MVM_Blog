@@ -1,10 +1,10 @@
 <template>
   <div
-    class="my-8 w-full flex justify-between rounded-lg border-accent border-2 px-6 py-5 text-base text-accent"
+    class="my-8 w-full flex justify-between items-center rounded-lg border-accent border-2 px-4 py-3 text-base text-accent"
     role="alert"
   >
-    <Icon name="mdi:information-outline" size="30" class="w-8"/>
-    <div class="w-max">
+    <Icon name="mdi:information-outline" size="30" class="md:w-1/12 w-2/12"/>
+    <div class="md:w-11/12 w-10/12">
       <slot />
     </div>
   </div>
