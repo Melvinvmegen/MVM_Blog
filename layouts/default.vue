@@ -123,9 +123,9 @@ import useFetch from "../composables/fetch";
 const showCookie = ref(false);
 const cookie = ref(null);
 if (process.client) {
-  cookie.value = ref(
-    document.cookie.split(";").filter((i) => i.includes("analytics"))[0] || null
-  );
+  cookie.value =
+    document.cookie.split(";").filter((i) => i.includes("analytics"))[0] ||
+    null;
 }
 const { isEnabled } = useState();
 
