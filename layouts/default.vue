@@ -233,6 +233,8 @@ ul {
 
 ol {
   margin-left: 20px;
+  list-style: auto;
+  margin-bottom: 10px;
 }
 
 td,

@@ -2,18 +2,19 @@
   <div>
     <Breadcrumbs />
     <div v-if="snippet">
-      <h1 class="text-3xl d-flex justify-space-between align-center">
+      <h1 class="flex text-3xl d-flex justify-space-between align-center">
         {{ snippet.title }}
         <Icon
-          name="mdi:share-outline"
-          size="16"
           v-if="canShare"
+          name="mdi:share-outline"
+          size="30"
           title="Share this article"
+          class="ml-2"
           @click="
             shareLink({
-              title: snippet.title,
-              text: snippet.description,
-              path: snippet._path,
+              title: post.title,
+              text: post.description,
+              path: post._path,
             })
           "
         />

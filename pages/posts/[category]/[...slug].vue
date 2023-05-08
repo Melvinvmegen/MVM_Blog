@@ -3,14 +3,15 @@
     <Breadcrumbs />
     <div v-if="post">
       <h1
-        class="text-3xl font-bold d-flex justify-space-between align-center mb-4"
+        class="flex text-3xl font-bold d-flex justify-space-between align-center mb-4"
       >
         {{ post.title }}
         <Icon
-          name="mdi:share-outline"
-          size="16"
           v-if="canShare"
+          name="mdi:share-outline"
+          size="30"
           title="Share this article"
+          class="ml-2"
           @click="
             shareLink({
               title: post.title,

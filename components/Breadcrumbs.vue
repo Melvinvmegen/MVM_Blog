@@ -22,7 +22,7 @@ try {
 </script>
 <template>
   <nav class="bg-grey-light w-full rounded-md" v-if="breadcrumbs?.length">
-    <ol class="list-reset flex flex-wrap mx-0 py-6 items-center">
+    <ol class="list-reset flex flex-wrap mx-0 py-6 items-center list-none">
       <template v-for="(item, index) of breadcrumbs">
         <li> 
           <NuxtLink
