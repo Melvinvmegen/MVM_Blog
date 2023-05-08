@@ -31,8 +31,9 @@
   "portfolio": {
     "title": "⚡ Who am i to talk about this? ⚡",
     "text": "Honestly i am no one, i've just been coding for 3 years now and i like to document every solutions to every problem i encounter. Extracting as much code snippets and tutorials i can so that if i ever need it again i just have to pop back here and get a quick refresher.",
-    "subtext": "Feel free to me through this learning journey by providing any feedback and if you wanna know more about me:",
-    "link": "Learn more about me"
+    "subtext": "Feel free to me through this learning journey by providing any feedback and if you wanna support me:",
+    "link": "Learn more about me",
+    "buyMeACoffe": "Buy me a coffee"
   },
   "footer": {
     "contact": "Contact",
