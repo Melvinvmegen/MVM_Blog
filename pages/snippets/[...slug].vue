@@ -51,10 +51,6 @@ if (process.client) {
     await navigator?.share(data);
   };
 }
-try {
-} catch (error) {
-  console.error(error);
-}
 
 if (snippet.value && process.client) {
   useHead({

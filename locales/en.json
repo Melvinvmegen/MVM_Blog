@@ -35,6 +35,11 @@
     "link": "Learn more about me",
     "buyMeACoffe": "Buy me a coffee"
   },
+  "thankYou": {
+    "title": "🎁 Thank you so much for your ! 🎁",
+    "text": "Honestly i am so grateful, this will help me get going on sharing my personal knowledge knowing it also helps others!",
+    "link": "Thank you "
+  },
   "footer": {
     "contact": "Contact",
     "terms": "Terms of use",

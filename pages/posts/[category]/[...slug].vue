@@ -52,10 +52,7 @@ if (process.client) {
     await navigator?.share(data);
   };
 }
-try {
-} catch (error) {
-  console.error(error);
-}
+
 
 if (post.value && process.client) {
   useHead({

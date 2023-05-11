@@ -16,7 +16,9 @@
       </p>
 
       <div class="flex justify-center">
-        <form action="https://www.finance.melvinvmegen.com/api/checkout" method="POST">
+        <form action="https://www.finance.melvinvmegen.com/api/payment/checkout" method="POST">
+          <input type="hidden" name="redirectUrl" id="redirectUrl" :value="redirectUrl"/>
+          <input type="hidden" name="backUrl" id="backUrl" :value="backUrl"/>
           <button
             class="no-underline font-medium rounded text-center text-black bg-secondary px-6 pb-2 pt-2.5 text-sm uppercase leading-normal transition duration-150 ease-in-out hover:bg-accent focus:bg-accent focus:outline-none focus:ring-0 active:bg-accent"
           >
@@ -30,4 +32,11 @@
 <script setup>
 import { useI18n } from "vue-i18n";
 const { t } = useI18n();
+
+let redirectUrl = ref("");
+let backUrl = ref("");
+if (process.client) {
+  redirectUrl.value = `${window.location.origin}/thank-you`;
+  backUrl.value = window.location.href;
+}
 </script>
