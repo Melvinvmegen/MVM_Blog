@@ -2,7 +2,7 @@
 import { useI18n } from "vue-i18n";
 const { t } = useI18n();
 const breadcrumbs = ref([]);
-try {
+if (process.client) {
   breadcrumbs.value = window?.location?.pathname
     ?.split("/")
     ?.filter((s) => s !== "fr" && s !== "en" && s)
@@ -16,8 +16,6 @@ try {
       },
       [{ path: "", title: t("menu.home") }]
     );
-} catch (error) {
-  console.log(error);
 }
 </script>
 <template>

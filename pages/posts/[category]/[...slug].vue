@@ -1,34 +1,32 @@
 <template>
-  <div>
-    <Breadcrumbs />
-    <div v-if="post">
-      <h1
-        class="flex text-3xl font-bold d-flex justify-space-between align-center mb-4"
-      >
-        {{ post.title }}
-        <Icon
-          v-if="canShare"
-          name="mdi:share-outline"
-          size="30"
-          title="Share this article"
-          class="ml-2"
-          @click="
-            shareLink({
-              title: post.title,
-              text: post.description,
-              path: post._path,
-            })
-          "
-        />
-      </h1>
-      <h3>{{ post.description }}</h3>
-      <ContentRenderer :value="post" />
-      <h3
-        class="text-center font-italic p-4 text-medium-emphasis font-weight-regular"
-      >
-        {{ t("posts.last_updated") }} {{ post.last_updated }}
-      </h3>
-    </div>
+  <Breadcrumbs />
+  <div v-if="post">
+    <h1
+      class="flex text-3xl font-bold d-flex justify-space-between align-center mb-4"
+    >
+      {{ post.title }}
+      <Icon
+        v-if="canShare"
+        name="mdi:share-outline"
+        size="30"
+        title="Share this article"
+        class="ml-2"
+        @click="
+          shareLink({
+            title: post.title,
+            text: post.description,
+            path: post._path,
+          })
+        "
+      />
+    </h1>
+    <h3>{{ post.description }}</h3>
+    <ContentRenderer :value="post" />
+    <h3
+      class="text-center font-italic p-4 text-medium-emphasis font-weight-regular"
+    >
+      {{ t("posts.last_updated") }} {{ post.last_updated }}
+    </h3>
     <PortfolioTeaser />
   </div>
 </template>
@@ -52,7 +50,6 @@ if (process.client) {
     await navigator?.share(data);
   };
 }
-
 
 if (post.value && process.client) {
   useHead({
