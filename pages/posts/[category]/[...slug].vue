@@ -27,8 +27,10 @@
     >
       {{ t("posts.last_updated") }} {{ post.last_updated }}
     </h3>
-    <PortfolioTeaser />
   </div>
+  <ClientOnly>
+    <PortfolioTeaser :redirect-url="redirectUrl" :back-url="backUrl" />
+  </ClientOnly>
 </template>
 <script setup>
 import { useI18n } from "vue-i18n";
@@ -42,6 +44,8 @@ post.value = await fetchOne(path, { _path: path });
 
 let canShare;
 let shareLink;
+let redirectUrl = ref(null);
+let backUrl = ref(null);
 if (process.client) {
   canShare = computed(() => "share" in navigator);
   shareLink = async (data) => {
@@ -49,6 +53,8 @@ if (process.client) {
     if (!canShare.value) return;
     await navigator?.share(data);
   };
+  redirectUrl.value = `${window.location.origin}/thank-you`;
+  backUrl.value = window.location.href;
 }
 
 if (post.value && process.client) {
