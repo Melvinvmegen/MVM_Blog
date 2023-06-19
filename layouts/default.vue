@@ -121,7 +121,7 @@ import useFetch from "../composables/fetch";
 
 // Enable cookies
 const showCookie = ref(false);
-const cookie = ref(null);
+const cookie = ref({});
 if (process.client) {
   cookie.value =
     document.cookie.split(";").filter((i) => i.includes("analytics"))[0] ||
