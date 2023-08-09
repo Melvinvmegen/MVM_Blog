@@ -1,5 +1,5 @@
 # --------------> The build image
-FROM node:16.17.0-bullseye-slim as build
+FROM node:18.17.0-bullseye-slim as build
 RUN apt-get update
 
 WORKDIR /app
