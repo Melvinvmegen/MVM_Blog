@@ -3,7 +3,7 @@
     <div class="flex justify-between ml-0 mt-2 align-center">
       <h2 class="text-h6 text-secondary">{{ category.toUpperCase() }}</h2>
       <span class="text-subtitle-1"
-        >{{ posts.length }} {{ t("posts.articles") }}</span
+        >{{ posts.length }} {{ $t("posts.articles") }}</span
       >
     </div>
     <div
@@ -16,11 +16,9 @@
   </div>
 </template>
 <script setup>
-import { useI18n } from "vue-i18n";
 import useFetch from "../../../composables/fetch";
 
 const { fetchAll } = useFetch();
-const { t } = useI18n();
 const posts = ref(null);
 const { path } = useRoute();
 const category =

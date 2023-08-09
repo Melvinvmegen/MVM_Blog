@@ -22,13 +22,13 @@
           <h5
             class="mb-2 text-xl font-medium leading-tight text-neutral-800 dark:text-neutral-50"
           >
-            {{ t("cookies.title") }}
+            {{ $t("cookies.title") }}
           </h5>
           <p class="mb-4 text-base text-neutral-600 dark:text-neutral-200">
-            {{ t("cookies.text") }}
+            {{ $t("cookies.text") }}
             <br />
-            <NuxtLink to="/privacy-policy" class="no-underline text-black">{{
-              t("cookies.link")
+            <NuxtLink to="/privacy-policy" class="no-underline font-bold">{{
+              $t("cookies.link")
             }}</NuxtLink>
           </p>
         </div>
@@ -37,14 +37,14 @@
           class="h-10 w-2/4 pa-0 ma-0 inline-block bg-primary px-6 py-2 font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]"
           @click="cookiesStated(false)"
         >
-          {{ t("cookies.refuse") }}
+          {{ $t("cookies.refuse") }}
         </button>
         <button
           type="button"
           class="h-10 w-2/4 pa-0 ma-0 inline-block bg-secondary px-6 py-2 font-medium uppercase leading-normal text-primary shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]"
           @click="cookiesStated(true)"
         >
-          {{ t("cookies.accept") }}
+          {{ $t("cookies.accept") }}
         </button>
       </div>
       <button
@@ -115,11 +115,10 @@
   </div>
 </template>
 <script setup>
-import { useI18n } from "vue-i18n";
 import { useState } from "vue-gtag-next";
 import useFetch from "../composables/fetch";
 
-// Enable cookies
+const { t: $t } = useI18n();
 const showCookie = ref(false);
 const cookie = ref({});
 if (process.client) {
@@ -145,8 +144,6 @@ function cookiesStated(boolean) {
 }
 
 const route = useRoute();
-const { t } = useI18n();
-
 const drawer = ref(false);
 
 const { fetchAll } = useFetch();
@@ -165,12 +162,12 @@ if (posts.value?.length > 0) {
 }
 
 const nav_items = [
-  { name: t("menu.posts"), link: "/posts" },
-  { name: t("menu.snippets"), link: "/snippets" },
+  { name: $t("menu.posts"), link: "/posts" },
+  { name: $t("menu.snippets"), link: "/snippets" },
 ];
 
 useHead({
-  titleTemplate: (title) => (title ? `MVM Blog - ${title}` : t("seo.title")),
+  titleTemplate: (title) => (title ? `MVM Blog - ${title}` : $t("seo.title")),
   viewport: "width=device-width, initial-scale=1, maximum-scale=1",
   charset: "utf-8",
   htmlAttrs: {
@@ -179,15 +176,15 @@ useHead({
   meta: [
     {
       name: "description",
-      content: route.meta.description || t("seo.description"),
+      content: route.meta.description || $t("seo.description"),
     },
-    { name: "og:title", content: route.meta.title || t("seo.title") },
+    { name: "og:title", content: route.meta.title || $t("seo.title") },
     {
       name: "og:description",
-      content: route.meta.description || t("seo.description"),
+      content: route.meta.description || $t("seo.description"),
     },
     { name: "og:image", content: "website" },
-    { name: "og:image:alt", content: t("seo.image_alt") },
+    { name: "og:image:alt", content: $t("seo.image_alt") },
     { name: "og:image:width", content: "1280" },
     { name: "og:image:width", content: "675" },
   ],

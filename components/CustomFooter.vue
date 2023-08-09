@@ -21,7 +21,7 @@
             MVM
           </h2>
           <p>
-            {{ t("footer.thanks") }}
+            {{ $t("footer.thanks") }}
           </p>
           <SocialLinks />
         </div>
@@ -29,7 +29,7 @@
           <h6
             class="mb-2 flex justify-center md:justify-start font-semibold uppercase"
           >
-            {{ t("footer.tutorials") }}
+            {{ $t("footer.tutorials") }}
           </h6>
           <p
             class="my-2"
@@ -50,7 +50,7 @@
           <h6
             class="mb-2 flex justify-center font-semibold uppercase md:justify-start"
           >
-            {{ t("footer.links") }}
+            {{ $t("footer.links") }}
           </h6>
           <p
             class="my-2"
@@ -75,8 +75,8 @@
   </footer>
 </template>
 <script setup lang="ts">
-import { useI18n } from "vue-i18n";
-const { t } = useI18n();
+const { t: $t } = useI18n();
+
 defineProps<{
   postCategories: {
     name: string;
@@ -86,16 +86,16 @@ defineProps<{
 
 const links = [
   {
-    name: t("footer.contact"),
+    name: $t("footer.contact"),
     link: "mailto:melvin.vmegen@gmail.com",
     external: true,
   },
   {
-    name: t("footer.portfolio"),
+    name: $t("footer.portfolio"),
     link: "https://melvinvmegen.com/",
     external: true,
   },
-  { name: t("footer.terms"), link: "/terms" },
-  { name: t("footer.privacy"), link: "/privacy-policy" },
+  { name: $t("footer.terms"), link: "/terms" },
+  { name: $t("footer.privacy"), link: "/privacy-policy" },
 ];
 </script>

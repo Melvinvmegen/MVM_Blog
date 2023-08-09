@@ -1,7 +1,7 @@
 <template>
   <div class="flex justify-center md:flex-row flex-col">
     <div class="w-full md:w-8/12" v-if="posts">
-        <h2 class="text-h6 text-secondary font-semibold">{{ t("posts.last_content") }}</h2>
+        <h2 class="text-h6 text-secondary font-semibold">{{ $t("posts.last_content") }}</h2>
         <div
           class="max-w-2xl px-8 py-4 my-4 bg-black rounded-lg shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] border-2"
           v-for="article in posts"
@@ -14,7 +14,7 @@
     </div>
     <div class="w-full md:w-3/12">
       <div>
-        <h2 class="text-h6 text-secondary font-semibold">{{ t("posts.categories") }}</h2>
+        <h2 class="text-h6 text-secondary font-semibold">{{ $t("posts.categories") }}</h2>
         <div class="flex flex-wrap">
           <NuxtLink
             :to="`/posts/${category}`"
@@ -30,7 +30,7 @@
         </div>
       </div>
       <div>
-        <h2 class="text-h6 text-secondary mb-2 font-semibold">{{ t("posts.snippets") }}</h2>
+        <h2 class="text-h6 text-secondary mb-2 font-semibold">{{ $t("posts.snippets") }}</h2>
         <div class="flex flex-col">
           <ul class="list-none mx-0">
             <li
@@ -52,11 +52,9 @@
   </div>
 </template>
 <script setup>
-import { useI18n } from "vue-i18n";
 import useFetch from "../composables/fetch";
 
 const { fetchAll } = useFetch();
-const { t } = useI18n();
 const posts = ref(null);
 const snippets = ref(null);
 let categories = null;

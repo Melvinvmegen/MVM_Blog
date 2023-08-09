@@ -1,17 +1,15 @@
 <template>
-  <div>
+  <div v-if="privacy">
     <h1 class="text-3xl text-center">{{ privacy.title }}</h1>
-    <h3 class="text-center font-italic pa-4 font-weight-regular">{{ t("posts.last_updated") }} {{ privacy.last_updated }}</h3>
+    <h3 class="text-center font-italic pa-4 font-weight-regular">{{ $t("posts.last_updated") }} {{ privacy.last_updated }}</h3>
     <br/>
     <ContentRenderer :value="privacy" />
   </div>
 </template>
 <script setup>
-import { useI18n } from 'vue-i18n'
 import useFetch from "../../composables/fetch";
 
 const { fetchOne } = useFetch();
-const { t } = useI18n()
 const { path } = useRoute();
 const privacy = ref(null);
 

@@ -94,7 +94,7 @@
   </nav>
 </template>
 <script setup lang="ts">
-import { useI18n } from "vue-i18n";
+const { t: $t } = useI18n();
 
 defineProps({
   drawer: {
@@ -103,11 +103,9 @@ defineProps({
   },
 })
 
-const { t } = useI18n();
-
 const nav_items = [
-  { name: t("menu.posts"), link: "/posts" },
-  { name: t("menu.snippets"), link: "/snippets" },
+  { name: $t("menu.posts"), link: "/posts" },
+  { name: $t("menu.snippets"), link: "/snippets" },
 ];
 
 const themeIsLight = ref(false);

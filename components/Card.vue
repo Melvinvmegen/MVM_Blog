@@ -25,15 +25,11 @@
     <NuxtLink
       :to="item._path"
       class="font-weight-bold text-secondary hover:text-third"
-      >{{ t("posts.read_more") }}</NuxtLink
+      >{{ $t("posts.read_more") }}</NuxtLink
     >
   </div>
 </template>
 <script setup>
-import { useI18n } from "vue-i18n";
-
-const { t, locale } = useI18n();
-
 defineProps({
   item: {
     type: Object,

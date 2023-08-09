@@ -1,9 +1,9 @@
 <template>
   <div v-if="posts">
     <div class="flex justify-between ml-0 mt-2 align-center">
-      <h2 class="text-h6 text-secondary font-semibold">{{ t("posts.last_content") }}</h2>
+      <h2 class="text-h6 text-secondary font-semibold">{{ $t("posts.last_content") }}</h2>
       <span class="text-subtitle-1"
-        >{{ posts.length }} {{ t("posts.articles") }}</span
+        >{{ posts.length }} {{ $t("posts.articles") }}</span
       >
     </div>
     <div
@@ -16,18 +16,17 @@
   </div>
 </template>
 <script setup>
-import { useI18n } from "vue-i18n";
 import useFetch from "../../composables/fetch";
 
 const { fetchAll } = useFetch();
-const { t } = useI18n();
+const { t: $t } = useI18n();
 const posts = ref(null);
 
 posts.value = await fetchAll("postsList", "/posts");
 
 if (process.client) {
   useHead({
-    title: t("seo.last_content"),
+    title: $t("seo.last_content"),
   });
 }
 </script>

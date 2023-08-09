@@ -3,7 +3,7 @@
 export default defineNuxtConfig({
   devtools: true,
   modules: [
-    "@intlify/nuxt3", // i18n
+    "@nuxtjs/i18n",
     "@nuxt/content",
     "@nuxtjs/tailwindcss",
     "nuxt-purgecss",
@@ -17,11 +17,18 @@ export default defineNuxtConfig({
       theme: "dark-plus",
     },
   },
-  intlify: {
-    localeDir: "locales",
-    vueI18n: {
-      locale: "en",
-    },
+  i18n: {
+    locales: [
+      {
+        code: 'en',
+        file: 'en.json',
+      },
+    ],
+    legacy: false,
+    lazy: true,
+    langDir: 'locales',
+    locale: 'en',
+    defaultLocale: 'en',
   },
   nitro: {
     prerender: {

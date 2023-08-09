@@ -1,5 +1,5 @@
 ---
-Title: Privacy Policy
+title: Privacy Policy
 last_updated: September 14th, 2022
 ---
 

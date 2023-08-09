@@ -1,9 +1,9 @@
 <template>
   <div class=" ml-0 mt-2">
     <div class="flex justify-between align-center">
-      <h1 class="text-h6 text-secondary font-semibold">{{ t("snippets.title") }}</h1>
+      <h1 class="text-h6 text-secondary font-semibold">{{ $t("snippets.title") }}</h1>
     </div>
-    <h2 class="text-subtitle-1 text-grey">{{ t("snippets.subtitle") }}</h2>
+    <h2 class="text-subtitle-1 text-grey">{{ $t("snippets.subtitle") }}</h2>
     <table
       class="min-w-full text-left text-sm font-light mb-10 md:block hidden"
       v-if="snippets"
@@ -11,16 +11,16 @@
       <thead class="border-b font-medium">
         <tr class="">
           <th>
-            {{ t("snippets.name") }}
+            {{ $t("snippets.name") }}
           </th>
           <th>
-            {{ t("snippets.description") }}
+            {{ $t("snippets.description") }}
           </th>
           <th class="md:w-24">
-            {{ t("snippets.category_uppercase") }}
+            {{ $t("snippets.category_uppercase") }}
           </th>
           <th>
-            {{ t("snippets.last_updated") }}
+            {{ $t("snippets.last_updated") }}
           </th>
         </tr>
       </thead>
@@ -33,7 +33,7 @@
           <td>
             <NuxtLink
               :to="snippet._path"
-              class="no-underline text-secondary"
+              class="no-underline text-secondary font-bold"
               >{{ snippet.title }}</NuxtLink
             >
           </td>
@@ -53,19 +53,18 @@
   </div>
 </template>
 <script setup>
-import { useI18n } from "vue-i18n";
 import useFetch from "../../composables/fetch";
 
+const { t: $t } = useI18n();
 const { fetchAll } = useFetch();
-const { t } = useI18n();
 const snippets = ref(null);
 
 snippets.value = await fetchAll("snippetsList", "/snippets");
 
 if (process.client) {
   useHead({
-    title: t("seo.snippets_title"),
-    description: t("snippets.subtitle"),
+    title: $t("seo.snippets_title"),
+    description: $t("snippets.subtitle"),
   });
 }
 </script>

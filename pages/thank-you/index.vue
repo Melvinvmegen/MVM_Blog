@@ -6,10 +6,10 @@
       <h5
         class="text-center mb-2 text-xl font-medium leading-tight text-white dark:text-neutral-50"
       >
-        {{ t("thankYou.title") }}
+        {{ $t("thankYou.title") }}
       </h5>
       <p class="mb-4 text-center text-base text-white dark:text-neutral-200">
-        {{ t("thankYou.text") }}
+        {{ $t("thankYou.text") }}
       </p>
       <div class="flex justify-center confetti">
         <button
@@ -17,18 +17,13 @@
           @click="generateParticles"
           class="relative no-underline font-medium rounded text-center text-black bg-secondary px-6 pb-2 pt-2.5 text-sm uppercase leading-normal transition duration-150 ease-in-out hover:bg-accent focus:bg-accent focus:outline-none focus:ring-0 active:bg-accent"
         >
-          {{ t("thankYou.link") }}
+          {{ $t("thankYou.link") }}
         </button>
       </div>
     </div>
   </div>
 </template>
 <script setup>
-import { useI18n } from "vue-i18n";
-const { t } = useI18n();
-
-if (process.client) {
-}
 const confetti = ref();
 function random(max) {
   return Math.random() * (max - 0) + 0;

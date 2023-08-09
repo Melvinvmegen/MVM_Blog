@@ -24,7 +24,7 @@
     <h3
       class="text-center font-italic py-4 text-medium-emphasis font-weight-regular"
     >
-      {{ t("posts.last_updated") }} {{ snippet.last_updated }}
+      {{ $t("posts.last_updated") }} {{ snippet.last_updated }}
     </h3>
   </div>
   <ClientOnly>
@@ -32,11 +32,9 @@
   </ClientOnly>
 </template>
 <script setup>
-import { useI18n } from "vue-i18n";
 import useFetch from "../../composables/fetch";
 
 const { fetchOne } = useFetch();
-const { t } = useI18n();
 const { path } = useRoute();
 const snippet = ref(null);
 snippet.value = await fetchOne(path, { _path: path });
