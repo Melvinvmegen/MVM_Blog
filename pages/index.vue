@@ -45,6 +45,17 @@
                 >🚀 {{ snippet.title }}</NuxtLink
               >
             </li>
+            <li
+              v-if="snippets.length < count"
+              link
+              class="py-2"
+            >
+              <NuxtLink
+                class="text-secondary font-semibold hover:underline"
+                to="/snippets"
+                >See more snippets</NuxtLink
+              >
+            </li>
           </ul>
         </div>
       </div>
@@ -57,10 +68,12 @@ import useFetch from "../composables/fetch";
 const { fetchAll } = useFetch();
 const posts = ref(null);
 const snippets = ref(null);
+const count = ref(0);
 let categories = null;
 
 posts.value = await fetchAll("postsList", "/posts");
-snippets.value = await fetchAll("snippetsList", "/snippets");
+snippets.value = await queryContent("/snippets").sort({ id: -1 }).where({draft: { $ne: true }}).limit(10).find();
+count.value = await queryContent("/snippets").where({draft: { $ne: true }}).count();
 
 if (posts.value?.length > 0) {
   categories = computed(() => [
