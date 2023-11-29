@@ -7,6 +7,7 @@
   </div>
 </template>
 <script setup>
+import dayjs from 'dayjs';
 import useFetch from "../../composables/fetch";
 
 const { fetchOne } = useFetch();

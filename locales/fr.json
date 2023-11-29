@@ -17,7 +17,8 @@
     "read_more": "Lire la suite",
     "categories": "TOP CATÉGORIES",
     "snippets": "TOP SNIPPETS",
-    "last_updated": "Dernière mise à jour:"
+    "last_updated": "Dernière mise à jour:",
+    "linkedArticlePart": "Partie {0} :"
   },
   "snippets": {
     "title": "SNIPPETS",
