@@ -1,6 +1,6 @@
 ---
-title: Privacy Policy
-last_updated: September 14th, 2022
+title: "Privacy Policy"
+last_updated: "September 14th, 2022"
 ---
 
 At Melvin van Megen (collectively, “us,” “we” and “our”), we are committed to protecting the privacy and security of your personal information. This Privacy Policy describes how we collect, use and disclose your personal information and the types of personal information that we may hold about you. It also explains how we protect your personal information, the choices you have regarding such use and disclosure and how you can access and correct your personal information. This Privacy Policy applies whenever you interact with us, including when you visit one of our websites on which this Privacy Policy is posted (the “Sites”), including melvinvmegen.com, and blog.melvinvmegen.com.

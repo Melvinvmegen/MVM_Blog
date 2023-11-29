@@ -1,5 +1,5 @@
 import { serverQueryContent } from "#content/server";
-import RSS from 'rss';
+import RSS from "rss";
 
 export default defineEventHandler(async (event) => {
   const feed = new RSS({
@@ -8,7 +8,7 @@ export default defineEventHandler(async (event) => {
     feed_url: `https://blog.melvinvmegen.com/rss.xml`,
   })
 
-  const contents = await serverQueryContent(event).sort({ last_updated: -1 }).where({ _partial: false }).find();
+  const contents = await serverQueryContent(event).sort({ id: -1, $numeric: true }).where({ _partial: false }).find();
   const blogPosts = contents.filter(content => ['posts', 'snippets'].some(condition => content?._path?.includes(condition)));
   for (const post of blogPosts) {
     feed.item({
@@ -16,7 +16,7 @@ export default defineEventHandler(async (event) => {
       url: `https://blog.melvinvmegen.com${post._path}`,
       description: post.description,
       categories: [post.category],
-      date: post.date,
+      date: post.last_updated,
       language: 'en-US',
     })
   }
