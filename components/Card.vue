@@ -1,7 +1,7 @@
 <template>
   <div class="flex items-center justify-between">
     <span class="text-sm font-light">
-      {{ item.last_updated }}</span
+      {{ dayjs(item.last_updated).format('MMMM D, YYYY') }}</span
     >
     <NuxtLink
       :to="`/posts/${item.category?.toLowerCase()}`"
@@ -30,6 +30,7 @@
   </div>
 </template>
 <script setup>
+import dayjs from 'dayjs';
 defineProps({
   item: {
     type: Object,

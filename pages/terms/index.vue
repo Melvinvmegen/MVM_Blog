@@ -2,7 +2,7 @@
   <div v-if="terms">
     <h1 class="text-3xl text-center">{{ terms.title }}</h1>
     <h3 class="text-center font-italic pa-4 font-weight-regular">
-      {{ $t("posts.last_updated") }} {{ terms.last_updated }}
+      {{ $t("posts.last_updated") }} {{ dayjs(terms.last_updated).format('MMMM D, YYYY') }}
     </h3>
     <br />
     <ContentRenderer :value="terms" />

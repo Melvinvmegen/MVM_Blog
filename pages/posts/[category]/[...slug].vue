@@ -26,7 +26,7 @@
     <h3
       class="text-center font-italic p-4 text-medium-emphasis font-weight-regular"
     >
-      {{ $t("posts.last_updated") }} {{ post.last_updated }}
+      {{ $t("posts.last_updated") }} {{ dayjs(post.last_updated).format('MMMM D, YYYY') }}
     </h3>
   </div>
   <ClientOnly>
@@ -34,6 +34,7 @@
   </ClientOnly>
 </template>
 <script setup>
+import dayjs from "dayjs";
 import useFetch from "../../../composables/fetch";
 
 const { fetchOne } = useFetch();

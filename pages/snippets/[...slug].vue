@@ -24,7 +24,7 @@
     <h3
       class="text-center font-italic py-4 text-medium-emphasis font-weight-regular"
     >
-      {{ $t("posts.last_updated") }} {{ snippet.last_updated }}
+      {{ $t("posts.last_updated") }} {{ dayjs(snippet.last_updated).format('MMMM D, YYYY') }}
     </h3>
   </div>
   <ClientOnly>

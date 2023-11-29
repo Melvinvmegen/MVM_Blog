@@ -39,7 +39,7 @@
           </td>
           <td>{{ snippet.description }}</td>
           <td>{{ snippet.category }}</td>
-          <td>{{ snippet.last_updated }}</td>
+          <td>{{ dayjs(snippet.last_updated).format('MMMM D, YYYY') }}</td>
         </tr>
       </tbody>
     </table>
