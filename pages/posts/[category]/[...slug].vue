@@ -20,6 +20,7 @@
         "
       />
     </h1>
+    <NuxtImg v-if="post.cover" provider="cloudinary" :src="post.cover" class="my-4" sizes="90vw sm:70vw md:40vw"/>
     <h3>{{ post.description }}</h3>
     <ContentRenderer :value="post" />
     <h3

@@ -6,8 +6,9 @@ export default defineNuxtConfig({
     "@nuxtjs/i18n",
     "@nuxt/content",
     "@nuxtjs/tailwindcss",
+    '@nuxt/image',
     "nuxt-purgecss",
-    "nuxt-icon"
+    "nuxt-icon",
   ],
   extends: [
     "nuxt-seo-kit",
@@ -34,6 +35,25 @@ export default defineNuxtConfig({
     prerender: {
       crawlLinks: true,
       routes: ['/rss.xml'],
+    }
+  },
+  image: {
+    format: ['webp'],
+    domains: ['melvinvmegen.com'],
+    provider: 'cloudinary',
+    cloudinary: {
+      baseURL: `https://res.cloudinary.com/dhpgnuli7/image/upload/blog`,
+      modifiers: {
+        effect: 'sharpen:100',
+        quality: 'auto:best',
+      }
+    },
+    presets: {
+      cover: {
+        modifiers: {
+          format: 'webp',
+        }
+      }
     }
   },
   runtimeConfig: {
