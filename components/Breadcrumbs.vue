@@ -1,6 +1,6 @@
 <template>
   <nav class="bg-grey-light w-full rounded-md" v-if="breadcrumbs?.length">
-    <ol class="list-reset flex flex-wrap mx-0 py-6 items-center list-none">
+    <ol class="list-reset flex flex-wrap mx-0 py-4 items-center list-none">
       <template v-for="(item, index) of breadcrumbs">
         <li>
           <NuxtLink :to="`${item === 'Home' ? '/' : item.path}`"
@@ -19,19 +19,19 @@
 <script setup>
 const { t: $t } = useI18n();
 const breadcrumbs = ref([]);
-if (process.client) {
-  breadcrumbs.value = window?.location?.pathname
-    ?.split("/")
-    ?.filter((s) => s !== "en" && s)
-    ?.reduce(
-      (acc, b) => {
-        acc.push({
-          path: `${acc[acc.length - 1].path}/${b}`,
-          title: b.charAt(0).toUpperCase() + b.slice(1),
-        });
-        return acc;
-      },
-      [{ path: "", title: $t("menu.home") }]
-    );
-}
+const props = defineProps(["item"])
+
+breadcrumbs.value = props.item?._path
+  ?.split("/")
+  ?.filter((s) => s !== "en" && s)
+  ?.reduce(
+    (acc, b) => {
+      acc.push({
+        path: `${acc[acc.length - 1].path}/${b}`,
+        title: b.charAt(0).toUpperCase() + b.slice(1),
+      });
+      return acc;
+    },
+    [{ path: "", title: $t("menu.home") }]
+  );
 </script>

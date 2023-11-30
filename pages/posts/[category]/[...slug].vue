@@ -1,6 +1,6 @@
 <template>
-  <Breadcrumbs />
   <div v-if="post">
+    <Breadcrumbs :item="post" />
     <h1 class="flex text-3xl font-bold d-flex justify-space-between align-center mb-4">
       {{ post.title }}
       <Icon v-if="canShare" name="mdi:share-outline" size="30" title="Share this article" class="ml-2" @click="
@@ -29,14 +29,12 @@
       </ul>
       <hr class="mt-6 mb-8">
     </div>
-    <ContentRenderer :value="post" />
+    <StaticContentRenderer :path="post._path" />
     <h3 class="text-center font-italic p-4 text-medium-emphasis font-weight-regular">
       {{ $t("posts.last_updated") }} {{ dayjs(post.last_updated).format('MMMM D, YYYY') }}
     </h3>
   </div>
-  <ClientOnly>
-    <PortfolioTeaser :redirect-url="redirectUrl" :back-url="backUrl" />
-  </ClientOnly>
+  <PortfolioTeaser :redirect-url="redirectUrl" :back-url="backUrl" />
 </template>
 <script setup>
 import dayjs from "dayjs";

@@ -1,6 +1,6 @@
 <template>
-  <Breadcrumbs />
   <div v-if="snippet">
+    <Breadcrumbs :item="snippet" />
     <h1 class="flex text-3xl d-flex justify-space-between align-center">
       {{ snippet.title }}
       <Icon
@@ -20,16 +20,14 @@
     </h1>
     <h3 class="mt-4">{{ snippet.description }}</h3>
     <br />
-    <ContentRenderer :value="snippet" />
+    <StaticContentRenderer :path="snippet._path" />
     <h3
       class="text-center font-italic py-4 text-medium-emphasis font-weight-regular"
     >
       {{ $t("posts.last_updated") }} {{ dayjs(snippet.last_updated).format('MMMM D, YYYY') }}
     </h3>
   </div>
-  <ClientOnly>
-    <PortfolioTeaser :redirect-url="redirectUrl" :back-url="backUrl" />
-  </ClientOnly>
+  <PortfolioTeaser :redirect-url="redirectUrl" :back-url="backUrl" />
 </template>
 <script setup>
 import dayjs from 'dayjs';

@@ -110,4 +110,7 @@ export default defineNuxtConfig({
         "my" ],
       },
   },
+  experimental: {
+    componentIslands: true,
+  }
 });
