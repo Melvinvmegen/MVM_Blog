@@ -72,7 +72,7 @@ const count = ref(0);
 let categories = null;
 
 posts.value = await fetchAll("postsList", "/posts");
-snippets.value = await queryContent("/snippets").sort({ id: -1, $numeric: true }).where({draft: { $ne: true }}).limit(10).find();
+snippets.value = await fetchAll("snippetsList", "/snippets", {}, 10);
 count.value = await queryContent("/snippets").where({draft: { $ne: true }}).count();
 
 if (posts.value?.length > 0) {

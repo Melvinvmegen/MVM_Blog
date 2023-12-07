@@ -1,9 +1,17 @@
 export default function useFetch() {
-  async function fetchAll(endpoint, url, query) {
+  async function fetchAll(endpoint, url, where = {}, limit = null) {
     const { data } = await useAsyncData(`${endpoint}`, () => {
-      return query
-        ? queryContent(url).sort({ id: -1, $numeric: true }).where({...query, draft: { $ne: true }}).find()
-        : queryContent(url).sort({ id: -1, $numeric: true }).where({draft: { $ne: true }}).find();
+      const query = queryContent(url)
+        .only(["id", "title", "description", "category", "_path"])
+        .sort({ id: -1, $numeric: true })
+        .where({...where, draft: { $ne: true }});
+      
+        if (limit) {
+          query.limit(limit)
+        }
+
+
+      return query.find()
     });
 
     return data.value;
