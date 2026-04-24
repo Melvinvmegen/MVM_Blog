@@ -6,11 +6,8 @@ export default defineNuxtConfig({
     "@nuxt/content",
     "@nuxtjs/tailwindcss",
     '@nuxt/image',
-    "nuxt-purgecss",
-    "nuxt-icon",
-  ],
-  extends: [
-    "nuxt-seo-kit",
+    "@nuxt/icon",
+    "@nuxtjs/seo",
   ],
   content: {
     highlight: {

@@ -115,7 +115,6 @@
   </div>
 </template>
 <script setup>
-import { useState } from "vue-gtag-next";
 import useFetch from "../composables/fetch";
 
 const { t: $t } = useI18n();
