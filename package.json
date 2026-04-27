@@ -17,8 +17,10 @@
   },
   "dependencies": {
     "@nuxt/image": "^2.0.0",
+    "@nuxt/ui": "^4.7.0",
     "@takumi-rs/core": "^1.1.2",
     "better-sqlite3": "^12.9.0",
-    "dayjs": "^1.11.20"
+    "dayjs": "^1.11.20",
+    "tailwindcss": "^4.2.4"
   }
 }

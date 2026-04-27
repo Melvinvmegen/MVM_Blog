@@ -1,4 +1,4 @@
-import { serverQueryContent } from "#content/server";
+import { queryCollection } from "@nuxt/content/server";
 import RSS from "rss";
 
 export default defineEventHandler(async (event) => {
@@ -8,7 +8,7 @@ export default defineEventHandler(async (event) => {
     feed_url: `https://blog.melvinvmegen.com/rss.xml`,
   })
 
-  const contents = await serverQueryContent(event).sort({ id: -1, $numeric: true }).where({ _partial: false }).find();
+  const contents = await queryCollection(event, "content").where("_partial", "=", "false").order("id", "DESC").all();
   const blogPosts = contents.filter(content => ['posts', 'snippets'].some(condition => content?._path?.includes(condition)));
   for (const post of blogPosts) {
     feed.item({

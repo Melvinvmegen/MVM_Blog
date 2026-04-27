@@ -33,7 +33,7 @@
         <h2 class="text-xl text-secondary mb-2 font-semibold">{{ $t("posts.snippets") }}</h2>
         <div class="flex flex-col">
           <ul class="list-none mx-0">
-            <li
+            <!-- <li
               v-for="snippet in snippets"
               :key="snippet.title"
               link
@@ -46,7 +46,7 @@
               >
             </li>
             <li
-              v-if="snippets.length < count"
+              v-if="snippets && snippets.length < count"
               link
               class="py-2"
             >
@@ -55,7 +55,7 @@
                 to="/snippets"
                 >See more snippets</NuxtLink
               >
-            </li>
+            </li> -->
           </ul>
         </div>
       </div>
@@ -64,20 +64,29 @@
 </template>
 <script setup>
 import useFetch from "../composables/fetch";
+import { queryCollection } from "@nuxt/content/server";
 
 const { fetchAll } = useFetch();
-const posts = ref(null);
-const snippets = ref(null);
+const posts = ref([]);
+const snippets = ref([]);
 const count = ref(0);
-let categories = null;
+let categories = ref([]);
 
-posts.value = await fetchAll("postsList", "/posts");
-snippets.value = await fetchAll("snippetsList", "/snippets", {}, 10);
-count.value = await queryContent("/snippets").where({draft: { $ne: true }}).count();
+posts.value = await fetchAll("postsList", "/posts") || [];
+snippets.value = await fetchAll("snippetsList", "/snippets", {}, 10) || [];
+// const countResult = await queryCollection("/snippets").where({draft: { $ne: true }}).count();
+console.log(posts.value, snippets.value)
+// count.value = countResult || 0;
 
-if (posts.value?.length > 0) {
-  categories = computed(() => [
-    ...new Set(posts.value.map((c) => c.category?.toLowerCase())),
-  ]);
-}
+// if (posts.value.length > 0) {
+//   categories.value = computed(() => [
+//     ...new Set(posts.value.map((c) => c.category?.toLowerCase()).filter(Boolean)),
+//   ]);
+// }
+
+// if (posts.value?.length > 0) {
+//   categories = computed(() => [
+//     ...new Set(posts.value.map((c) => c.category?.toLowerCase())),
+//   ]);
+// }
 </script>

@@ -1,6 +1,7 @@
 <script lang="ts">
 import { h } from 'vue'
-import { ContentRendererMarkdown } from '#components'
+import { ContentRenderer } from '#components'
+import { queryCollection } from '@nuxt/content/server';
 
 export default defineComponent({
   props: {
@@ -9,12 +10,12 @@ export default defineComponent({
   async setup(props) {
     if (process.dev) {
       const { data } = await useAsyncData(() =>
-        queryContent(props.path!).findOne()
+        queryCollection(props.path!).findOne()
       )
-      return () => h(ContentRendererMarkdown, { value: data.value! })
+      return () => h(ContentRenderer, { value: data.value! })
     }
-    const value = await queryContent(props.path!).findOne()
-    return () => h(ContentRendererMarkdown, { value })
+    const value = await queryCollection(props.path!).findOne()
+    return () => h(ContentRenderer, { value })
   },
 });
 </script>

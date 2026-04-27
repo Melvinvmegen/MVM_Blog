@@ -1,4 +1,5 @@
 export default defineNuxtConfig({
+  compatibilityDate: '2026-04-24',
   devtools: true,
   modules: [
     "@nuxtjs/i18n",
@@ -6,6 +7,7 @@ export default defineNuxtConfig({
     '@nuxt/image',
     "@nuxt/icon",
     "@nuxtjs/seo",
+    '@nuxt/ui',
   ],
   css: ['~/assets/css/main.css'],
   content: {
@@ -66,7 +68,6 @@ export default defineNuxtConfig({
       sitemap: "https://blog.melvinvmegen.com/sitemap.xml",
     },
   },
-
   experimental: {
     componentIslands: true,
   }
