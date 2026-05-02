@@ -3,9 +3,13 @@
     <ol class="list-reset flex flex-wrap mx-0 py-4 items-center list-none">
       <template v-for="(item, index) of breadcrumbs">
         <li>
-          <NuxtLink :to="`${item === 'Home' ? '/' : item.path}`"
+          <NuxtLink
+            :to="`${item === 'Home' ? '/' : item.path}`"
             class="text-white no-underline hover-text-secondary focus-text-secondary active-text-secondary"
-            active-class="text-gray-900">{{ item.title.charAt(0).toUpperCase() + item.title.slice(1) }}</NuxtLink>
+            active-class="text-gray-900"
+          >
+            {{ item.title.charAt(0).toUpperCase() + item.title.slice(1) }}
+          </NuxtLink>
         </li>
         <li v-if="index + 1 !== breadcrumbs.length">
           <span class="mx-2 text-white">
@@ -19,7 +23,7 @@
 <script setup>
 const { t: $t } = useI18n();
 const breadcrumbs = ref([]);
-const props = defineProps(["item"])
+const props = defineProps(["item"]);
 
 breadcrumbs.value = props.item?.path
   ?.split("/")

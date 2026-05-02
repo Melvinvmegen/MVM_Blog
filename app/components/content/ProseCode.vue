@@ -26,9 +26,7 @@ export default defineComponent({
     function copyToClipboard() {
       const textToCopy = codeBlock.value.querySelector("pre code").innerText;
       if (navigator.clipboard) {
-        navigator.clipboard
-          .writeText(textToCopy)
-          .then(() => clearCopy());
+        navigator.clipboard.writeText(textToCopy).then(() => clearCopy());
       } else {
         const textArea = document.createElement("textarea");
         textArea.value = textToCopy;
@@ -37,11 +35,11 @@ export default defineComponent({
         document.body.prepend(textArea);
         textArea.select();
         try {
-            document.execCommand('copy');
+          document.execCommand("copy");
         } catch (error) {
-            console.error(error);
+          console.error(error);
         } finally {
-            textArea.remove();
+          textArea.remove();
         }
       }
     }
@@ -53,7 +51,7 @@ export default defineComponent({
     }
 
     return { copyToClipboard, codeBlock, copied, props };
-  }
+  },
 });
 </script>
 
@@ -63,8 +61,7 @@ export default defineComponent({
     <div class="filename">{{ language || "JS" }}</div>
     <Icon v-if="copied" @click="copyToClipboard" name="mdi:check" size="24" class="copy" />
 
-    <Icon v-else @click="copyToClipboard" name="mdi:content-copy" size="24"
-      class="copy cursor-pointer hover-text-secondary" />
+    <Icon v-else @click="copyToClipboard" name="mdi:content-copy" size="24" class="copy cursor-pointer hover-text-secondary" />
   </div>
 </template>
 
@@ -90,7 +87,7 @@ pre code .line {
   /* Style filename span added by @nuxt/content */
 }
 
-.nuxt-content-highlight>.filename {
+.nuxt-content-highlight > .filename {
   position: absolute;
   right: 0;
   top: -30px;
@@ -104,7 +101,7 @@ pre code .line {
   border-bottom: 2px solid #2f2e2a;
 }
 
-.nuxt-content-highlight>.copy {
+.nuxt-content-highlight > .copy {
   position: absolute;
   right: 20px;
   bottom: 20px;

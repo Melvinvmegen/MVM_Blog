@@ -5,45 +5,28 @@
       <div class="flex-auto">
         <div class="container mx-auto">
           <div class="flex justify-center">
-            <div
-              class="content-width max-w-full lg-max-w-none md-max-w-none sm-max-w-none mb-16"
-            >
+            <div class="content-width max-w-full lg-max-w-none md-max-w-none sm-max-w-none mb-16">
               <slot />
             </div>
           </div>
         </div>
       </div>
       <CustomFooter :post-categories="post_categories" />
-      <div
-        class="cookie-banner text-black border-0 block rounded-lg bg-white"
-        v-if="!cookie || showCookie"
-      >
+      <div class="cookie-banner text-black border-0 block rounded-lg bg-white" v-if="!cookie || showCookie">
         <div class="pt-6 px-6">
-          <h5
-            class="mb-2 text-xl font-medium leading-tight text-neutral-800 dark-text-neutral-50"
-          >
+          <h5 class="mb-2 text-xl font-medium leading-tight text-neutral-800 dark-text-neutral-50">
             {{ $t("cookies.title") }}
           </h5>
           <p class="mb-4 text-base text-neutral-600 dark-text-neutral-200">
             {{ $t("cookies.text") }}
             <br />
-            <NuxtLink to="/privacy-policy" class="no-underline font-bold">{{
-              $t("cookies.link")
-            }}</NuxtLink>
+            <NuxtLink to="/privacy-policy" class="no-underline font-bold">{{ $t("cookies.link") }}</NuxtLink>
           </p>
         </div>
-        <button
-          type="button"
-          class="cookie-btn btn-primary-dark px-6 py-2"
-          @click="cookiesStated(false)"
-        >
+        <button type="button" class="cookie-btn btn-primary-dark px-6 py-2" @click="cookiesStated(false)">
           {{ $t("cookies.refuse") }}
         </button>
-        <button
-          type="button"
-          class="cookie-btn btn-secondary-dark px-6 py-2"
-          @click="cookiesStated(true)"
-        >
+        <button type="button" class="cookie-btn btn-secondary-dark px-6 py-2" @click="cookiesStated(true)">
           {{ $t("cookies.accept") }}
         </button>
       </div>
@@ -57,46 +40,23 @@
         <Icon name="mdi:check" size="16" />
       </button>
     </div>
-    <div
-      class="drawer"
-      :class="{ 'translate-x-full': !drawer, 'translate-x-0': drawer }"
-      v-if="drawer"
-    >
+    <div class="drawer" :class="{ 'translate-x-full': !drawer, 'translate-x-0': drawer }" v-if="drawer">
       <div class="flex flex-col justify-center mt-24">
         <ul class="list-none mx-4">
           <li v-for="item of nav_items" :key="item.name">
-            <NuxtLink
-              :to="item.link"
-              @click="drawer = false"
-              class="my-2 text-white hover-text-gray-200 font-semibold text-xl no-underline"
-              >{{ item.name }}</NuxtLink
-            >
-            <h3
-              v-if="item.name === 'Posts'"
-              v-for="sub_item of post_categories"
-              class="my-4 ml-4 text-gray-300"
-            >
-              <NuxtLink
-                :to="sub_item.link"
-                @click="drawer = false"
-                class="my-2 text-white hover-text-gray-200"
-                >{{ sub_item.name }}</NuxtLink
-              >
+            <NuxtLink :to="item.link" @click="drawer = false" class="my-2 text-white hover-text-gray-200 font-semibold text-xl no-underline">
+              {{ item.name }}
+            </NuxtLink>
+            <h3 v-if="item.name === 'Posts'" v-for="sub_item of post_categories" class="my-4 ml-4 text-gray-300">
+              <NuxtLink :to="sub_item.link" @click="drawer = false" class="my-2 text-white hover-text-gray-200">{{ sub_item.name }}</NuxtLink>
             </h3>
           </li>
         </ul>
       </div>
       <div class="flex flex-col justify-center">
         <div class="m-4 mb-12">
-          <h6
-            class="text-secondary mb-4 flex justify-center items-center font-semibold uppercase md-justify-start"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              fill="currentColor"
-              class="mr-3 h-4 w-4"
-            >
+          <h6 class="text-secondary mb-4 flex justify-center items-center font-semibold uppercase md-justify-start">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="mr-3 h-4 w-4">
               <path
                 d="M12.378 1.602a.75.75 0 00-.756 0L3 6.632l9 5.25 9-5.25-8.622-5.03zM21.75 7.93l-9 5.25v9l8.628-5.032a.75.75 0 00.372-.648V7.93zM11.25 22.18v-9l-9-5.25v8.57a.75.75 0 00.372.648l8.628 5.033z"
               />
@@ -107,11 +67,7 @@
         </div>
       </div>
     </div>
-    <div
-      class="drawer-backdrop"
-      v-if="drawer"
-      @click="drawer = !drawer"
-    ></div>
+    <div class="drawer-backdrop" v-if="drawer" @click="drawer = !drawer"></div>
   </div>
 </template>
 <script setup>
@@ -119,13 +75,10 @@ import useFetch from "../composables/fetch";
 const { t: $t } = useI18n();
 const showCookie = ref(false);
 const cookie = ref({});
-const isEnabled = ref()
+const isEnabled = ref();
 if (import.meta.client) {
-  cookie.value =
-    document.cookie.split(";").filter((i) => i.includes("analytics"))[0] ||
-    null;
+  cookie.value = document.cookie.split(";").filter((i) => i.includes("analytics"))[0] || null;
 }
-
 
 function cookiesStated(boolean) {
   const state = `analytics={ state: ${boolean ? "accepted" : "refused"} }`;
@@ -217,7 +170,12 @@ useHead({
   }
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   margin: 30px 0;
 }
 

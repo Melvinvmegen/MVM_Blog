@@ -1,13 +1,10 @@
 <template>
-  <div class=" ml-0 mt-2">
+  <div class="ml-0 mt-2">
     <div class="flex justify-between align-center">
       <h1 class="text-h6 text-secondary font-semibold">{{ $t("snippets.title") }}</h1>
     </div>
     <h2 class="text-subtitle-1 text-grey">{{ $t("snippets.subtitle") }}</h2>
-    <table
-      class="min-w-full text-left text-sm font-light mb-10 md-block hidden"
-      v-if="snippets"
-    >
+    <table class="min-w-full text-left text-sm font-light mb-10 md-block hidden" v-if="snippets">
       <thead class="border-b font-medium">
         <tr class="">
           <th>
@@ -25,35 +22,23 @@
         </tr>
       </thead>
       <tbody>
-        <tr
-          v-for="snippet in snippets"
-          :key="snippet.name"
-          class="border-b border-gray-700 h-16"
-        >
+        <tr v-for="snippet in snippets" :key="snippet.name" class="border-b border-gray-700 h-16">
           <td>
-            <NuxtLink
-              :to="snippet.path"
-              class="no-underline text-secondary font-bold"
-              >{{ snippet.title }}</NuxtLink
-            >
+            <NuxtLink :to="snippet.path" class="no-underline text-secondary font-bold">{{ snippet.title }}</NuxtLink>
           </td>
           <td>{{ snippet.description }}</td>
           <td>{{ snippet.category }}</td>
-          <td>{{ dayjs(snippet.last_updated).format('MMMM D, YYYY') }}</td>
+          <td>{{ dayjs(snippet.last_updated).format("MMMM D, YYYY") }}</td>
         </tr>
       </tbody>
     </table>
-    <div
-      class="block md-hidden max-w-2xl px-8 py-4 my-4 bg-black rounded-lg shadow-custom border-2"
-      v-for="snippet in snippets"
-      :key="snippet.id"
-    >
+    <div class="block md-hidden max-w-2xl px-8 py-4 my-4 bg-black rounded-lg shadow-custom border-2" v-for="snippet in snippets" :key="snippet.id">
       <Card :item="snippet" />
     </div>
   </div>
 </template>
 <script setup>
-import dayjs from 'dayjs';
+import dayjs from "dayjs";
 import useFetch from "../../composables/fetch";
 
 const { t: $t } = useI18n();

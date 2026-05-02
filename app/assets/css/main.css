@@ -1,9 +1,9 @@
 /* ===== CSS Variables (Colors from Tailwind config) ===== */
 :root {
   --color-primary: #000000;
-  --color-secondary: #F9D262;
-  --color-third: #FFC680;
-  --color-accent: #F9E19C;
+  --color-secondary: #f9d262;
+  --color-third: #ffc680;
+  --color-accent: #f9e19c;
   --color-error: #f44336;
   --color-warning: #ff8c00;
   --color-info: #03a9f4;
@@ -26,14 +26,16 @@
 }
 
 /* ===== Reset & Base ===== */
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
 html {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -528,16 +530,21 @@ a {
 
 /* ===== Shadows ===== */
 .shadow {
-  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
+  box-shadow:
+    0 1px 3px 0 rgba(0, 0, 0, 0.1),
+    0 1px 2px -1px rgba(0, 0, 0, 0.1);
 }
 
 .shadow-custom {
-  box-shadow: 0 2px 15px -3px rgba(0,0,0,0.07), 0 10px 20px -2px rgba(0,0,0,0.04);
+  box-shadow:
+    0 2px 15px -3px rgba(0, 0, 0, 0.07),
+    0 10px 20px -2px rgba(0, 0, 0, 0.04);
 }
 
 /* ===== Transitions & Animations ===== */
 .transition {
-  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
+  transition-property:
+    color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 150ms;
 }
@@ -641,7 +648,6 @@ a {
   .dark-text-neutral-200 {
     color: var(--color-neutral-200);
   }
-
 }
 
 /* ===== Display ===== */
@@ -836,7 +842,6 @@ a {
   .md-hidden {
     display: none;
   }
-
 }
 
 @media (min-width: 1024px) {
@@ -851,14 +856,12 @@ a {
   .lg-grid-cols-3 {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
-
 }
 
 @media (min-width: 1536px) {
   .2xl-w-8 {
     width: 66.666667%;
   }
-
 }
 
 /* ===== Custom Classes ===== */
@@ -898,7 +901,9 @@ a {
   display: block;
   border-radius: 0.5rem;
   background-color: var(--color-white);
-  box-shadow: 0 2px 15px -3px rgba(0,0,0,0.07), 0 10px 20px -2px rgba(0,0,0,0.04);
+  box-shadow:
+    0 2px 15px -3px rgba(0, 0, 0, 0.07),
+    0 10px 20px -2px rgba(0, 0, 0, 0.04);
 }
 
 .dark .cookie-banner {
@@ -1003,13 +1008,17 @@ a {
 /* ===== Footer ===== */
 .bg-footer {
   background: linear-gradient(0deg, #000000, #4b4533) !important;
-  transition: #4b4533 350ms linear 0s, #000000 350ms linear 0s;
+  transition:
+    #4b4533 350ms linear 0s,
+    #000000 350ms linear 0s;
 }
 
 /* ===== Header ===== */
 .bg-header {
   background: linear-gradient(0deg, #4b4533, #000000) !important;
-  transition: #4b4533 350ms linear 0s, #000000 350ms linear 0s;
+  transition:
+    #4b4533 350ms linear 0s,
+    #000000 350ms linear 0s;
 }
 
 /* ===== Code Block ===== */
@@ -1077,7 +1086,6 @@ pre code .line {
   .footer-height {
     height: 400px !important;
   }
-
 }
 
 /* ===== Button Base Styles ===== */
@@ -1110,21 +1118,26 @@ pre code .line {
 
 .cookie-btn:hover {
   background-color: #374151;
-  box-shadow: 0 8px 9px -4px rgba(59,113,202,0.3), 0 4px 18px 0 rgba(59,113,202,0.2);
+  box-shadow:
+    0 8px 9px -4px rgba(59, 113, 202, 0.3),
+    0 4px 18px 0 rgba(59, 113, 202, 0.2);
 }
 
 .cookie-btn:focus {
   background-color: #374151;
-  box-shadow: 0 8px 9px -4px rgba(59,113,202,0.3), 0 4px 18px 0 rgba(59,113,202,0.2);
+  box-shadow:
+    0 8px 9px -4px rgba(59, 113, 202, 0.3),
+    0 4px 18px 0 rgba(59, 113, 202, 0.2);
   outline: none;
 }
 
 .cookie-btn:active {
   background-color: #1f2937;
-  box-shadow: 0 8px 9px -4px rgba(59,113,202,0.3), 0 4px 18px 0 rgba(59,113,202,0.2);
+  box-shadow:
+    0 8px 9px -4px rgba(59, 113, 202, 0.3),
+    0 4px 18px 0 rgba(59, 113, 202, 0.2);
 }
 
 /* ===== Portfolio Button ===== */
 
 /* ===== Thank You Button ===== */
-

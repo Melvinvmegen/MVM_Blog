@@ -4,7 +4,8 @@
     "build": "nuxt build",
     "start": "nuxt dev",
     "generate": "nuxt generate",
-    "preview": "nuxt preview"
+    "preview": "nuxt preview",
+    "format": "prettier --write app/"
   },
   "devDependencies": {
     "@iconify-json/mdi": "^1.2.3",
@@ -16,11 +17,13 @@
     "rss": "^1.2.2"
   },
   "dependencies": {
+    "@vue/eslint-config-prettier": "^10.2.0",
     "@nuxt/image": "^2.0.0",
     "@nuxt/ui": "^4.7.0",
     "@takumi-rs/core": "^1.1.2",
     "better-sqlite3": "^12.9.0",
     "dayjs": "^1.11.20",
-    "tailwindcss": "^4.2.4"
+    "tailwindcss": "^4.2.4",
+    "prettier": "^3.8.2"
   }
 }

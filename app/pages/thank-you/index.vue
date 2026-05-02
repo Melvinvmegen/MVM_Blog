@@ -1,11 +1,7 @@
 <template>
   <div class="d-flex justify-center my-32">
-    <div
-      class="block rounded-lg bg-sand p-6 shadow-custom dark-bg-neutral-700"
-    >
-      <h5
-        class="text-center mb-2 text-xl font-medium leading-tight text-white dark-text-neutral-50"
-      >
+    <div class="block rounded-lg bg-sand p-6 shadow-custom dark-bg-neutral-700">
+      <h5 class="text-center mb-2 text-xl font-medium leading-tight text-white dark-text-neutral-50">
         {{ $t("thankYou.title") }}
       </h5>
       <p class="mb-4 text-center text-base text-white dark-text-neutral-200">
@@ -31,9 +27,7 @@ function random(max) {
 function generateParticles() {
   let fragment = document.createDocumentFragment();
   for (let i = 0; i < 100; i++) {
-    let styles = `transform: translate3d(${random(500) - 250}px, ${
-      random(200) - 150
-    }px, 0) rotate(${random(360)}deg);
+    let styles = `transform: translate3d(${random(500) - 250}px, ${random(200) - 150}px, 0) rotate(${random(360)}deg);
                   background: hsla(${random(360)}, 100%, 50%, 1);
                   animation: bang 1000ms ease-out forwards;
                   opacity: 0;`;

@@ -6,8 +6,8 @@ defineProps({
   },
   sizes: {
     type: String,
-    default: "90vw sm:70vw md:40vw"
-  }
+    default: "90vw sm:70vw md:40vw",
+  },
 });
 </script>
 

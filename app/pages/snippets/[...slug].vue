@@ -21,22 +21,20 @@
     <h3 class="mt-4">{{ snippet.description }}</h3>
     <br />
     <StaticContentRenderer :path="snippet.path" />
-    <h3
-      class="text-center font-italic py-4 text-medium-emphasis font-weight-regular"
-    >
-      {{ $t("posts.last_updated") }} {{ dayjs(snippet.last_updated).format('MMMM D, YYYY') }}
+    <h3 class="text-center font-italic py-4 text-medium-emphasis font-weight-regular">
+      {{ $t("posts.last_updated") }} {{ dayjs(snippet.last_updated).format("MMMM D, YYYY") }}
     </h3>
   </div>
   <PortfolioTeaser :redirect-url="redirectUrl" :back-url="backUrl" />
 </template>
 <script setup>
-import dayjs from 'dayjs';
+import dayjs from "dayjs";
 import useFetch from "../../composables/fetch";
 
 const { fetchOne } = useFetch();
 const { path } = useRoute();
 const snippet = ref(null);
-snippet.value = await fetchOne("snippets",{ field: "path", operator: "=", value: path });
+snippet.value = await fetchOne("snippets", { field: "path", operator: "=", value: path });
 
 let canShare;
 let shareLink;
