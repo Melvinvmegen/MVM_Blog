@@ -1,12 +1,11 @@
 # --------------> The build image
-FROM node:18.17.0-bullseye-slim as build
-RUN apt-get update
+FROM node:24-alpine AS build
 
 WORKDIR /app
 
 COPY package.json package-lock.json ./
 
-RUN npm install --immutable --immutable-cache --check-cache
+RUN npm ci
 
 COPY . /app
 
