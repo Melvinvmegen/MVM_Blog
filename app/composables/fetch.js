@@ -2,7 +2,7 @@ import { queryCollection } from "#imports";
 
 export default function useFetch() {
   async function fetchAll(collection, where = null, limit = null) {
-    const query = queryCollection(collection).where("draft", "<>", false);
+    const query = queryCollection(collection).where("draft", "IS NOT", true);
 
     if (where) {
       if (Array.isArray(where)) {
