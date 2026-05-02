@@ -61,20 +61,6 @@
             class="cursor-pointer hover-text-secondary"
             v-else
           />
-          <Icon
-            name="mdi:volume-medium"
-            size="24"
-            @click="toggleSound"
-            class="cursor-pointer ml-4 hover-text-gray-300"
-            v-if="soundOn"
-          />
-          <Icon
-            name="mdi:volume-off"
-            size="24"
-            @click="toggleSound"
-            class="cursor-pointer ml-4 hover-text-gray-300"
-            v-else
-          />
         </div>
       </div>
       <div class="custom-curve">
@@ -115,15 +101,6 @@ function toggleTheme() {
 
 const soundOn = ref(false);
 const beat = ref(null);
-function toggleSound() {
-  soundOn.value = !soundOn.value;
-  beat.value = new Audio("../assets/sncf-signature.mp3");
-  if (!soundOn.value) {
-    beat.value.pause();
-    return;
-  }
-  beat.value.play();
-}
 </script>
 <style scoped>
 .bg-header {
