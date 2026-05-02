@@ -858,11 +858,6 @@ a {
   }
 }
 
-@media (min-width: 1536px) {
-  .2xl-w-8 {
-    width: 66.666667%;
-  }
-}
 
 /* ===== Custom Classes ===== */
 .no-underline {
