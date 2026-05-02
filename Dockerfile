@@ -4,13 +4,13 @@ RUN apt-get update
 
 WORKDIR /app
 
-COPY package.json yarn.lock ./
+COPY package.json ./
 
-RUN yarn install --immutable --immutable-cache --check-cache
+RUN npm install --immutable --immutable-cache --check-cache
 
 COPY . /app
 
-RUN yarn run generate
+RUN npm run generate
 
 # --------------> The production image
 FROM nginx:stable-alpine
