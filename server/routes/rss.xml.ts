@@ -1,4 +1,4 @@
-import { queryCollection } from "@nuxt/content/server";
+import { queryCollection } from "#imports";
 import RSS from "rss";
 
 export default defineEventHandler(async (event) => {
@@ -8,12 +8,19 @@ export default defineEventHandler(async (event) => {
     feed_url: `https://blog.melvinvmegen.com/rss.xml`,
   })
 
-  const contents = await queryCollection(event, "content").where("_partial", "=", "false").order("id", "DESC").all();
-  const blogPosts = contents.filter(content => ['posts', 'snippets'].some(condition => content?._path?.includes(condition)));
+  const contents = await queryCollection('content').path(event.path)
+    .where("draft", "<>", true)
+    .order("id", "DESC")
+    .all();
+  
+  const blogPosts = contents.filter(content => 
+    content?.path?.includes('posts') || content?.path?.includes('snippets')
+  );
+  
   for (const post of blogPosts) {
     feed.item({
       title: post.title,
-      url: `https://blog.melvinvmegen.com${post._path}`,
+      url: `https://blog.melvinvmegen.com${post.path}`,
       description: post.description,
       categories: [post.category],
       date: post.last_updated,

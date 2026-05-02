@@ -11,8 +11,12 @@ export default defineNuxtConfig({
   ],
   css: ['~/assets/css/main.css'],
   content: {
-    highlight: {
-      theme: "dark-plus",
+    build: {
+      markdown: {
+        highlight: {
+          theme: "dark-plus",
+        },
+      },
     },
   },
   i18n: {
@@ -32,6 +36,7 @@ export default defineNuxtConfig({
     prerender: {
       crawlLinks: true,
       routes: ['/rss.xml'],
+      failOnError: false,
     }
   },
   image: {
