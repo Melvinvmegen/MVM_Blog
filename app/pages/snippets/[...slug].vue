@@ -24,8 +24,8 @@
     <h3 class="text-center font-italic py-4 text-medium-emphasis font-weight-regular">
       {{ $t("posts.last_updated") }} {{ dayjs(snippet.last_updated).format("MMMM D, YYYY") }}
     </h3>
+    <PortfolioTeaser :redirect-url="redirectUrl" :back-url="backUrl" />
   </div>
-  <PortfolioTeaser :redirect-url="redirectUrl" :back-url="backUrl" />
 </template>
 <script setup>
 import dayjs from "dayjs";
@@ -38,8 +38,8 @@ snippet.value = await fetchOne("snippets", { field: "path", operator: "=", value
 
 let canShare;
 let shareLink;
-let redirectUrl = ref(null);
-let backUrl = ref(null);
+const redirectUrl = ref(null);
+const backUrl = ref(null);
 if (import.meta.client) {
   canShare = computed(() => "share" in navigator);
   shareLink = async (data) => {

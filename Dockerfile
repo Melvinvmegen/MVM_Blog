@@ -4,7 +4,7 @@ RUN apt-get update
 
 WORKDIR /app
 
-COPY package.json ./
+COPY package.json package-lock.json ./
 
 RUN npm install --immutable --immutable-cache --check-cache
 

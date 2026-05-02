@@ -9,7 +9,7 @@ export default defineComponent({
   },
   async setup(props) {
     const path = props.path || "";
-    if (process.dev) {
+    if (import.meta.dev) {
       const { data } = await useAsyncData(() => queryCollection("posts").path(path).first());
       return () => h(ContentRenderer, { value: data.value! });
     }

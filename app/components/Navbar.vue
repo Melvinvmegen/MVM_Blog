@@ -6,19 +6,19 @@
           <NuxtLink to="/" class="text-secondary no-underline text-xl font-bold md-text-2xl">MVM</NuxtLink>
           <div>
             <button
-              type="button"
               v-if="drawer"
-              @click="$emit('openDrawer')"
+              type="button"
               class="block text-white hover-text-gray-600 focus-text-gray-600 focus-outline-none md-hidden"
+              @click="emit('openDrawer')"
             >
               <Icon name="mdi:close" size="24" class="cursor-pointer z-50" />
             </button>
             <button
+              v-else
               aria-label="MenuSidebar"
               type="button"
-              v-else
-              @click="$emit('openDrawer')"
               class="block text-white hover-text-gray-600 focus-text-gray-600 focus-outline-none md-hidden"
+              @click="emit('openDrawer')"
             >
               <Icon name="mdi:menu" size="24" class="cursor-pointer" />
             </button>
@@ -36,8 +36,8 @@
           </NuxtLink>
         </div>
         <div class="hidden md-flex flex-col md-flex-row md--mx-4">
-          <Icon name="mdi:moon-waxing-crescent" size="24" @click="toggleTheme" class="cursor-pointer hover-text-gray-800" v-if="themeIsLight" />
-          <Icon name="mdi:white-balance-sunny" size="24" @click="toggleTheme" class="cursor-pointer hover-text-secondary" v-else />
+          <Icon v-if="themeIsLight" name="mdi:moon-waxing-crescent" size="24" class="cursor-pointer hover-text-gray-800" @click="toggleTheme" />
+          <Icon v-else name="mdi:white-balance-sunny" size="24" class="cursor-pointer hover-text-secondary" @click="toggleTheme" />
         </div>
       </div>
       <div class="custom-curve">
@@ -53,6 +53,7 @@
 </template>
 <script setup lang="ts">
 const { t: $t } = useI18n();
+const emit = defineEmits(["openDrawer"]);
 
 defineProps({
   drawer: {
@@ -70,9 +71,6 @@ const themeIsLight = ref(false);
 function toggleTheme() {
   themeIsLight.value = !themeIsLight.value;
 }
-
-const soundOn = ref(false);
-const beat = ref(null);
 </script>
 <style scoped>
 .bg-header {

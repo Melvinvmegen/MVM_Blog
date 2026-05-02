@@ -12,7 +12,7 @@
         </div>
       </div>
       <CustomFooter :post-categories="post_categories" />
-      <div class="cookie-banner text-black border-0 block rounded-lg bg-white" v-if="!cookie || showCookie">
+      <div v-if="!cookie || showCookie" class="cookie-banner text-black border-0 block rounded-lg bg-white">
         <div class="pt-6 px-6">
           <h5 class="mb-2 text-xl font-medium leading-tight text-neutral-800 dark-text-neutral-50">
             {{ $t("cookies.title") }}
@@ -31,25 +31,27 @@
         </button>
       </div>
       <button
+        v-else
         aria-label="cookieChoices"
         type="button"
         class="hidden md-block fixed left-20 bottom-10 mx-auto bg-white rounded-full px-4 py-3 font-medium uppercase leading-normal text-primary shadow-custom transition duration-150 ease-in-out hover-bg-primary-600"
         @click="showCookie = true"
-        v-else
       >
         <Icon name="mdi:check" size="16" />
       </button>
     </div>
-    <div class="drawer" :class="{ 'translate-x-full': !drawer, 'translate-x-0': drawer }" v-if="drawer">
+    <div v-if="drawer" class="drawer" :class="{ 'translate-x-full': !drawer, 'translate-x-0': drawer }">
       <div class="flex flex-col justify-center mt-24">
         <ul class="list-none mx-4">
           <li v-for="item of nav_items" :key="item.name">
-            <NuxtLink :to="item.link" @click="drawer = false" class="my-2 text-white hover-text-gray-200 font-semibold text-xl no-underline">
+            <NuxtLink :to="item.link" class="my-2 text-white hover-text-gray-200 font-semibold text-xl no-underline" @click="drawer = false">
               {{ item.name }}
             </NuxtLink>
-            <h3 v-if="item.name === 'Posts'" v-for="sub_item of post_categories" class="my-4 ml-4 text-gray-300">
-              <NuxtLink :to="sub_item.link" @click="drawer = false" class="my-2 text-white hover-text-gray-200">{{ sub_item.name }}</NuxtLink>
-            </h3>
+            <template v-if="item.name === 'Posts'">
+              <h3 v-for="sub_item of post_categories" :key="sub_item.name" class="my-4 ml-4 text-gray-300">
+                <NuxtLink :to="sub_item.link" class="my-2 text-white hover-text-gray-200" @click="drawer = false">{{ sub_item.name }}</NuxtLink>
+              </h3>
+            </template>
           </li>
         </ul>
       </div>
@@ -67,7 +69,7 @@
         </div>
       </div>
     </div>
-    <div class="drawer-backdrop" v-if="drawer" @click="drawer = !drawer"></div>
+    <div v-if="drawer" class="drawer-backdrop" @click="drawer = !drawer"></div>
   </div>
 </template>
 <script setup>

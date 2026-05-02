@@ -23,7 +23,7 @@
     <div v-if="linkedPosts">
       <hr class="mt-8 mb-6" />
       <ul>
-        <li v-for="(linkedPost, index) in linkedPosts">
+        <li v-for="(linkedPost, index) in linkedPosts" :key="index">
           <h4 class="my-1 text-lg">
             <span v-if="post.path === linkedPost.path">{{ $t("posts.linkedArticlePart", [index + 1]) }} {{ linkedPost.title }}</span>
             <NuxtLink v-else :to="`${linkedPost.path}`" class="font-weight-bold text-secondary hover-text-third">
@@ -38,8 +38,8 @@
     <h3 class="text-center font-italic p-4 text-medium-emphasis font-weight-regular">
       {{ $t("posts.last_updated") }} {{ dayjs(post.last_updated).format("MMMM D, YYYY") }}
     </h3>
+    <PortfolioTeaser :redirect-url="redirectUrl" :back-url="backUrl" />
   </div>
-  <PortfolioTeaser :redirect-url="redirectUrl" :back-url="backUrl" />
 </template>
 <script setup>
 import dayjs from "dayjs";
@@ -56,8 +56,8 @@ if (post.value?.linkedPosts) {
 }
 let canShare;
 let shareLink;
-let redirectUrl = ref(null);
-let backUrl = ref(null);
+const redirectUrl = ref(null);
+const backUrl = ref(null);
 if (import.meta.client) {
   canShare = computed(() => "share" in navigator);
   shareLink = async (data) => {

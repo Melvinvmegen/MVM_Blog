@@ -4,7 +4,7 @@
       <h1 class="text-h6 text-secondary font-semibold">{{ $t("snippets.title") }}</h1>
     </div>
     <h2 class="text-subtitle-1 text-grey">{{ $t("snippets.subtitle") }}</h2>
-    <table class="min-w-full text-left text-sm font-light mb-10 md-block hidden" v-if="snippets">
+    <table v-if="snippets" class="min-w-full text-left text-sm font-light mb-10 md-block hidden">
       <thead class="border-b font-medium">
         <tr class="">
           <th>
@@ -32,7 +32,7 @@
         </tr>
       </tbody>
     </table>
-    <div class="block md-hidden max-w-2xl px-8 py-4 my-4 bg-black rounded-lg shadow-custom border-2" v-for="snippet in snippets" :key="snippet.id">
+    <div v-for="snippet in snippets" :key="snippet.id" class="block md-hidden max-w-2xl px-8 py-4 my-4 bg-black rounded-lg shadow-custom border-2">
       <Card :item="snippet" />
     </div>
   </div>

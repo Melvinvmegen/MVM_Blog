@@ -1,7 +1,7 @@
 <template>
-  <nav class="bg-grey-light w-full rounded-md" v-if="breadcrumbs?.length">
+  <nav v-if="breadcrumbs?.length" class="bg-grey-light w-full rounded-md">
     <ol class="list-reset flex flex-wrap mx-0 py-4 items-center list-none">
-      <template v-for="(item, index) of breadcrumbs">
+      <template v-for="(_, index) of breadcrumbs" :key="index">
         <li>
           <NuxtLink
             :to="`${item === 'Home' ? '/' : item.path}`"
@@ -23,7 +23,12 @@
 <script setup>
 const { t: $t } = useI18n();
 const breadcrumbs = ref([]);
-const props = defineProps(["item"]);
+const props = defineProps({
+  item: {
+    type: Object,
+    required: true,
+  },
+});
 
 breadcrumbs.value = props.item?.path
   ?.split("/")

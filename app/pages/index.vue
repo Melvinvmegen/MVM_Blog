@@ -1,8 +1,8 @@
 <template>
   <div class="flex justify-center md-flex-row flex-col">
-    <div class="w-full md-w-8" v-if="posts">
+    <div v-if="posts" class="w-full md-w-8">
       <h2 class="text-xl text-secondary font-semibold">{{ $t("posts.last_content") }}</h2>
-      <div class="max-w-2xl px-8 py-4 my-4 bg-black rounded-lg shadow-custom border-2" v-for="article in posts" :key="article.id">
+      <div v-for="article in posts" :key="article.id" class="max-w-2xl px-8 py-4 my-4 bg-black rounded-lg shadow-custom border-2">
         <Card :item="article" />
       </div>
     </div>
@@ -11,7 +11,7 @@
       <div>
         <h2 class="text-xl text-secondary font-semibold">{{ $t("posts.categories") }}</h2>
         <div class="flex flex-wrap">
-          <NuxtLink :to="`/posts/${category}`" v-for="category in categories" class="font-weight-bold text-white no-underline">
+          <NuxtLink v-for="category in categories" :key="category" :to="`/posts/${category}`" class="font-weight-bold text-white no-underline">
             <div class="category-chip">
               {{ category }}
             </div>

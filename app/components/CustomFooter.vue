@@ -20,7 +20,7 @@
           <h6 class="mb-2 flex justify-center md-justify-start font-semibold uppercase">
             {{ $t("footer.tutorials") }}
           </h6>
-          <p class="my-2" v-for="item in postCategories" :key="item.name" link :to="item.link">
+          <p v-for="item in postCategories" :key="item.name" class="my-2" link :to="item.link">
             <NuxtLink :to="item.link" class="text-white hover-text-secondary no-underline" active-class="text-secondary">{{ item.name }}</NuxtLink>
           </p>
         </div>
@@ -28,7 +28,7 @@
           <h6 class="mb-2 flex justify-center font-semibold uppercase md-justify-start">
             {{ $t("footer.links") }}
           </h6>
-          <p class="my-2" v-for="item in links" :key="item.name" link :to="item.link">
+          <p v-for="item in links" :key="item.name" class="my-2" link :to="item.link">
             <NuxtLink :to="item.link" class="text-white hover-text-secondary no-underline" active-class="text-secondary">{{ item.name }}</NuxtLink>
           </p>
         </div>

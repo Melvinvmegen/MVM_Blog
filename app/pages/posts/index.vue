@@ -4,7 +4,7 @@
       <h2 class="text-h6 text-secondary font-semibold">{{ $t("posts.last_content") }}</h2>
       <span class="text-subtitle-1">{{ posts.length }} {{ $t("posts.articles") }}</span>
     </div>
-    <div class="max-w-full px-8 py-4 my-4 bg-black rounded-lg shadow-custom border-2" v-for="article in posts" :key="article.path">
+    <div v-for="article in posts" :key="article.path" class="max-w-full px-8 py-4 my-4 bg-black rounded-lg shadow-custom border-2">
       <Card :item="article" />
     </div>
   </div>

@@ -10,8 +10,8 @@
       <div class="flex justify-center confetti">
         <button
           ref="confetti"
-          @click="generateParticles"
           class="relative no-underline font-medium rounded text-center text-black bg-secondary px-6 pb-2 pt-2.5 text-sm uppercase leading-normal transition duration-150 ease-in-out hover-bg-accent focus-bg-accent focus-outline-none active-bg-accent"
+          @click="generateParticles"
         >
           {{ $t("thankYou.link") }}
         </button>
@@ -25,14 +25,14 @@ function random(max) {
   return Math.random() * (max - 0) + 0;
 }
 function generateParticles() {
-  let fragment = document.createDocumentFragment();
+  const fragment = document.createDocumentFragment();
   for (let i = 0; i < 100; i++) {
-    let styles = `transform: translate3d(${random(500) - 250}px, ${random(200) - 150}px, 0) rotate(${random(360)}deg);
+    const styles = `transform: translate3d(${random(500) - 250}px, ${random(200) - 150}px, 0) rotate(${random(360)}deg);
                   background: hsla(${random(360)}, 100%, 50%, 1);
                   animation: bang 1000ms ease-out forwards;
                   opacity: 0;`;
 
-    let element = document.createElement("i");
+    const element = document.createElement("i");
     element.style.cssText = styles.toString();
     fragment.appendChild(element);
   }

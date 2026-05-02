@@ -13,8 +13,8 @@
 
       <div class="flex justify-center">
         <form action="https://www.finance.melvinvmegen.com/api/payment/checkout" method="POST">
-          <input type="hidden" name="redirectUrl" id="redirectUrl" :value="props.redirectUrl" />
-          <input type="hidden" name="backUrl" id="backUrl" :value="props.backUrl" />
+          <input id="redirectUrl" type="hidden" name="redirectUrl" :value="props.redirectUrl" />
+          <input id="backUrl" type="hidden" name="backUrl" :value="props.backUrl" />
           <button
             class="no-underline font-medium rounded text-center text-black bg-secondary px-6 pb-2 pt-2.5 text-sm uppercase leading-normal transition duration-150 ease-in-out hover-bg-accent focus-bg-accent focus-outline-none active-bg-accent"
           >
@@ -27,5 +27,14 @@
 </template>
 <script setup>
 const { t: $t } = useI18n();
-const props = defineProps(["redirectUrl", "backUrl"]);
+const props = defineProps({
+  redirectUrl: {
+    type: String,
+    required: true,
+  },
+  backUrl: {
+    type: String,
+    required: true,
+  },
+});
 </script>

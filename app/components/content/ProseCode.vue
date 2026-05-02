@@ -18,7 +18,7 @@ export default defineComponent({
       default: () => [],
     },
   },
-  setup(props): any {
+  setup(props) {
     const codeBlock = ref(null);
     const copied = ref(false);
     const timeout_id = ref(null);
@@ -56,12 +56,12 @@ export default defineComponent({
 </script>
 
 <template>
-  <div class="nuxt-content-highlight position-relative" ref="codeBlock">
+  <div ref="codeBlock" class="nuxt-content-highlight position-relative">
     <slot />
     <div class="filename">{{ language || "JS" }}</div>
-    <Icon v-if="copied" @click="copyToClipboard" name="mdi:check" size="24" class="copy" />
+    <Icon v-if="copied" name="mdi:check" size="24" class="copy" @click="copyToClipboard" />
 
-    <Icon v-else @click="copyToClipboard" name="mdi:content-copy" size="24" class="copy cursor-pointer hover-text-secondary" />
+    <Icon v-else name="mdi:content-copy" size="24" class="copy cursor-pointer hover-text-secondary" @click="copyToClipboard" />
   </div>
 </template>
 
