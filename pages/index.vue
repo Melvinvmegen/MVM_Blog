@@ -1,20 +1,20 @@
 <template>
-  <div class="flex justify-center md:flex-row flex-col">
-    <div class="w-full md:w-8/12" v-if="posts">
-        <h2 class="text-h6 text-secondary font-semibold">{{ $t("posts.last_content") }}</h2>
+  <div class="flex justify-center md-flex-row flex-col">
+    <div class="w-full md-w-8" v-if="posts">
+        <h2 class="text-xl text-secondary font-semibold">{{ $t("posts.last_content") }}</h2>
         <div
-          class="max-w-2xl px-8 py-4 my-4 bg-black rounded-lg shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] border-2"
+          class="max-w-2xl px-8 py-4 my-4 bg-black rounded-lg shadow-custom border-2"
           v-for="article in posts"
           :key="article.id"
         >
           <Card :item="article" />
         </div>
     </div>
-    <div class="hidden md:block md:w-1/12">
+    <div class="hidden md-block md-w-1">
     </div>
-    <div class="w-full md:w-3/12">
+    <div class="w-full md-w-3">
       <div>
-        <h2 class="text-h6 text-secondary font-semibold">{{ $t("posts.categories") }}</h2>
+        <h2 class="text-xl text-secondary font-semibold">{{ $t("posts.categories") }}</h2>
         <div class="flex flex-wrap">
           <NuxtLink
             :to="`/posts/${category}`"
@@ -22,7 +22,7 @@
             class="font-weight-bold text-white no-underline"
           >
             <div
-              class="[word-wrap: break-word] rounded-xl p-3 my-[5px] mr-4 mb-2 flex h-[32px] cursor-pointer items-center justify-between bg-gray-800 hover:bg-gray-700 px-[12px] py-0 text-[13px] font-normal normal-case leading-loose text-[#ffffff] shadow-none transition-[opacity] duration-300 ease-linear hover:!shadow-none active:bg-gray-400"
+              class="category-chip"
             >
               {{ category }}
             </div>
@@ -30,7 +30,7 @@
         </div>
       </div>
       <div>
-        <h2 class="text-h6 text-secondary mb-2 font-semibold">{{ $t("posts.snippets") }}</h2>
+        <h2 class="text-xl text-secondary mb-2 font-semibold">{{ $t("posts.snippets") }}</h2>
         <div class="flex flex-col">
           <ul class="list-none mx-0">
             <li
@@ -40,7 +40,7 @@
               class="py-2"
             >
               <NuxtLink
-                class="text-white no-underline font-semibold hover:underline"
+                class="text-white no-underline font-semibold hover-underline"
                 :to="snippet._path"
                 >🚀 {{ snippet.title }}</NuxtLink
               >
@@ -51,7 +51,7 @@
               class="py-2"
             >
               <NuxtLink
-                class="text-secondary font-semibold hover:underline"
+                class="text-secondary font-semibold hover-underline"
                 to="/snippets"
                 >See more snippets</NuxtLink
               >

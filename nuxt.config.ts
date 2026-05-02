@@ -3,11 +3,11 @@ export default defineNuxtConfig({
   modules: [
     "@nuxtjs/i18n",
     "@nuxt/content",
-    "@nuxtjs/tailwindcss",
     '@nuxt/image',
     "@nuxt/icon",
     "@nuxtjs/seo",
   ],
+  css: ['~/assets/css/main.css'],
   content: {
     highlight: {
       theme: "dark-plus",
@@ -66,46 +66,7 @@ export default defineNuxtConfig({
       sitemap: "https://blog.melvinvmegen.com/sitemap.xml",
     },
   },
-  purgecss: {
-    content: [
-      'index.html',
-      "components/**/*.vue",
-      "layouts/*.vue",
-      "pages/**/*.vue",
-      "plugins/**/*.js",
-    ],
-    enabled: true, // Always enable purgecss
-    keyframes: true,
-    safelist: {
-      standard: [
-        "body",
-        "html",
-        "nuxt-progress",
-        /v-application-*/,
-        /v-table*/,
-        /td*/,
-        /v-container-*/,
-        /v-row-*/,
-        /v-col-*/,
-        /v-icon*/,
-        /v-list-*/,
-        /v-btn*/,
-        /v-toolbar*/,
-        /v-chip*/,
-        /v-card*/,
-        /v-breadcrumbs*/,
-        /grow-*/,
-        /v-navigation*/,
-        /mdi*/,
-        "pre",
-        "a",
-        "ul",
-        "ol",
-        "code",
-        "line",
-        "my" ],
-      },
-  },
+
   experimental: {
     componentIslands: true,
   }

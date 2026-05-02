@@ -4,7 +4,7 @@
       <template v-for="(item, index) of breadcrumbs">
         <li>
           <NuxtLink :to="`${item === 'Home' ? '/' : item.path}`"
-            class="text-white no-underline hover:text-secondary focus:text-secondary active:text-secondary"
+            class="text-white no-underline hover-text-secondary focus-text-secondary active-text-secondary"
             active-class="text-gray-900">{{ item.title.charAt(0).toUpperCase() + item.title.slice(1) }}</NuxtLink>
         </li>
         <li v-if="index + 1 !== breadcrumbs.length">

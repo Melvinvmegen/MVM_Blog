@@ -1,12 +1,12 @@
 <template>
   <div class="bg-primary text-white min-h-screen">
-    <div class="d-flex flex-column">
+    <div class="d-flex flex-col">
       <navbar :drawer="drawer" @open-drawer="drawer = !drawer" />
       <div class="flex-auto">
         <div class="container mx-auto">
           <div class="flex justify-center">
             <div
-              class="2xl:w-8/12 xl:w-9/12 lg:w-10/12 w-11/12 max-w-full lg:max-w-none md:max-w-none sm:max-w-none mb-16"
+              class="content-width max-w-full lg-max-w-none md-max-w-none sm-max-w-none mb-16"
             >
               <slot />
             </div>
@@ -15,16 +15,16 @@
       </div>
       <CustomFooter :post-categories="post_categories" />
       <div
-        class="max-w-sm fixed left-20 bottom-10 mx-auto color-black border-0 block rounded-lg bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700"
+        class="cookie-banner text-black border-0 block rounded-lg bg-white"
         v-if="!cookie || showCookie"
       >
         <div class="pt-6 px-6">
           <h5
-            class="mb-2 text-xl font-medium leading-tight text-neutral-800 dark:text-neutral-50"
+            class="mb-2 text-xl font-medium leading-tight text-neutral-800 dark-text-neutral-50"
           >
             {{ $t("cookies.title") }}
           </h5>
-          <p class="mb-4 text-base text-neutral-600 dark:text-neutral-200">
+          <p class="mb-4 text-base text-neutral-600 dark-text-neutral-200">
             {{ $t("cookies.text") }}
             <br />
             <NuxtLink to="/privacy-policy" class="no-underline font-bold">{{
@@ -34,14 +34,14 @@
         </div>
         <button
           type="button"
-          class="h-10 w-2/4 pa-0 ma-0 inline-block bg-primary px-6 py-2 font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]"
+          class="cookie-btn btn-primary-dark px-6 py-2"
           @click="cookiesStated(false)"
         >
           {{ $t("cookies.refuse") }}
         </button>
         <button
           type="button"
-          class="h-10 w-2/4 pa-0 ma-0 inline-block bg-secondary px-6 py-2 font-medium uppercase leading-normal text-primary shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]"
+          class="cookie-btn btn-secondary-dark px-6 py-2"
           @click="cookiesStated(true)"
         >
           {{ $t("cookies.accept") }}
@@ -50,7 +50,7 @@
       <button
         aria-label="cookieChoices"
         type="button"
-        class="hidden md:block fixed left-20 bottom-10 mx-auto bg-white rounded-full px-4 py-3 font-medium uppercase leading-normal text-primary shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]"
+        class="hidden md-block fixed left-20 bottom-10 mx-auto bg-white rounded-full px-4 py-3 font-medium uppercase leading-normal text-primary shadow-custom transition duration-150 ease-in-out hover-bg-primary-600"
         @click="showCookie = true"
         v-else
       >
@@ -58,7 +58,7 @@
       </button>
     </div>
     <div
-      class="bg-primary z-50 fixed top-0 left-0 h-screen w-3/5 flex flex-col justify-between max-w-xs transition-transform transform duration-1000 ease-in-out"
+      class="drawer"
       :class="{ 'translate-x-full': !drawer, 'translate-x-0': drawer }"
       v-if="drawer"
     >
@@ -68,7 +68,7 @@
             <NuxtLink
               :to="item.link"
               @click="drawer = false"
-              class="my-2 text-white hover:text-gray-200 font-semibold text-xl no-underline"
+              class="my-2 text-white hover-text-gray-200 font-semibold text-xl no-underline"
               >{{ item.name }}</NuxtLink
             >
             <h3
@@ -79,7 +79,7 @@
               <NuxtLink
                 :to="sub_item.link"
                 @click="drawer = false"
-                class="my-2 text-white hover:text-gray-200"
+                class="my-2 text-white hover-text-gray-200"
                 >{{ sub_item.name }}</NuxtLink
               >
             </h3>
@@ -89,7 +89,7 @@
       <div class="flex flex-col justify-center">
         <div class="m-4 mb-12">
           <h6
-            class="text-secondary mb-4 flex justify-center items-center font-semibold uppercase md:justify-start"
+            class="text-secondary mb-4 flex justify-center items-center font-semibold uppercase md-justify-start"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -108,7 +108,7 @@
       </div>
     </div>
     <div
-      class="backdrop-blur-sm z-50 fixed top-0 right-0 h-screen w-2/5 flex flex-col justify-between max-w-xs"
+      class="drawer-backdrop"
       v-if="drawer"
       @click="drawer = !drawer"
     ></div>
@@ -191,13 +191,37 @@ useHead({
 </script>
 
 <style>
-.bg-footer {
-  background: linear-gradient(0deg, #000000, #4b4533) !important;
-  transition: #4b4533 350ms linear 0s, #000000 350ms linear 0s;
+.content-width {
+  width: 91.666667%;
+}
+
+@media (min-width: 1280px) {
+  .content-width {
+    width: 75%;
+  }
+}
+
+@media (min-width: 1536px) {
+  .content-width {
+    width: 66.666667%;
+  }
+}
+
+.hidden.md-block {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .hidden.md-block {
+    display: block;
+  }
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 30px 0;
 }
 
 h2 {
-  margin: 30px 0;
   font-size: 1.5rem;
   line-height: 2rem;
 }
@@ -247,28 +271,12 @@ a {
   height: 200px !important;
 }
 
-.pre-line {
-  white-space: pre-line;
-}
-
 thead tr {
   border-bottom: solid;
 }
 
 table {
   border-collapse: collapse !important;
-}
-
-.left-20 {
-  left: 20px;
-}
-
-.bottom-100 {
-  bottom: 100px;
-}
-
-.h-80 {
-  height: 80vh !important;
 }
 
 @media (max-width: 599px) {

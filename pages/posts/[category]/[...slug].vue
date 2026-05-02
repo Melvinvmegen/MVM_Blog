@@ -21,7 +21,7 @@
             <span v-if="post._path === linkedPost._path">{{ $t("posts.linkedArticlePart", [index + 1]) }} {{ linkedPost.title }}</span>
             <NuxtLink v-else
               :to="`${linkedPost._path}`"
-              class="font-weight-bold text-secondary hover:text-third">
+              class="font-weight-bold text-secondary hover-text-third">
               {{ $t("posts.linkedArticlePart", [index + 1]) }} {{ linkedPost.title }}
             </NuxtLink>
           </h4>

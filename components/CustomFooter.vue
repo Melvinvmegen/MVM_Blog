@@ -1,12 +1,12 @@
 <template>
   <footer
-    class="bg-footer text-center text-white dark:bg-white dark:text-neutral-200 lg:text-left"
+    class="bg-footer text-center text-white dark-bg-white dark-text-neutral-200 lg-text-left"
   >
-    <div class="container mx-auto py-10 text-center md:text-left">
-      <div class="grid-1 grid gap-8 md:grid-cols-3 lg:grid-cols-3">
+    <div class="container mx-auto py-10 text-center md-text-left">
+      <div class="grid grid-cols-1 gap-8 md-grid-cols-3 lg-grid-cols-3">
         <div class="">
           <h2
-            class="text-secondary mb-4 flex items-center justify-center font-semibold uppercase md:justify-start"
+            class="text-secondary mb-4 flex items-center justify-center font-semibold uppercase md-justify-start"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -27,7 +27,7 @@
         </div>
         <div class="flex flex-col items-center">
           <h6
-            class="mb-2 flex justify-center md:justify-start font-semibold uppercase"
+            class="mb-2 flex justify-center md-justify-start font-semibold uppercase"
           >
             {{ $t("footer.tutorials") }}
           </h6>
@@ -40,7 +40,7 @@
           >
             <NuxtLink
               :to="item.link"
-              class="text-white hover:text-secondary no-underline"
+              class="text-white hover-text-secondary no-underline"
               active-class="text-secondary"
               >{{ item.name }}</NuxtLink
             >
@@ -48,7 +48,7 @@
         </div>
         <div class="flex flex-col items-center">
           <h6
-            class="mb-2 flex justify-center font-semibold uppercase md:justify-start"
+            class="mb-2 flex justify-center font-semibold uppercase md-justify-start"
           >
             {{ $t("footer.links") }}
           </h6>
@@ -61,7 +61,7 @@
           >
             <NuxtLink
               :to="item.link"
-              class="text-white hover:text-secondary no-underline"
+              class="text-white hover-text-secondary no-underline"
               active-class="text-secondary"
               >{{ item.name }}</NuxtLink
             >
@@ -99,3 +99,14 @@ const links = [
   { name: $t("footer.privacy"), link: "/privacy-policy" },
 ];
 </script>
+
+<style scoped>
+.bg-footer {
+  background: linear-gradient(0deg, #000000, #4b4533) !important;
+  transition: #4b4533 350ms linear 0s, #000000 350ms linear 0s;
+}
+
+.dark-bg-white {
+  background-color: var(--color-white);
+}
+</style>

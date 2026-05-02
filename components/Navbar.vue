@@ -1,11 +1,11 @@
 <template>
   <nav class="relative shadow bg-header">
-    <div class="h-40 md:py-4 py-8">
+    <div class="h-40 md-py-4 py-8">
       <div
-        class="flex flex-col container w-10/12 mx-auto md:flex-row md:items-center md:justify-between"
+        class="flex flex-col container w-10-12 mx-auto md-flex-row md-items-center md-justify-between"
       >
         <div class="flex justify-between items-center">
-          <NuxtLink to="/" class="text-secondary no-underline text-xl font-bold md:text-2xl"
+          <NuxtLink to="/" class="text-secondary no-underline text-xl font-bold md-text-2xl"
             >MVM</NuxtLink
           >
           <div>
@@ -13,7 +13,7 @@
               type="button"
               v-if="drawer"
               @click="$emit('openDrawer');"
-              class="block text-white hover:text-gray-600 focus:text-gray-600 focus:outline-none md:hidden"
+              class="block text-white hover-text-gray-600 focus-text-gray-600 focus-outline-none md-hidden"
             >
               <Icon
                 name="mdi:close"
@@ -26,7 +26,7 @@
               type="button"
               v-else
               @click="$emit('openDrawer')"
-              class="block text-white hover:text-gray-600 focus:text-gray-600 focus:outline-none md:hidden"
+              class="block text-white hover-text-gray-600 focus-text-gray-600 focus-outline-none md-hidden"
             >
               <Icon
                 name="mdi:menu"
@@ -36,43 +36,43 @@
             </button>
           </div>
         </div>
-        <div class="hidden md:flex flex-col md:flex-row md:-mx-4">
+        <div class="hidden md-flex flex-col md-flex-row md--mx-4">
           <NuxtLink
             v-for="item in nav_items"
             :key="item.name"
             :to="item.link"
-            class="my-1 hover:text-secondary px-4 py-2 rounded-md no-underline"
+            class="my-1 hover-text-secondary px-4 py-2 rounded-md no-underline"
             active-class="text-secondary"
             >{{ item.name }}</NuxtLink
           >
         </div>
-        <div class="hidden md:flex flex-col md:flex-row md:-mx-4">
+        <div class="hidden md-flex flex-col md-flex-row md--mx-4">
           <Icon
             name="mdi:moon-waxing-crescent"
             size="24"
             @click="toggleTheme"
-            class="cursor-pointer hover:text-gray-800"
+            class="cursor-pointer hover-text-gray-800"
             v-if="themeIsLight"
           />
           <Icon
             name="mdi:white-balance-sunny"
             size="24"
             @click="toggleTheme"
-            class="cursor-pointer hover:text-secondary"
+            class="cursor-pointer hover-text-secondary"
             v-else
           />
           <Icon
             name="mdi:volume-medium"
             size="24"
             @click="toggleSound"
-            class="cursor-pointer ml-4 hover:text-gray-300"
+            class="cursor-pointer ml-4 hover-text-gray-300"
             v-if="soundOn"
           />
           <Icon
             name="mdi:volume-off"
             size="24"
             @click="toggleSound"
-            class="cursor-pointer ml-4 hover:text-gray-300"
+            class="cursor-pointer ml-4 hover-text-gray-300"
             v-else
           />
         </div>

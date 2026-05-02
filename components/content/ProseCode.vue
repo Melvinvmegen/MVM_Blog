@@ -64,7 +64,7 @@ export default defineComponent({
     <Icon v-if="copied" @click="copyToClipboard" name="mdi:check" size="24" class="copy" />
 
     <Icon v-else @click="copyToClipboard" name="mdi:content-copy" size="24"
-      class="copy cursor-pointer hover:text-secondary" />
+      class="copy cursor-pointer hover-text-secondary" />
   </div>
 </template>
 
