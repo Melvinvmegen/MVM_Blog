@@ -11,7 +11,7 @@
       <div>
         <h2 class="text-xl text-secondary font-semibold">{{ $t("posts.categories") }}</h2>
         <div class="flex flex-wrap">
-          <NuxtLink v-for="category in categories" :key="category" :to="`/posts/${category}`" class="font-weight-bold text-white no-underline">
+          <NuxtLink v-for="category in categories" :key="category" :to="`/posts/${encodeURIComponent(category)}`" class="font-weight-bold text-white no-underline">
             <div class="category-chip">
               {{ category }}
             </div>
@@ -46,7 +46,6 @@ let categories = ref([]);
 posts.value = (await fetchAll("posts", null, 5)) || [];
 snippets.value = (await fetchAll("snippets", null, 10)) || [];
 const countResult = await queryCollection("snippets").where("draft", "<>", false).count();
-console.log(snippets.value);
 count.value = countResult || 0;
 
 if (posts.value.length > 0) {

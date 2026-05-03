@@ -110,7 +110,7 @@ if (posts.value?.length > 0) {
   post_categories.value = categories.map((c) => {
     return {
       name: c,
-      link: `/posts/${c.toLowerCase()}`,
+      link: `/posts/${encodeURIComponent(c.toLowerCase())}`,
     };
   });
 }

@@ -13,7 +13,9 @@ export default defineEventHandler(async (event) => {
     queryCollection(event, 'snippets').where("draft", "IS NOT", true).order("id", "DESC").all(),
   ]);
 
-  const contents = [...posts, ...snippets].sort((a, b) => +b.id - +a.id);
+  const contents = [...posts, ...snippets]
+    .filter(p => p.path.startsWith('/posts/') || p.path.startsWith('/snippets/'))
+    .sort((a, b) => +b.id - +a.id);
 
   for (const post of contents) {
     feed.item({

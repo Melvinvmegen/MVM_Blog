@@ -4,7 +4,7 @@
       {{ dayjs(item.last_updated).format("MMMM D, YYYY") }}
     </span>
     <NuxtLink
-      :to="`/posts/${item.category?.toLowerCase()}`"
+      :to="`/posts/${encodeURIComponent(item.category?.toLowerCase())}`"
       class="no-underline px-3 py-1 text-sm font-bold text-black transition-colors duration-300 transform bg-secondary rounded cursor-pointer hover-bg-gray-500"
     >
       {{ item.category }}
