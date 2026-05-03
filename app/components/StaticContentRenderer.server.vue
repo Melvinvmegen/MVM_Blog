@@ -9,11 +9,13 @@ export default defineComponent({
   },
   async setup(props) {
     const path = props.path || "";
+    const collection = path.includes("/snippets/") ? "snippets" : "posts";
     if (import.meta.dev) {
-      const { data } = await useAsyncData(() => queryCollection("posts").path(path).first());
+      const { data } = await useAsyncData(() => queryCollection(collection).path(path).first());
       return () => h(ContentRenderer, { value: data.value! });
     }
-    const value = await queryCollection("posts").path(path).first();
+    const value = await queryCollection(collection).path(path).first();
+    if (!value) return () => null;
     return () => h(ContentRenderer, { value });
   },
 });

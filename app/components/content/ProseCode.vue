@@ -19,12 +19,12 @@ export default defineComponent({
     },
   },
   setup(props) {
-    const codeBlock = ref(null);
+    const codeBlock = ref<HTMLElement | null>(null);
     const copied = ref(false);
-    const timeout_id = ref(null);
+    const timeout_id = ref<ReturnType<typeof setTimeout> | null>(null);
 
     function copyToClipboard() {
-      const textToCopy = codeBlock.value.querySelector("pre code").innerText;
+      const textToCopy = (codeBlock.value?.querySelector("pre code") as HTMLElement | null)?.innerText ?? '';
       if (navigator.clipboard) {
         navigator.clipboard.writeText(textToCopy).then(() => clearCopy());
       } else {
@@ -46,7 +46,7 @@ export default defineComponent({
 
     function clearCopy() {
       copied.value = true;
-      clearTimeout(timeout_id.value);
+      if (timeout_id.value !== null) clearTimeout(timeout_id.value);
       timeout_id.value = setTimeout(() => (copied.value = false), 2000);
     }
 

@@ -1,6 +1,5 @@
 export default defineNuxtConfig({
   compatibilityDate: '2026-04-24',
-  devtools: true,
   modules: [
     "@nuxtjs/i18n",
     "@nuxt/content",
@@ -27,10 +26,7 @@ export default defineNuxtConfig({
         file: 'en.json',
       },
     ],
-    legacy: false,
-    lazy: true,
     langDir: 'locales',
-    locale: 'en',
     defaultLocale: 'en',
   },
   nitro: {
@@ -59,20 +55,20 @@ export default defineNuxtConfig({
       }
     }
   },
+  site: {
+    url: process.env.NUXT_PUBLIC_SITE_URL || 'https://blog.melvinvmegen.com',
+    name: 'MVM Blog for JS developers',
+    description: 'Friendly tutorials for developers. Focus on Js, Vue, Node, and more!',
+    defaultLocale: 'en',
+  },
   runtimeConfig: {
     public: {
-      siteUrl: process.env.NUXT_PUBLIC_SITE_URL || 'https://blog.melvinvmegen.com/sitemap.xml',
-      siteName: 'MVM Blog for JS developers',
-      siteDescription: 'Friendly tutorials for developers. Focus on Js, Vue, Node, and more!',
       language: 'en-US',
     }
   },
   robots: {
-    rules: {
-      UserAgent: "*",
-      Disallow: ["/terms", "/privacy-policy"],
-      sitemap: "https://blog.melvinvmegen.com/sitemap.xml",
-    },
+    disallow: ["/terms", "/privacy-policy"],
+    sitemap: (process.env.NUXT_PUBLIC_SITE_URL || 'https://blog.melvinvmegen.com') + '/sitemap.xml',
   },
   experimental: {
     componentIslands: true,
