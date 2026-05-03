@@ -25,13 +25,13 @@
     "@vue/server-renderer": "^3.5.33",
     "@vue/test-utils": "^2.4.10",
     "happy-dom": "^20.9.0",
-    "nuxt": "^4.4.2",
+    "nuxt": "^4.4.4",
     "rss": "^1.2.2",
     "vitest": "^4.1.5"
   },
   "dependencies": {
     "@nuxt/image": "^2.0.0",
-    "@nuxt/ui": "^4.7.0",
+    "@nuxt/ui": "^4.7.1",
     "@takumi-rs/core": "^1.1.2",
     "@vue/eslint-config-prettier": "^10.2.0",
     "better-sqlite3": "^12.9.0",
