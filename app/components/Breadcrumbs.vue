@@ -3,10 +3,7 @@
     <ol class="breadcrumb">
       <template v-for="(breadcrumb, index) of breadcrumbs" :key="index">
         <li class="breadcrumb-item">
-          <NuxtLink
-            :to="breadcrumb.path || '/'"
-            class="no-underline hover-text-secondary"
-          >
+          <NuxtLink :to="breadcrumb.path || '/'" class="no-underline hover-text-secondary">
             {{ breadcrumb.title }}
           </NuxtLink>
           <Icon v-if="index + 1 !== breadcrumbs.length" name="mdi:chevron-right" size="18" class="breadcrumb-sep" />

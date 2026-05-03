@@ -24,7 +24,7 @@ export default defineComponent({
     const timeout_id = ref<ReturnType<typeof setTimeout> | null>(null);
 
     function copyToClipboard() {
-      const textToCopy = (codeBlock.value?.querySelector("pre code") as HTMLElement | null)?.innerText ?? '';
+      const textToCopy = (codeBlock.value?.querySelector("pre code") as HTMLElement | null)?.innerText ?? "";
       if (navigator.clipboard) {
         navigator.clipboard.writeText(textToCopy).then(() => clearCopy());
       } else {

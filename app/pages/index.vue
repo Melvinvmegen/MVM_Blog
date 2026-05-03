@@ -11,7 +11,12 @@
       <div>
         <h2 class="text-xl text-secondary font-semibold">{{ $t("posts.categories") }}</h2>
         <div class="flex flex-wrap">
-          <NuxtLink v-for="category in categories" :key="category" :to="`/posts/${encodeURIComponent(category)}`" class="font-weight-bold text-white no-underline">
+          <NuxtLink
+            v-for="category in categories"
+            :key="category"
+            :to="`/posts/${encodeURIComponent(category)}`"
+            class="font-weight-bold text-white no-underline"
+          >
             <div class="category-chip">
               {{ category }}
             </div>
