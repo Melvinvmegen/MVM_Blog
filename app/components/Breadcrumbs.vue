@@ -1,20 +1,15 @@
 <template>
-  <nav v-if="breadcrumbs?.length" class="bg-grey-light w-full rounded-md">
-    <ol class="list-reset flex flex-wrap mx-0 py-4 items-center list-none">
-      <template v-for="(_, index) of breadcrumbs" :key="index">
-        <li>
+  <nav v-if="breadcrumbs?.length" aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <template v-for="(breadcrumb, index) of breadcrumbs" :key="index">
+        <li class="breadcrumb-item">
           <NuxtLink
-            :to="`${item === 'Home' ? '/' : item.path}`"
-            class="text-white no-underline hover-text-secondary focus-text-secondary active-text-secondary"
-            active-class="text-gray-900"
+            :to="breadcrumb.path || '/'"
+            class="no-underline hover-text-secondary"
           >
-            {{ item.title.charAt(0).toUpperCase() + item.title.slice(1) }}
+            {{ breadcrumb.title }}
           </NuxtLink>
-        </li>
-        <li v-if="index + 1 !== breadcrumbs.length">
-          <span class="mx-2 text-white">
-            <Icon name="mdi:chevron-right" size="24" />
-          </span>
+          <Icon v-if="index + 1 !== breadcrumbs.length" name="mdi:chevron-right" size="18" class="breadcrumb-sep" />
         </li>
       </template>
     </ol>
@@ -44,3 +39,31 @@ breadcrumbs.value = props.item?.path
     [{ path: "", title: $t("menu.home") }]
   );
 </script>
+
+<style scoped>
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  list-style: none;
+  padding: 0.5rem 0;
+  margin: 0;
+  gap: 0.25rem;
+}
+
+.breadcrumb-item {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  color: var(--color-secondary);
+  font-size: 0.875rem;
+}
+
+.breadcrumb-item a {
+  color: inherit;
+}
+
+.breadcrumb-sep {
+  opacity: 0.6;
+}
+</style>
