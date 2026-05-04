@@ -47,9 +47,10 @@ import useFetch from "../../../composables/fetch";
 
 const { fetchOne, fetchAll } = useFetch();
 const { path } = useRoute();
+const cleanPath = path.replace(/\/$/, "");
 const post = ref(null);
 const linkedPosts = ref(null);
-post.value = await fetchOne("posts", { field: "path", operator: "=", value: path });
+post.value = await fetchOne("posts", { field: "path", operator: "=", value: cleanPath });
 
 if (post.value?.linkedPosts) {
   linkedPosts.value = await fetchAll("posts", { field: "id", operator: "IN", value: post.value.linkedPosts });

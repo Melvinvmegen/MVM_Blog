@@ -33,8 +33,9 @@ import useFetch from "../../composables/fetch";
 
 const { fetchOne } = useFetch();
 const { path } = useRoute();
+const cleanPath = path.replace(/\/$/, "");
 const snippet = ref(null);
-snippet.value = await fetchOne("snippets", { field: "path", operator: "=", value: path });
+snippet.value = await fetchOne("snippets", { field: "path", operator: "=", value: cleanPath });
 
 let canShare;
 let shareLink;
