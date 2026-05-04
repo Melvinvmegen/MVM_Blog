@@ -18,7 +18,7 @@ export default function useFetch() {
       query.limit(limit);
     }
 
-    return query.order("id", "DESC").all();
+    return query.order("last_updated", "DESC").all();
   }
 
   async function fetchOne(collection, where) {

@@ -1,6 +1,6 @@
 ---
 title: "Terms of Use"
-last_updated: "September 11th, 2022"
+last_updated: "2022-09-11"
 ---
 
 The following terms of use (“Terms”) govern your access to and use of the website. melvinvmegen.com and blog.melvinvmegen.com (collectively, the “Websites”), operated and owned by Melvin van Megen (collectively, “Melvin van Megen”, “we”, “us” or “our”).
