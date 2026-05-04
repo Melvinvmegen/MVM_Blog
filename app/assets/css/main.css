@@ -58,6 +58,62 @@ p {
   font-size: 1.1rem;
 }
 
+ul, ol {
+  padding-left: 1.5rem;
+  margin: 1.25rem 0;
+}
+
+ul {
+  list-style: none;
+  padding-left: 1.75rem;
+}
+
+ul li::marker {
+  content: none;
+}
+
+ul li {
+  position: relative;
+  margin-bottom: 0.5rem;
+  line-height: 1.75;
+  font-size: 1.05rem;
+}
+
+ul li::before {
+  content: '▸';
+  position: absolute;
+  left: -1.25rem;
+  color: var(--color-secondary);
+  font-size: 0.9rem;
+  top: 0.1rem;
+}
+
+ol {
+  list-style: decimal;
+  counter-reset: none;
+}
+
+ol li {
+  margin-bottom: 0.5rem;
+  line-height: 1.75;
+  font-size: 1.05rem;
+  padding-left: 0.25rem;
+}
+
+ol li::marker {
+  color: var(--color-secondary);
+  font-weight: 700;
+}
+
+/* reset nav/footer lists that use .list-none */
+.list-none li::before {
+  content: none;
+}
+
+.list-none li::marker {
+  content: none;
+}
+
 /* ===== Layout ===== */
 .min-h-screen {
   min-height: 100vh;
