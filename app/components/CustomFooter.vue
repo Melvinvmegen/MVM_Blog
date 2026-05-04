@@ -34,7 +34,7 @@
         </div>
       </div>
       <div class="pt-8 text-center">
-        <span>© 2023 Melvin van Megen. All Rights Reserved.</span>
+        <span>© {{new Date().getFullYear()}} Melvin van Megen. All Rights Reserved.</span>
       </div>
     </div>
   </footer>

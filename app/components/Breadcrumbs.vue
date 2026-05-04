@@ -53,11 +53,10 @@ breadcrumbs.value = props.item?.path
   align-items: center;
   gap: 0.25rem;
   color: var(--color-secondary);
-  font-size: 0.875rem;
 }
 
 .breadcrumb-item a {
-  color: inherit;
+  color: var(--color-white);
 }
 
 .breadcrumb-sep {

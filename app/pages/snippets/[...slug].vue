@@ -38,8 +38,8 @@ snippet.value = await fetchOne("snippets", { field: "path", operator: "=", value
 
 let canShare;
 let shareLink;
-const redirectUrl = ref(null);
-const backUrl = ref(null);
+const redirectUrl = ref("");
+const backUrl = ref("");
 if (import.meta.client) {
   canShare = computed(() => "share" in navigator);
   shareLink = async (data) => {

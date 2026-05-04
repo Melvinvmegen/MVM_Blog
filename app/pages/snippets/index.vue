@@ -32,7 +32,7 @@
         </tr>
       </tbody>
     </table>
-    <div v-for="snippet in snippets" :key="snippet.id" class="block md-hidden max-w-2xl px-8 py-4 my-4 bg-black rounded-lg shadow-custom border-2">
+    <div v-for="snippet in snippets" :key="snippet.id" class="block md-hidden max-w-2xl py-4 my-4 bg-black rounded-lg shadow-custom border-2">
       <Card :item="snippet" />
     </div>
   </div>

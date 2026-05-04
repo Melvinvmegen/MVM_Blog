@@ -4,7 +4,7 @@
       <h2 class="text-h6 text-secondary">{{ category.toUpperCase() }}</h2>
       <span class="text-subtitle-1">{{ posts.length }} {{ $t("posts.articles") }}</span>
     </div>
-    <div v-for="article in posts" :key="article.path" class="max-w-full px-8 py-4 my-4 bg-black rounded-lg shadow-custom border-2">
+    <div v-for="article in posts" :key="article.path" class="max-w-full py-4 my-4 bg-black rounded-lg shadow-custom border-2">
       <Card :item="article" />
     </div>
   </div>

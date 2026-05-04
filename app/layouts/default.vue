@@ -150,18 +150,6 @@ useHead({
   width: 91.666667%;
 }
 
-@media (min-width: 1280px) {
-  .content-width {
-    width: 75%;
-  }
-}
-
-@media (min-width: 1536px) {
-  .content-width {
-    width: 66.666667%;
-  }
-}
-
 .hidden.md-block {
   display: none;
 }
