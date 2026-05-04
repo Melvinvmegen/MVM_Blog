@@ -2,8 +2,9 @@
   <div class="flex justify-center md-flex-row flex-col">
     <div v-if="posts" class="w-full md-w-8">
       <h2 class="text-xl text-secondary font-semibold">{{ $t("posts.last_content") }}</h2>
-      <div v-for="article in posts" :key="article.id" class="max-w-2xl px-8 py-4 my-4 bg-black rounded-lg shadow-custom border-2">
+      <div v-for="article in posts" :key="article.id" class="max-w-2xl  py-4 my-4 bg-black rounded-lg shadow-custom border-2">
         <Card :item="article" />
+        <div class="mt-2"/>
       </div>
     </div>
     <div class="hidden md-block md-w-1"></div>
@@ -44,20 +45,13 @@ import useFetch from "../composables/fetch";
 
 const { fetchAll } = useFetch();
 const posts = ref([]);
+const allposts = ref([]);
 const snippets = ref([]);
 const count = ref(0);
-let categories = ref([]);
+const categories = computed(() => [...new Set(allposts.value.map((c) => c.category?.toLowerCase()).filter(Boolean))]);
 
+allposts.value = (await fetchAll("posts")) || [];
 posts.value = (await fetchAll("posts", null, 5)) || [];
 snippets.value = (await fetchAll("snippets", null, 10)) || [];
-const countResult = await queryCollection("snippets").where("draft", "<>", false).count();
-count.value = countResult || 0;
-
-if (posts.value.length > 0) {
-  categories.value = computed(() => [...new Set(posts.value.map((c) => c.category?.toLowerCase()).filter(Boolean))]);
-}
-
-if (posts.value?.length > 0) {
-  categories = computed(() => [...new Set(posts.value.map((c) => c.category?.toLowerCase()))]);
-}
+count.value = await queryCollection("snippets").where("draft", "IS NOT", false).count() || 0;
 </script>

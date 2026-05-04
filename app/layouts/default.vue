@@ -106,7 +106,7 @@ const post_categories = ref([]);
 posts.value = await fetchAll("posts");
 
 if (posts.value?.length > 0) {
-  const categories = [...new Set(posts.value.map((c) => c.category))];
+  const categories = [...new Set(posts.value.map((c) => c.category?.toLowerCase()).filter(Boolean))];
   post_categories.value = categories.map((c) => {
     return {
       name: c,
