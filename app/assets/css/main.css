@@ -58,6 +58,16 @@ p {
   font-size: 1.1rem;
 }
 
+:not(pre) > code {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 0.875em;
+  padding: 0.15em 0.45em;
+  background-color: var(--color-gray-800);
+  color: var(--color-secondary);
+  border-radius: 4px;
+  border: 1px solid var(--color-gray-700);
+}
+
 ul, ol {
   padding-left: 1.5rem;
   margin: 1.25rem 0;
