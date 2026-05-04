@@ -2,7 +2,7 @@
   <div class="flex justify-center md-flex-row flex-col">
     <div v-if="posts" class="w-full md-w-8">
       <h2 class="text-xl text-secondary font-semibold">{{ $t("posts.last_content") }}</h2>
-      <div v-for="article in posts" :key="article.id" class="max-w-2xl  py-4 my-4 bg-black rounded-lg shadow-custom border-2">
+      <div v-for="article in posts" :key="article.id" class="max-w-2xl  py-4 my-4 bg-black rounded-lg shadow-custom">
         <Card :item="article" />
         <div class="mt-2"/>
       </div>
