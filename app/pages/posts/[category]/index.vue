@@ -14,8 +14,8 @@ import useFetch from "../../../composables/fetch";
 
 const { fetchAll } = useFetch();
 const posts = ref(null);
-const { path } = useRoute();
-const raw = decodeURIComponent(path.split("/")[2]);
+const { params } = useRoute();
+const raw = params.category;
 const category = raw.charAt(0).toUpperCase() + raw.slice(1);
 
 posts.value = await fetchAll("posts", { field: "category", operator: "=", value: category });
