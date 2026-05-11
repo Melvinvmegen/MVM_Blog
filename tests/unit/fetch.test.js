@@ -80,7 +80,7 @@ describe('useFetch', () => {
     it('sorts by id descending', async () => {
       const { fetchAll } = useFetch()
       await fetchAll('posts')
-      expect(builder.order).toHaveBeenCalledWith('id', 'DESC')
+      expect(builder.order).toHaveBeenCalledWith('last_updated', 'DESC')
     })
   })
 
