@@ -1,5 +1,5 @@
 # --------------> The build image
-FROM node:24-alpine AS build
+FROM node:24 AS build
 
 WORKDIR /app
 
