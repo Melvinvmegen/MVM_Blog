@@ -14,7 +14,7 @@
       <CustomFooter :post-categories="post_categories" />
       <ClientOnly>
         <div v-if="!cookie || showCookie" class="cookie-banner">
-          <div class="pt-6 px-6">
+          <div class="px-6">
             <h5 class="mb-2 text-xl font-medium leading-tight">
               {{ $t("cookies.title") }}
             </h5>
