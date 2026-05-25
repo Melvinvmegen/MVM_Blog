@@ -13,29 +13,31 @@
       </div>
       <CustomFooter :post-categories="post_categories" />
       <ClientOnly>
-        <div v-if="!cookie || showCookie" class="cookie-banner text-black border-0 block rounded-lg bg-white">
+        <div v-if="!cookie || showCookie" class="cookie-banner">
           <div class="pt-6 px-6">
-            <h5 class="mb-2 text-xl font-medium leading-tight text-neutral-800 dark-text-neutral-50">
+            <h5 class="mb-2 text-xl font-medium leading-tight">
               {{ $t("cookies.title") }}
             </h5>
-            <p class="mb-4 text-base text-neutral-600 dark-text-neutral-200">
+            <p class="mb-4 text-base cookie-banner-body">
               {{ $t("cookies.text") }}
               <br />
-              <NuxtLink to="/privacy-policy" class="no-underline font-bold">{{ $t("cookies.link") }}</NuxtLink>
+              <NuxtLink to="/privacy-policy" class="no-underline font-bold cookie-banner-link">{{ $t("cookies.link") }}</NuxtLink>
             </p>
           </div>
-          <button type="button" class="cookie-btn btn-primary-dark px-6 py-2" @click="cookiesStated(false)">
-            {{ $t("cookies.refuse") }}
-          </button>
-          <button type="button" class="cookie-btn btn-secondary-dark px-6 py-2" @click="cookiesStated(true)">
-            {{ $t("cookies.accept") }}
-          </button>
+          <div class="cookie-btn-row">
+            <button type="button" class="cookie-btn cookie-btn-refuse" @click="cookiesStated(false)">
+              {{ $t("cookies.refuse") }}
+            </button>
+            <button type="button" class="cookie-btn cookie-btn-accept" @click="cookiesStated(true)">
+              {{ $t("cookies.accept") }}
+            </button>
+          </div>
         </div>
         <button
           v-else
           aria-label="cookieChoices"
           type="button"
-          class="hidden md-block fixed left-20 bottom-10 mx-auto bg-white rounded-full px-4 py-3 font-medium uppercase leading-normal text-primary shadow-custom transition duration-150 ease-in-out hover-bg-primary-600"
+          class="cookie-show-btn"
           @click="showCookie = true"
         >
           <Icon name="mdi:check" size="16" />
