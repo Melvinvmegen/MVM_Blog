@@ -12,33 +12,35 @@
         </div>
       </div>
       <CustomFooter :post-categories="post_categories" />
-      <div v-if="!cookie || showCookie" class="cookie-banner text-black border-0 block rounded-lg bg-white">
-        <div class="pt-6 px-6">
-          <h5 class="mb-2 text-xl font-medium leading-tight text-neutral-800 dark-text-neutral-50">
-            {{ $t("cookies.title") }}
-          </h5>
-          <p class="mb-4 text-base text-neutral-600 dark-text-neutral-200">
-            {{ $t("cookies.text") }}
-            <br />
-            <NuxtLink to="/privacy-policy" class="no-underline font-bold">{{ $t("cookies.link") }}</NuxtLink>
-          </p>
+      <ClientOnly>
+        <div v-if="!cookie || showCookie" class="cookie-banner text-black border-0 block rounded-lg bg-white">
+          <div class="pt-6 px-6">
+            <h5 class="mb-2 text-xl font-medium leading-tight text-neutral-800 dark-text-neutral-50">
+              {{ $t("cookies.title") }}
+            </h5>
+            <p class="mb-4 text-base text-neutral-600 dark-text-neutral-200">
+              {{ $t("cookies.text") }}
+              <br />
+              <NuxtLink to="/privacy-policy" class="no-underline font-bold">{{ $t("cookies.link") }}</NuxtLink>
+            </p>
+          </div>
+          <button type="button" class="cookie-btn btn-primary-dark px-6 py-2" @click="cookiesStated(false)">
+            {{ $t("cookies.refuse") }}
+          </button>
+          <button type="button" class="cookie-btn btn-secondary-dark px-6 py-2" @click="cookiesStated(true)">
+            {{ $t("cookies.accept") }}
+          </button>
         </div>
-        <button type="button" class="cookie-btn btn-primary-dark px-6 py-2" @click="cookiesStated(false)">
-          {{ $t("cookies.refuse") }}
+        <button
+          v-else
+          aria-label="cookieChoices"
+          type="button"
+          class="hidden md-block fixed left-20 bottom-10 mx-auto bg-white rounded-full px-4 py-3 font-medium uppercase leading-normal text-primary shadow-custom transition duration-150 ease-in-out hover-bg-primary-600"
+          @click="showCookie = true"
+        >
+          <Icon name="mdi:check" size="16" />
         </button>
-        <button type="button" class="cookie-btn btn-secondary-dark px-6 py-2" @click="cookiesStated(true)">
-          {{ $t("cookies.accept") }}
-        </button>
-      </div>
-      <button
-        v-else
-        aria-label="cookieChoices"
-        type="button"
-        class="hidden md-block fixed left-20 bottom-10 mx-auto bg-white rounded-full px-4 py-3 font-medium uppercase leading-normal text-primary shadow-custom transition duration-150 ease-in-out hover-bg-primary-600"
-        @click="showCookie = true"
-      >
-        <Icon name="mdi:check" size="16" />
-      </button>
+      </ClientOnly>
     </div>
     <div v-if="drawer" class="drawer" :class="{ 'translate-x-full': !drawer, 'translate-x-0': drawer }">
       <div class="flex flex-col justify-center mt-24">
@@ -82,9 +84,9 @@ if (import.meta.client) {
   cookie.value = document.cookie.split(";").filter((i) => i.includes("analytics"))[0] || null;
 }
 
-function cookiesStated(boolean) {
-  const state = `analytics={ state: ${boolean ? "accepted" : "refused"} }`;
-  isEnabled.value = boolean;
+function cookiesStated(result) {
+  const state = `analytics={ state: ${result ? "accepted" : "refused"} }`;
+  isEnabled.value = result;
   if (!cookie.value) {
     const analytics = useCookie("analytics", {
       expires: new Date(new Date().setFullYear(new Date().getFullYear() + 2)),
@@ -95,6 +97,20 @@ function cookiesStated(boolean) {
   }
   cookie.value = state;
   showCookie.value = false;
+  if (window._paq) {
+    if (result) {
+      window._paq.push(['rememberConsentGiven']);
+    } else {
+      window._paq.push(['forgetConsentGiven']);
+    }
+  }
+}
+
+if (import.meta.client) {
+  const rawCookie = document.cookie.split(";").find((i) => i.includes("analytics"));
+  if (rawCookie?.includes("accepted") && window._paq) {
+    window._paq.push(['rememberConsentGiven']);
+  }
 }
 
 const route = useRoute();
