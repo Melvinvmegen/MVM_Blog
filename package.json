@@ -18,13 +18,13 @@
     "@nuxt/eslint": "^1.17.0",
     "@nuxt/icon": "^2.5.0",
     "@nuxtjs/i18n": "^10.6.0",
-    "@nuxtjs/seo": "^5.3.12",
+    "@nuxtjs/seo": "^5.3.14",
     "@types/rss": "^0.0.32",
     "@vitejs/plugin-vue": "^6.0.8",
-    "@vitest/coverage-v8": "^4.1.10",
+    "@vitest/coverage-v8": "^4.1.11",
     "@vue/server-renderer": "^3.5.41",
     "@vue/test-utils": "^2.4.11",
-    "happy-dom": "^20.11.2",
+    "happy-dom": "^20.11.6",
     "nuxt": "^4.5.2",
     "rss": "^1.2.2",
     "vitest": "^4.1.5"
@@ -35,7 +35,7 @@
     "@takumi-rs/core": "^1.8.7",
     "@vue/eslint-config-prettier": "^10.2.0",
     "better-sqlite3": "^12.11.1",
-    "dayjs": "^1.11.21",
+    "dayjs": "^1.11.23",
     "prettier": "^3.9.6"
   }
 }
