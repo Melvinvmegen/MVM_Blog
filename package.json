@@ -24,7 +24,7 @@
     "@vitest/coverage-v8": "^4.1.11",
     "@vue/server-renderer": "^3.5.42",
     "@vue/test-utils": "^2.5.0",
-    "happy-dom": "^20.11.12",
+    "happy-dom": "^20.14.0",
     "nuxt": "^4.5.2",
     "rss": "^1.2.2",
     "vitest": "^4.1.5"
